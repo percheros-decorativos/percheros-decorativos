@@ -1,0 +1,314 @@
+@import "tailwindcss";
+
+/* ===========================================================
+   Percheros Decorativos — Sistema de diseño (basado en el PDF guía)
+   Identidad: ROJO sobre blanco, limpio y artesanal colombiano.
+   =========================================================== */
+
+@theme {
+  /* Tipografías (cargadas en layout.tsx con next/font) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-inter), sans-serif;
+  --font-script: var(--font-script), cursive;
+
+  /* ROJO — color principal de la marca */
+  --color-rojo-50: #fdf2f3;
+  --color-rojo-100: #fbe0e3;
+  --color-rojo-200: #f6bcc3;
+  --color-rojo-300: #ee8d98;
+  --color-rojo-400: #e2596a;
+  --color-rojo-500: #c8102e;
+  --color-rojo-600: #ad0d27;
+  --color-rojo-700: #8c0a1f;
+  --color-rojo-800: #6e0818;
+  --color-rojo-900: #4f0511;
+
+  /* Acentos (del PDF) */
+  --color-verde-500: #1f8a44;
+  --color-verde-600: #176b34;
+  --color-naranja-500: #e2641e;
+  --color-naranja-600: #c14f12;
+  --color-azul-500: #2477c2;
+  --color-azul-600: #1c5e9b;
+
+  /* Neutros cálidos (editorial · exaggerated minimalism) */
+  --color-papel: #faf8f4;
+  --color-crema-50: #f5f1ea;
+  --color-crema-100: #efe9df;
+  --color-crema-200: #e4dccf;
+  --color-piedra: #8a8178;
+  --color-madera: #a9764a;
+  --color-carbon: #141210;
+  --color-gris: #6f655b;
+
+  /* Alias de compatibilidad (paleta anterior -> nueva identidad roja) */
+  --color-madera-50: var(--color-rojo-50);
+  --color-madera-100: var(--color-rojo-100);
+  --color-madera-200: var(--color-rojo-200);
+  --color-madera-300: #d9a3a3;
+  --color-madera-400: #8f8f8f;
+  --color-madera-500: var(--color-rojo-500);
+  --color-madera-600: var(--color-rojo-600);
+  --color-madera-700: #3a3a3a;
+  --color-madera-800: var(--color-carbon);
+  --color-madera-900: #1f1f1f;
+  --color-terracota-400: var(--color-rojo-400);
+  --color-terracota-500: var(--color-rojo-500);
+  --color-terracota-600: var(--color-rojo-600);
+  --color-bosque-500: var(--color-verde-500);
+  --color-bosque-600: var(--color-verde-600);
+  --color-bosque-700: var(--color-verde-600);
+
+  /* Semánticos */
+  --color-background: #ffffff;
+  --color-foreground: var(--color-carbon);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-carbon);
+  }
+}
+
+/* ===== Utilidades editoriales (Exaggerated Minimalism) ===== */
+.display-giant {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 9vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-rojo-500);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-rojo-500);
+}
+.rule-soft { border-color: color-mix(in srgb, var(--color-carbon) 12%, transparent); }
+/* Número índice grande para listas editoriales */
+.index-num {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+/* Foco accesible visible (a11y / SEO técnico) */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-rojo-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Fondo papel artesanal sutil */
+.bg-paper {
+  background-color: var(--color-crema-50);
+  background-image: radial-gradient(rgba(200, 16, 46, 0.04) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Título de sección: banner rojo centrado con líneas a los lados (estilo PDF) */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.section-title::before,
+.section-title::after {
+  content: "";
+  height: 1px;
+  flex: 1 1 0;
+  max-width: 9rem;
+  background: linear-gradient(
+    to var(--dir, right),
+    transparent,
+    var(--color-rojo-300)
+  );
+}
+
+/* =========================================================
+   Animaciones y efectos modernos
+   ========================================================= */
+
+/* Malla de gradiente animada (hero) */
+@keyframes meshPan {
+  0%   { background-position: 0% 50%, 100% 50%, 50% 0%; }
+  50%  { background-position: 100% 50%, 0% 50%, 50% 100%; }
+  100% { background-position: 0% 50%, 100% 50%, 50% 0%; }
+}
+.hero-mesh {
+  background-color: #fff5f1;
+  background-image:
+    radial-gradient(40rem 40rem at 10% 20%, rgba(200, 16, 46, 0.14), transparent 60%),
+    radial-gradient(36rem 36rem at 90% 30%, rgba(226, 100, 30, 0.12), transparent 60%),
+    radial-gradient(30rem 30rem at 50% 100%, rgba(31, 138, 68, 0.08), transparent 60%);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: meshPan 22s ease-in-out infinite;
+}
+
+/* Marquee horizontal (taglines) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Flotación sutil */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.animate-float { animation: floaty 6s ease-in-out infinite; }
+.animate-float-slow { animation: floaty 9s ease-in-out infinite; }
+
+/* Brillo que recorre (shimmer en botones/badges) */
+@keyframes shimmer {
+  100% { transform: translateX(200%); }
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+  transform: translateX(-200%);
+}
+.shimmer:hover::after { animation: shimmer 0.9s ease; }
+
+/* Elevación al hover (cards) */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  will-change: transform;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -18px rgba(200, 16, 46, 0.35);
+}
+
+/* Subrayado animado de enlaces de nav */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--color-rojo-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav-underline:hover::after,
+.nav-underline[data-active="true"]::after { transform: scaleX(1); }
+
+/* ===== Reveal robusto (CSS scroll-driven; degrada a visible sin JS/soporte) ===== */
+@keyframes revealUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes revealL  { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
+@keyframes revealR  { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  /* Mejora progresiva: si el navegador soporta scroll-timeline, revela al hacer
+     scroll. Si no, cae al bloque de carga de abajo. */
+  @supports (animation-timeline: view()) {
+    .reveal, .reveal-l, .reveal-r, .reveal-stagger > * {
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal { animation-name: revealUp; }
+    .reveal-l { animation-name: revealL; }
+    .reveal-r { animation-name: revealR; }
+    .reveal-stagger > * { animation-name: revealUp; }
+  }
+  /* Fallback (sin scroll-timeline): entrada en carga, siempre termina visible. */
+  @supports not (animation-timeline: view()) {
+    .reveal { animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .reveal-l { animation: revealL 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .reveal-r { animation: revealR 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .reveal-stagger > * { animation: revealUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .reveal-stagger > *:nth-child(2) { animation-delay: 0.07s; }
+    .reveal-stagger > *:nth-child(3) { animation-delay: 0.14s; }
+    .reveal-stagger > *:nth-child(4) { animation-delay: 0.21s; }
+    .reveal-stagger > *:nth-child(5) { animation-delay: 0.28s; }
+    .reveal-stagger > *:nth-child(6) { animation-delay: 0.35s; }
+    .reveal-stagger > *:nth-child(7) { animation-delay: 0.42s; }
+    .reveal-stagger > *:nth-child(8) { animation-delay: 0.49s; }
+  }
+}
+
+/* ===== Hero: animación de carga (CSS, siempre completa) ===== */
+@keyframes heroRise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes wordRise { from { transform: translateY(115%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise { opacity: 0; animation: heroRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .hero-word { transform: translateY(115%); animation: wordRise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+}
+
+/* ===== Detalles finos ===== */
+::selection { background: var(--color-rojo-500); color: #fff; }
+html { scrollbar-color: var(--color-piedra) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--color-piedra) 70%, transparent); border-radius: 99px; border: 3px solid var(--color-papel); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-piedra); }
+
+/* Grano sutil de papel para calidez (overlay decorativo) */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Respetar reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-mesh { animation: none; }
+}

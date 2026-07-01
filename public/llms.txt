@@ -1,0 +1,48 @@
+# Percheros Decorativos
+
+> Emprendimiento artesanal 100% colombiano que fabrica percheros decorativos en madera y MDF. Productos útiles, funcionales y decorativos, con diferentes diseños y herrajes para organizar todo el hogar.
+
+## Sobre la marca
+- Nombre: Percheros Decorativos
+- País: Colombia
+- Tipo: Emprendimiento artesanal (hecho a mano)
+- Materiales: madera y/o MDF, impresión en vinilo adhesivo full color, herrajes metálicos de diferentes referencias.
+- Propuesta de valor: percheros "útiles, funcionales y decorativos" para una mejor organización en el hogar.
+- Garantía: la mayoría de productos incluye 6 meses de garantía.
+- Envíos: a todo Colombia mediante empresas de mensajería y mercancías.
+- Medios de pago: pasarela Bold (tarjetas de crédito/débito, PSE, Nequi y más).
+- Contacto: info@percherosdecorativos.com — Tel/WhatsApp: 318 6044049
+
+## Categorías de productos
+- Hogar: percheros con paisajes y temáticas para colgar accesorios livianos.
+- Mascotas: para correas y accesorios de mascotas.
+- Moteros: para cascos y chaquetas, temática motera.
+- Bike: para ciclistas (casco, guantes, accesorios).
+- Guitarras: temática musical.
+- Personalizados: con nombre, fecha, frase o logo a la medida.
+- Corporativos: con el logo de empresas, pedidos por volumen.
+- Murales: murales decorativos en madera.
+- Souvenires: detalles y recuerdos artesanales.
+- DeDios: percheros con mensajes de fe.
+- Variados: diseños versátiles.
+
+## Servicios
+- Servicio al cliente antes, durante y después de la compra.
+- Instalación segura y confiable.
+- Envíos nacionales con seguimiento.
+- Compromiso con obras sociales (hogares geriátricos, infantiles y personas vulnerables).
+
+## Páginas principales
+- Inicio: /
+- Categorías: /categorias
+- Quiénes Somos: /quienes-somos
+- Galería: /galeria
+- Parcheros (comunidad): /parcheros
+- Obras Sociales: /obras-sociales
+- Contacto: /contacto
+
+## Preguntas frecuentes
+- ¿De qué están hechos? De madera y/o MDF con herrajes metálicos.
+- ¿Hacen envíos a todo Colombia? Sí.
+- ¿Qué medios de pago aceptan? Todos los digitales vía Bold.
+- ¿Hacen percheros personalizados? Sí, con nombre, fecha, frase o logo.
