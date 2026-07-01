@@ -37,7 +37,7 @@ export default function Header({ categories = [] }: { categories?: NavCategory[]
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="header-enter sticky top-0 z-50">
       {/* Barra superior roja */}
       <div className="bg-rojo-500 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-sm">

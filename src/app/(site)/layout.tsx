@@ -73,7 +73,7 @@ export default async function SiteLayout({
       </a>
       <Header categories={navCategories} />
       <ToasterWrapper />
-      <main id="contenido" className="flex-1">
+      <main id="contenido" className="page-enter flex-1">
         {children}
       </main>
       <Footer />

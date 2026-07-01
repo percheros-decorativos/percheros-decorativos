@@ -55,8 +55,8 @@ export default function CategoryCard({
       href={`/categoria/${category.slug}`}
       className="group flex flex-col items-center rounded-2xl border-2 border-rojo-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-rojo-300 hover:shadow-lg"
     >
-      <span className="flex h-20 w-20 items-center justify-center rounded-full bg-rojo-50 text-rojo-500 transition-colors duration-300 group-hover:bg-rojo-500 group-hover:text-white">
-        <Icon className="h-10 w-10" />
+      <span className="flex h-20 w-20 items-center justify-center rounded-full bg-rojo-50 text-rojo-500 transition-all duration-300 group-hover:scale-110 group-hover:bg-rojo-500 group-hover:text-white">
+        <Icon className="h-10 w-10 transition-transform duration-500 ease-out group-hover:-rotate-6 group-hover:scale-110" />
       </span>
       {category.tagline && (
         <span className="mt-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-piedra">
@@ -66,7 +66,7 @@ export default function CategoryCard({
       <h3 className="mt-1 font-display text-xl font-extrabold uppercase tracking-tight text-carbon group-hover:text-rojo-600">
         {category.name}
       </h3>
-      <span className="mt-4 rounded-md bg-rojo-500 px-6 py-1.5 text-sm font-bold text-white transition-colors group-hover:bg-rojo-600">
+      <span className="mt-4 rounded-md bg-rojo-500 px-6 py-1.5 text-sm font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-rojo-600 group-hover:shadow-md">
         Ver
       </span>
     </Link>

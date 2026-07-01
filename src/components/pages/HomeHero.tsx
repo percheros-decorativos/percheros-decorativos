@@ -65,7 +65,10 @@ export default function HomeHero() {
           className="hero-rise grid grid-cols-2 gap-3"
           style={{ animationDelay: "0.2s" }}
         >
-          <div className="col-span-2 overflow-hidden rounded-2xl border-4 border-white shadow-xl ring-1 ring-rojo-100">
+          <div
+            className="animate-float col-span-2 overflow-hidden rounded-2xl border-4 border-white shadow-xl ring-1 ring-rojo-100 transition-transform duration-500 hover:scale-[1.02]"
+            style={{ animationDelay: "0s" }}
+          >
             <div className="relative aspect-[16/9]">
               <Image
                 src="/img/products/perchero-ciudad-noche.webp"
@@ -77,7 +80,10 @@ export default function HomeHero() {
               />
             </div>
           </div>
-          <div className="overflow-hidden rounded-2xl border-4 border-white shadow-lg ring-1 ring-rojo-100">
+          <div
+            className="animate-float overflow-hidden rounded-2xl border-4 border-white shadow-lg ring-1 ring-rojo-100 transition-transform duration-500 hover:scale-[1.03]"
+            style={{ animationDelay: "1.4s" }}
+          >
             <div className="relative aspect-square">
               <Image
                 src="/img/products/perchero-huellas.webp"
@@ -88,7 +94,10 @@ export default function HomeHero() {
               />
             </div>
           </div>
-          <div className="overflow-hidden rounded-2xl border-4 border-white shadow-lg ring-1 ring-rojo-100">
+          <div
+            className="animate-float overflow-hidden rounded-2xl border-4 border-white shadow-lg ring-1 ring-rojo-100 transition-transform duration-500 hover:scale-[1.03]"
+            style={{ animationDelay: "2.6s" }}
+          >
             <div className="relative aspect-square">
               <Image
                 src="/img/products/perchero-ktm.webp"
