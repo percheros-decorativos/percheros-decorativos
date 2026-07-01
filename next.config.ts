@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+// Indexación desactivada hasta tener dominio definitivo.
+const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
@@ -25,6 +28,10 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          // Bloqueo total de indexación mientras no haya dominio definitivo.
+          ...(allowIndexing
+            ? []
+            : [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]),
         ],
       },
     ];

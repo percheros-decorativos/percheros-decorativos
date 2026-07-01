@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat, Dancing_Script } from "next/font/google";
 import "./globals.css";
-import { site } from "@/lib/site";
+import { site, allowIndexing } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -65,11 +65,13 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
+  robots: allowIndexing
+    ? {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large" },
+      }
+    : { index: false, follow: false, nocache: true },
   category: "shopping",
 };
 

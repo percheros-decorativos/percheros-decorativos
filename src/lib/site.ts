@@ -26,6 +26,11 @@ export const site = {
   },
 } as const;
 
+// Interruptor de indexacion. Mientras no exista dominio definitivo, el sitio
+// queda en NOINDEX para evitar indexar la URL temporal (.vercel.app).
+// En Vercel: poner NEXT_PUBLIC_ALLOW_INDEXING="true" cuando el dominio este listo.
+export const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+
 // Navegacion principal (header)
 export const mainNav = [
   { label: "Inicio", href: "/" },
