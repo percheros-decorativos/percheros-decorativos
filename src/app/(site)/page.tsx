@@ -8,45 +8,23 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import JsonLd from "@/components/JsonLd";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import Marquee from "@/components/ui/Marquee";
-import HomeHero from "@/components/pages/HomeHero";
-import { iconMap } from "@/components/ui/icons";
+import HeroSlider from "@/components/pages/HeroSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
-import { site } from "@/lib/site";
 import { stock } from "@/lib/stock";
 
+// Banners de servicio (diseños listos con texto): imagen + enlace.
 const servicios = [
-  {
-    title: "Servicio al Cliente",
-    text: "Asistencia a nuestros clientes antes, durante y después de la compra.",
-    cta: "Contáctanos",
-    href: "/contacto",
-    icon: "support" as const,
-    color: "text-verde-600",
-  },
-  {
-    title: "Instalación",
-    text: "Servicio de instalación seguro y confiable, con calidad y durabilidad.",
-    cta: "Programa tu instalación",
-    href: "/contacto?asunto=instalacion",
-    icon: "install" as const,
-    color: "text-naranja-500",
-  },
-  {
-    title: "Envíos",
-    text: "Despachamos a cualquier destino del país por empresas de mensajería.",
-    cta: "Rastrea tu envío",
-    href: "/contacto?asunto=envios",
-    icon: "shipping" as const,
-    color: "text-carbon",
-  },
-  {
-    title: "Formas de Pago",
-    text: "Aceptamos todos los medios de pago digitales con Bold: tarjetas, PSE, Nequi.",
-    cta: "Paga fácil tu pedido",
-    href: "/categorias",
-    icon: "payment" as const,
-    color: "text-azul-500",
-  },
+  { title: "Servicio al Cliente", src: "/img/servicios/servicio-al-cliente.webp", href: "/contacto" },
+  { title: "Instalación", src: "/img/servicios/instalacion.webp", href: "/contacto?asunto=instalacion" },
+  { title: "Envíos", src: "/img/servicios/envios.webp", href: "/contacto?asunto=envios" },
+  { title: "Formas de Pago", src: "/img/servicios/formas-de-pago.webp", href: "/categorias" },
+];
+
+// Salidas de la comunidad Parcheros.
+const salidas = [
+  { title: "Salidas Moteras", src: "/img/parcheros/salidas-moteras.webp" },
+  { title: "Salidas Bike", src: "/img/parcheros/salidas-bikes.webp" },
+  { title: "Salidas Mascotas", src: "/img/parcheros/salidas-mascotas.webp" },
 ];
 
 export const metadata: Metadata = {
@@ -107,7 +85,11 @@ export default async function HomePage() {
     <>
       <JsonLd data={faqLd} />
 
-      <HomeHero />
+      <h1 className="sr-only">
+        Percheros decorativos artesanales en madera y MDF — útiles, funcionales y
+        decorativos, hechos a mano en Colombia
+      </h1>
+      <HeroSlider />
       <Marquee />
 
       {/* ===================== CATEGORÍAS ===================== */}
@@ -130,6 +112,27 @@ export default async function HomePage() {
             Ver todas las categorías
           </ButtonLink>
         </div>
+      </section>
+
+      {/* ===================== BANNER DECORATIVO ===================== */}
+      <section className="mx-auto max-w-7xl px-4 pb-4">
+        <Reveal>
+          <Link
+            href="/categoria/hogar"
+            aria-label="Percheros para el hogar, útiles y decorativos"
+            className="hover-lift group block overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200"
+          >
+            <div className="relative aspect-[16/5] sm:aspect-[16/4]">
+              <Image
+                src="/img/decorativas/hogar.webp"
+                alt="Percheros decorativos para el hogar con paisajes de ciudad"
+                fill
+                sizes="(max-width: 1280px) 100vw, 1216px"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+          </Link>
+        </Reveal>
       </section>
 
       {/* ===================== DESTACADOS ===================== */}
@@ -200,87 +203,51 @@ export default async function HomePage() {
             </ButtonLink>
           </Reveal>
           <Reveal direction="left">
-            <div className="hover-lift relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl shadow-lg">
+            <div className="hover-lift relative mx-auto aspect-[2/3] w-full max-w-xs overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200">
               <Image
-                src={stock.atelier}
+                src="/img/quienes/artesanias-1.webp"
                 alt="Emprendimiento colombiano — artesanías de Colombia"
                 fill
-                sizes="(max-width: 768px) 100vw, 30vw"
+                sizes="(max-width: 768px) 100vw, 22vw"
                 className="object-cover"
               />
-              <span className="absolute left-4 top-4 rounded-md bg-rojo-500 px-3 py-1 text-sm font-bold text-white">
-                Emprendimiento Colombiano
-              </span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ===================== SERVICIO AL CLIENTE ===================== */}
-      <section className="bg-verde-600 text-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-14 md:grid-cols-[auto_1fr]">
-          <Reveal direction="right">
-            <div className="animate-float relative mx-auto aspect-square w-56 overflow-hidden rounded-full bg-white/10 ring-4 ring-white/20 md:w-72">
-              <Image
-                src={stock.comunidad}
-                alt="Servicio al cliente Percheros Decorativos"
-                fill
-                sizes="288px"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal direction="left">
-            <h2 className="font-display text-3xl font-extrabold text-white">
-              Servicio al Cliente
-            </h2>
-            <p className="mt-3 max-w-xl text-lg text-white/90">
-              Asistencia a nuestros clientes{" "}
-              <strong className="text-white">antes, durante y después</strong> de
-              la compra. Nuestro objetivo: una{" "}
-              <strong className="text-white">experiencia positiva</strong> con
-              nuestra marca.
+      {/* ===================== SERVICIOS ===================== */}
+      <section className="bg-crema-50">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <Reveal>
+            <SectionTitle eyebrow="Cómo te acompañamos">Nuestros servicios</SectionTitle>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-gris">
+              Te acompañamos antes, durante y después de tu compra: instalación,
+              envíos a toda Colombia y pago seguro con Bold.
             </p>
-            <a
-              href={site.social.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shimmer relative mt-5 inline-flex items-center gap-2 overflow-hidden rounded-md bg-rojo-500 px-6 py-3 font-semibold text-white hover:bg-rojo-600"
-            >
-              Contáctanos
-            </a>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Iconos de servicio */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <RevealStagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {servicios.map((s) => {
-            const Icon = iconMap[s.icon];
-            return (
+          <RevealStagger className="mt-8 grid gap-6 sm:grid-cols-2">
+            {servicios.map((s) => (
               <RevealItem key={s.title}>
                 <Link
                   href={s.href}
-                  className="hover-lift group block h-full rounded-xl border border-crema-200 bg-white p-6 text-center shadow-sm"
+                  aria-label={s.title}
+                  className="hover-lift group block overflow-hidden rounded-2xl shadow-sm ring-1 ring-crema-200"
                 >
-                  <span
-                    className={`inline-flex transition-transform duration-300 group-hover:scale-110 ${s.color}`}
-                  >
-                    <Icon width={44} height={44} />
-                  </span>
-                  <h3 className={`mt-3 font-display text-lg font-bold ${s.color}`}>
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-gris">{s.text}</p>
-                  <span className="mt-3 inline-block text-sm font-semibold text-rojo-600 group-hover:underline">
-                    {s.cta} →
-                  </span>
+                  <div className="relative aspect-[16/5]">
+                    <Image
+                      src={s.src}
+                      alt={`${s.title} — Percheros Decorativos`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 45vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
                 </Link>
               </RevealItem>
-            );
-          })}
-        </RevealStagger>
+            ))}
+          </RevealStagger>
+        </div>
       </section>
 
       {/* ===================== PARCHEROS ===================== */}
@@ -292,31 +259,29 @@ export default async function HomePage() {
               ¡Únete a cualquiera de nuestras salidas según tu pasión y desparche!
             </p>
           </Reveal>
-          <div className="mt-8 grid items-center gap-8 md:grid-cols-2">
-            <Reveal direction="right">
-              <div className="hover-lift relative aspect-[16/10] overflow-hidden rounded-2xl shadow-md">
-                <Image
-                  src={stock.motociclistas}
-                  alt="Salidas moteras de Parcheros"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
-            <Reveal direction="left">
-              <p className="text-lg text-carbon">
-                Si te gusta el <strong>deporte</strong>, la{" "}
-                <strong>cultura bici</strong>, salir a <strong>rodar</strong>,
-                disfrutar de paisajes y compartir una{" "}
-                <strong>sana aventura</strong>… puedes hacer parte de nuestras
-                salidas de Parcheros: <strong>Moteros</strong>,{" "}
-                <strong>Bike</strong> y <strong>Mascotas</strong>.
-              </p>
-              <ButtonLink href="/parcheros" className="mt-6">
-                Quiero unirme
-              </ButtonLink>
-            </Reveal>
+          <RevealStagger className="mt-8 grid gap-6 md:grid-cols-3">
+            {salidas.map((s) => (
+              <RevealItem key={s.title}>
+                <Link
+                  href="/parcheros"
+                  aria-label={s.title}
+                  className="hover-lift group block overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200"
+                >
+                  <div className="relative aspect-[7/3]">
+                    <Image
+                      src={s.src}
+                      alt={`${s.title} de la comunidad Parcheros`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                </Link>
+              </RevealItem>
+            ))}
+          </RevealStagger>
+          <div className="mt-8 text-center">
+            <ButtonLink href="/parcheros">Quiero unirme</ButtonLink>
           </div>
         </div>
       </section>
@@ -328,14 +293,25 @@ export default async function HomePage() {
         </Reveal>
         <div className="mt-8 grid items-center gap-8 md:grid-cols-2">
           <Reveal direction="right">
-            <div className="hover-lift relative aspect-[16/11] overflow-hidden rounded-2xl shadow-md">
-              <Image
-                src={stock.obras}
-                alt="Obras sociales con adultos mayores"
-                fill
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="hover-lift relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200">
+                <Image
+                  src="/img/obras/obras-sociales-1.webp"
+                  alt="Obra social con niños en situación de vulnerabilidad"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 22vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="hover-lift relative mt-8 aspect-[3/4] overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200">
+                <Image
+                  src="/img/obras/obras-sociales-2.webp"
+                  alt="Obra social con adultos mayores"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 22vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </Reveal>
           <Reveal direction="left">
