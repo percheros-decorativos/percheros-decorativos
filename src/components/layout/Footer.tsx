@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 import { site } from "@/lib/site";
 import { ciudades } from "@/lib/seo-locations";
 import { WhatsAppIcon, FacebookIcon, InstagramIcon, MailIcon } from "@/components/ui/icons";
@@ -39,19 +40,7 @@ export default function Footer() {
     <footer className="mt-16 bg-rojo-500 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.4fr_2fr]">
         <div>
-          <div className="inline-flex items-center gap-2.5 rounded-lg border-2 border-white px-2.5 py-1.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-white font-display text-2xl font-extrabold text-rojo-500">
-              P
-            </span>
-            <span className="leading-none">
-              <span className="block font-display text-lg font-extrabold text-white">
-                PERCHEROS
-              </span>
-              <span className="block font-display text-[0.7rem] font-bold tracking-[0.3em] text-white/90">
-                DECORATIVOS
-              </span>
-            </span>
-          </div>
+          <Logo onDark />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/85">
             {site.description}
           </p>

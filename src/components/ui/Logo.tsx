@@ -1,38 +1,39 @@
+import Image from "next/image";
 import Link from "next/link";
 
+// Logo horizontal oficial (SVG en curvas). Sobre fondo oscuro/rojo se envuelve
+// en una cápsula blanca para conservar el contraste.
 export default function Logo({
   className = "",
-  light = false,
+  onDark = false,
 }: {
   className?: string;
-  light?: boolean;
+  onDark?: boolean;
 }) {
+  const img = (
+    <Image
+      src="/img/logo-horizontal.svg"
+      alt="Percheros Decorativos"
+      width={230}
+      height={51}
+      priority
+      className="h-11 w-auto"
+    />
+  );
+
   return (
     <Link
       href="/"
       aria-label="Percheros Decorativos — Inicio"
-      className={`inline-flex items-center gap-2.5 rounded-lg border-2 border-rojo-500 px-2.5 py-1.5 ${className}`}
+      className={`inline-flex ${className}`}
     >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-rojo-500 font-display text-2xl font-extrabold leading-none text-white">
-        P
-      </span>
-      <span className="leading-none">
-        <span
-          className={`block font-display text-lg font-extrabold tracking-tight ${
-            light ? "text-white" : "text-rojo-500"
-          }`}
-        >
-          PERCHEROS
+      {onDark ? (
+        <span className="inline-flex rounded-xl bg-white px-3 py-2 shadow-sm">
+          {img}
         </span>
-        <span
-          className={`block font-display text-[0.7rem] font-bold tracking-[0.3em] ${
-            light ? "text-white/90" : "text-carbon"
-          }`}
-        >
-          DEC<span className="text-rojo-500">O</span>RATIV
-          <span className="text-rojo-500">O</span>S
-        </span>
-      </span>
+      ) : (
+        img
+      )}
     </Link>
   );
 }
