@@ -13,42 +13,41 @@ import ServicesSlider from "@/components/pages/ServicesSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
 
-// Banners decorativos de categoría (diseños listos con logo): divisores de
-// sección a proporción nativa para que nunca se recorte el arte ni el logo.
+// Banners decorativos de categoría (diseños listos con logo): franjas a ancho
+// completo y proporción nativa para que nunca se recorte el arte ni el logo.
 function BannerDivider({
   href,
   src,
   alt,
   ratio,
-  tone = "",
 }: {
   href: string;
   src: string;
   alt: string;
   ratio: string;
-  tone?: string;
 }) {
   return (
-    <section className={`${tone} px-4 pb-4`}>
-      <div className="mx-auto max-w-7xl">
+    <section>
       <Reveal>
         <Link
           href={href}
           aria-label={alt}
-          className="hover-lift group block overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200"
+          className="group block overflow-hidden"
         >
-          <div className="relative" style={{ aspectRatio: ratio }}>
+          <div
+            className="relative mx-auto w-full max-w-[1800px]"
+            style={{ aspectRatio: ratio }}
+          >
             <Image
               src={src}
               alt={alt}
               fill
-              sizes="(max-width: 1280px) 100vw, 1216px"
+              sizes="100vw"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
           </div>
         </Link>
       </Reveal>
-      </div>
     </section>
   );
 }
@@ -245,8 +244,8 @@ export default async function HomePage() {
       </section>
 
       {/* ===================== SERVICIOS ===================== */}
-      <section className="bg-crema-50">
-        <div className="mx-auto max-w-7xl px-4 py-16">
+      <section className="bg-crema-50 py-16">
+        <div className="mx-auto max-w-7xl px-4">
           <Reveal>
             <SectionTitle eyebrow="Cómo te acompañamos">Nuestros servicios</SectionTitle>
             <p className="mx-auto mt-4 max-w-2xl text-center text-gris">
@@ -254,12 +253,12 @@ export default async function HomePage() {
               envíos a toda Colombia y pago seguro con Bold.
             </p>
           </Reveal>
-          <Reveal>
-            <div className="mx-auto mt-8 max-w-4xl">
-              <ServicesSlider />
-            </div>
-          </Reveal>
         </div>
+        <Reveal>
+          <div className="mt-8">
+            <ServicesSlider />
+          </div>
+        </Reveal>
       </section>
 
       {/* ===================== BANNER MOTEROS ===================== */}
@@ -268,7 +267,6 @@ export default async function HomePage() {
         src="/img/decorativas/moteros.webp"
         alt="Percheros Moteros para cascos, chaquetas y accesorios de viaje"
         ratio="1800 / 470"
-        tone="bg-crema-50"
       />
 
       {/* ===================== PARCHEROS ===================== */}
