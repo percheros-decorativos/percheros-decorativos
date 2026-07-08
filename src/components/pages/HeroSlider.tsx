@@ -14,6 +14,9 @@ type Slide = {
   alt: string;
   href: string;
   label: string;
+  /* Lado donde vive el texto del banner: en móvil el recorte se ancla ahí
+     para que el mensaje "Útiles y ..." nunca quede fuera de cuadro. */
+  pos: "object-left" | "object-center" | "object-right";
 };
 
 const slides: Slide[] = [
@@ -22,42 +25,49 @@ const slides: Slide[] = [
     alt: "Percheros decorativos útiles y resilientes, con mensajes de fe y esperanza",
     href: "/categoria/dedios",
     label: "Útiles y Resilientes",
+    pos: "object-left",
   },
   {
     src: "/img/hero/banner-decorativos.webp",
     alt: "Percheros decorativos con paisajes de ciudad para el hogar",
     href: "/categoria/hogar",
     label: "Útiles y Decorativos",
+    pos: "object-center",
   },
   {
     src: "/img/hero/banner-practicos.webp",
     alt: "Percheros útiles y prácticos para organizar accesorios de mascotas",
     href: "/categoria/mascotas",
     label: "Útiles y Prácticos",
+    pos: "object-left",
   },
   {
     src: "/img/hero/banner-funcionales.webp",
     alt: "Percheros útiles y funcionales con temática motera",
     href: "/categoria/moteros",
     label: "Útiles y Funcionales",
+    pos: "object-left",
   },
   {
     src: "/img/hero/banner-seguros.webp",
     alt: "Percheros útiles y seguros para ciclistas y amantes de la bici",
     href: "/categoria/bike",
     label: "Útiles y Seguros",
+    pos: "object-right",
   },
   {
     src: "/img/hero/banner-comodos.webp",
     alt: "Percheros útiles y cómodos con temática musical de guitarras",
     href: "/categoria/guitarras",
     label: "Útiles y Cómodos",
+    pos: "object-center",
   },
   {
     src: "/img/hero/banner-familiares.webp",
     alt: "Percheros útiles, familiares y personalizados para toda ocasión",
     href: "/categoria/personalizados",
     label: "Útiles y Familiares",
+    pos: "object-center",
   },
 ];
 
@@ -104,7 +114,7 @@ export default function HeroSlider() {
         touchX.current = null;
       }}
     >
-      <div className="relative mx-auto aspect-[16/9] w-full max-w-[1800px] overflow-hidden sm:aspect-[3/1] lg:aspect-[4/1]">
+      <div className="relative mx-auto aspect-[5/2] w-full max-w-[1800px] overflow-hidden sm:aspect-[3/1] lg:aspect-[4/1]">
         {slides.map((s, i) => (
           <Link
             key={s.src}
@@ -122,7 +132,7 @@ export default function HeroSlider() {
               fill
               sizes="100vw"
               priority={i === 0}
-              className="object-cover"
+              className={`object-cover ${s.pos}`}
             />
           </Link>
         ))}
@@ -132,7 +142,7 @@ export default function HeroSlider() {
           type="button"
           onClick={prev}
           aria-label="Banner anterior"
-          className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-carbon shadow-md backdrop-blur transition hover:bg-white sm:left-4"
+          className="absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-carbon shadow-md backdrop-blur transition hover:bg-white sm:left-4 sm:h-10 sm:w-10"
         >
           <ChevronRightIcon width={22} height={22} className="rotate-180" />
         </button>
@@ -140,7 +150,7 @@ export default function HeroSlider() {
           type="button"
           onClick={next}
           aria-label="Banner siguiente"
-          className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-carbon shadow-md backdrop-blur transition hover:bg-white sm:right-4"
+          className="absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-carbon shadow-md backdrop-blur transition hover:bg-white sm:right-4 sm:h-10 sm:w-10"
         >
           <ChevronRightIcon width={22} height={22} />
         </button>

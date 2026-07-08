@@ -20,6 +20,46 @@ const servicios = [
   { title: "Formas de Pago", src: "/img/servicios/formas-de-pago.webp", href: "/categorias" },
 ];
 
+// Banners decorativos de categoría (diseños listos con logo): divisores de
+// sección a proporción nativa para que nunca se recorte el arte ni el logo.
+function BannerDivider({
+  href,
+  src,
+  alt,
+  ratio,
+  tone = "",
+}: {
+  href: string;
+  src: string;
+  alt: string;
+  ratio: string;
+  tone?: string;
+}) {
+  return (
+    <section className={`${tone} px-4 pb-4`}>
+      <div className="mx-auto max-w-7xl">
+      <Reveal>
+        <Link
+          href={href}
+          aria-label={alt}
+          className="hover-lift group block overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200"
+        >
+          <div className="relative" style={{ aspectRatio: ratio }}>
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1216px"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          </div>
+        </Link>
+      </Reveal>
+      </div>
+    </section>
+  );
+}
+
 // Salidas de la comunidad Parcheros.
 const salidas = [
   { title: "Salidas Moteras", src: "/img/parcheros/salidas-moteras.webp" },
@@ -114,26 +154,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ===================== BANNER DECORATIVO ===================== */}
-      <section className="mx-auto max-w-7xl px-4 pb-4">
-        <Reveal>
-          <Link
-            href="/categoria/hogar"
-            aria-label="Percheros para el hogar, útiles y decorativos"
-            className="hover-lift group block overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200"
-          >
-            <div className="relative aspect-[16/5] sm:aspect-[16/4]">
-              <Image
-                src="/img/decorativas/hogar.webp"
-                alt="Percheros decorativos para el hogar con paisajes de ciudad"
-                fill
-                sizes="(max-width: 1280px) 100vw, 1216px"
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              />
-            </div>
-          </Link>
-        </Reveal>
-      </section>
+      {/* ===================== BANNER HOGAR ===================== */}
+      <BannerDivider
+        href="/categoria/hogar"
+        src="/img/decorativas/hogar.webp"
+        alt="Percheros decorativos para el hogar con paisajes de ciudad"
+        ratio="1800 / 465"
+      />
 
       {/* ===================== DESTACADOS ===================== */}
       {featured.length > 0 && (
@@ -157,6 +184,14 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ===================== BANNER DEDIOS ===================== */}
+      <BannerDivider
+        href="/categoria/dedios"
+        src="/img/decorativas/dedios.webp"
+        alt="Percheros DeDios con imágenes de fe y esperanza"
+        ratio="1800 / 466"
+      />
 
       {/* ===================== QUIÉNES SOMOS ===================== */}
       <section className="mx-auto max-w-7xl px-4 py-16">
@@ -250,6 +285,15 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ===================== BANNER MOTEROS ===================== */}
+      <BannerDivider
+        href="/categoria/moteros"
+        src="/img/decorativas/moteros.webp"
+        alt="Percheros Moteros para cascos, chaquetas y accesorios de viaje"
+        ratio="1800 / 470"
+        tone="bg-crema-50"
+      />
+
       {/* ===================== PARCHEROS ===================== */}
       <section className="bg-crema-50">
         <div className="mx-auto max-w-7xl px-4 py-16">
@@ -330,6 +374,14 @@ export default async function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* ===================== BANNER BIKE ===================== */}
+      <BannerDivider
+        href="/categoria/bike"
+        src="/img/decorativas/bike.webp"
+        alt="Percheros Bike para ciclistas y amantes de la aventura"
+        ratio="1800 / 470"
+      />
 
       {/* ===================== ALIADOS ===================== */}
       <section className="bg-crema-50">
