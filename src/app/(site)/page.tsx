@@ -9,16 +9,9 @@ import JsonLd from "@/components/JsonLd";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import Marquee from "@/components/ui/Marquee";
 import HeroSlider from "@/components/pages/HeroSlider";
+import ServicesSlider from "@/components/pages/ServicesSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
-
-// Banners de servicio (diseños listos con texto): imagen + enlace.
-const servicios = [
-  { title: "Servicio al Cliente", src: "/img/servicios/servicio-al-cliente.webp", href: "/contacto" },
-  { title: "Instalación", src: "/img/servicios/instalacion.webp", href: "/contacto?asunto=instalacion" },
-  { title: "Envíos", src: "/img/servicios/envios.webp", href: "/contacto?asunto=envios" },
-  { title: "Formas de Pago", src: "/img/servicios/formas-de-pago.webp", href: "/categorias" },
-];
 
 // Banners decorativos de categoría (diseños listos con logo): divisores de
 // sección a proporción nativa para que nunca se recorte el arte ni el logo.
@@ -261,27 +254,11 @@ export default async function HomePage() {
               envíos a toda Colombia y pago seguro con Bold.
             </p>
           </Reveal>
-          <RevealStagger className="mt-8 grid gap-6 sm:grid-cols-2">
-            {servicios.map((s) => (
-              <RevealItem key={s.title}>
-                <Link
-                  href={s.href}
-                  aria-label={s.title}
-                  className="hover-lift group block overflow-hidden rounded-2xl shadow-sm ring-1 ring-crema-200"
-                >
-                  <div className="relative aspect-[16/5]">
-                    <Image
-                      src={s.src}
-                      alt={`${s.title} — Percheros Decorativos`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 45vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                </Link>
-              </RevealItem>
-            ))}
-          </RevealStagger>
+          <Reveal>
+            <div className="mx-auto mt-8 max-w-4xl">
+              <ServicesSlider />
+            </div>
+          </Reveal>
         </div>
       </section>
 
