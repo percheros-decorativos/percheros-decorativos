@@ -114,7 +114,7 @@ export default function HeroSlider() {
         touchX.current = null;
       }}
     >
-      <div className="relative mx-auto aspect-[5/2] w-full max-w-[1800px] overflow-hidden sm:aspect-[3/1] lg:aspect-[4/1]">
+      <div className="relative aspect-[5/2] w-full overflow-hidden sm:aspect-[4/1]">
         {slides.map((s, i) => (
           <Link
             key={s.src}

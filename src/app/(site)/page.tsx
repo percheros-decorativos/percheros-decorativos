@@ -34,10 +34,7 @@ function BannerDivider({
           aria-label={alt}
           className="group block overflow-hidden"
         >
-          <div
-            className="relative mx-auto w-full max-w-[1800px]"
-            style={{ aspectRatio: ratio }}
-          >
+          <div className="relative w-full" style={{ aspectRatio: ratio }}>
             <Image
               src={src}
               alt={alt}

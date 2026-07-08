@@ -89,7 +89,7 @@ export default function ServicesSlider() {
       }}
     >
       <div
-        className="relative mx-auto w-full max-w-[1800px] overflow-hidden bg-white"
+        className="relative w-full overflow-hidden bg-white"
         style={{ aspectRatio: "1800 / 596" }}
       >
         {slides.map((s, i) => (
