@@ -6,8 +6,8 @@ import Link from "next/link";
 import { ChevronRightIcon } from "@/components/ui/icons";
 
 // Slider de servicios: rota los banners de servicio (diseños listos con texto).
-// Mismo comportamiento que el HeroSlider: autoplay con pausa al pasar el
-// cursor, flechas, puntos, swipe y teclado; respeta prefers-reduced-motion.
+// Mismo comportamiento que el HeroSlider: reproducción automática siempre
+// activa, con flechas, puntos, swipe y teclado.
 // Los banners se muestran completos (object-contain sobre blanco) porque cada
 // arte trae su propia proporción y el texto no admite recortes.
 
@@ -49,7 +49,6 @@ const AUTOPLAY_MS = 5000;
 
 export default function ServicesSlider() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const touchX = useRef<number | null>(null);
   const count = slides.length;
 
@@ -60,25 +59,18 @@ export default function ServicesSlider() {
   const next = useCallback(() => go(index + 1), [go, index]);
   const prev = useCallback(() => go(index - 1), [go, index]);
 
+  // Reproducción automática incondicional; cualquier interacción (flechas,
+  // puntos, swipe) reinicia el conteo porque el efecto depende de `index`.
   useEffect(() => {
-    if (paused) return;
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
     const id = setInterval(() => go(index + 1), AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [index, paused, go]);
+  }, [index, go]);
 
   return (
     <div
       className="relative"
       aria-roledescription="carrusel"
       aria-label="Nuestros servicios"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
       onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
       onTouchEnd={(e) => {
         if (touchX.current === null) return;

@@ -6,8 +6,8 @@ import Link from "next/link";
 import { ChevronRightIcon } from "@/components/ui/icons";
 
 // Slider principal fiel al PDF: banners "Útiles y ..." que rotan.
-// Autoplay con pausa al pasar el cursor, flechas, puntos, swipe y teclado.
-// Respeta prefers-reduced-motion (sin autoplay) y degrada a la 1ª slide sin JS.
+// Reproducción automática siempre activa, con flechas, puntos, swipe y
+// teclado. Degrada a la 1ª slide sin JS.
 
 type Slide = {
   src: string;
@@ -75,7 +75,6 @@ const AUTOPLAY_MS = 5500;
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const touchX = useRef<number | null>(null);
   const count = slides.length;
 
@@ -86,25 +85,18 @@ export default function HeroSlider() {
   const next = useCallback(() => go(index + 1), [go, index]);
   const prev = useCallback(() => go(index - 1), [go, index]);
 
+  // Reproducción automática incondicional; cualquier interacción (flechas,
+  // puntos, swipe) reinicia el conteo porque el efecto depende de `index`.
   useEffect(() => {
-    if (paused) return;
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
     const id = setInterval(() => go(index + 1), AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [index, paused, go]);
+  }, [index, go]);
 
   return (
     <section
       className="hero-rise relative bg-carbon"
       aria-roledescription="carrusel"
       aria-label="Percheros útiles y decorativos"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
       onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
       onTouchEnd={(e) => {
         if (touchX.current === null) return;
