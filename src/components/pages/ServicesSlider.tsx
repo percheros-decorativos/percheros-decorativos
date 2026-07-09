@@ -8,11 +8,13 @@ import { ChevronRightIcon } from "@/components/ui/icons";
 // Slider de servicios: rota los banners de servicio (diseños listos con texto).
 // Mismo comportamiento que el HeroSlider: reproducción automática siempre
 // activa, con flechas, puntos, swipe y teclado.
-// Los banners se muestran completos (object-contain sobre blanco) porque cada
-// arte trae su propia proporción y el texto no admite recortes.
+// Arte dirigido: versión casi cuadrada diseñada para móvil (mobileSrc) y el
+// banner panorámico original desde tablet en adelante — cada uno a su propia
+// proporción nativa, sin recortar el texto.
 
 type Slide = {
   src: string;
+  mobileSrc: string;
   alt: string;
   href: string;
   label: string;
@@ -21,24 +23,28 @@ type Slide = {
 const slides: Slide[] = [
   {
     src: "/img/servicios/servicio-al-cliente.webp",
+    mobileSrc: "/img/servicios/mobile/servicio-al-cliente-movil.webp",
     alt: "Servicio al cliente antes, durante y después de la compra",
     href: "/contacto",
     label: "Servicio al Cliente",
   },
   {
     src: "/img/servicios/instalacion.webp",
+    mobileSrc: "/img/servicios/mobile/instalacion-movil.webp",
     alt: "Servicio de instalación segura, confiable y con calidad",
     href: "/contacto?asunto=instalacion",
     label: "Instalación",
   },
   {
     src: "/img/servicios/envios.webp",
+    mobileSrc: "/img/servicios/mobile/envios-movil.webp",
     alt: "Envíos a cualquier destino de Colombia por empresas de mensajería",
     href: "/contacto?asunto=envios",
     label: "Envíos",
   },
   {
     src: "/img/servicios/formas-de-pago.webp",
+    mobileSrc: "/img/servicios/mobile/formas-de-pago-movil.webp",
     alt: "Formas de pago: todos los medios presenciales y digitales",
     href: "/categorias",
     label: "Formas de Pago",
@@ -80,30 +86,60 @@ export default function ServicesSlider() {
         touchX.current = null;
       }}
     >
-      <div
-        className="relative w-full overflow-hidden bg-white"
-        style={{ aspectRatio: "1800 / 596" }}
-      >
-        {slides.map((s, i) => (
-          <Link
-            key={s.src}
-            href={s.href}
-            aria-hidden={i !== index}
-            tabIndex={i === index ? 0 : -1}
-            aria-label={s.label}
-            className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-              i === index ? "opacity-100" : "pointer-events-none opacity-0"
-            }`}
-          >
-            <Image
-              src={s.src}
-              alt={s.alt}
-              fill
-              sizes="(max-width: 1280px) 100vw, 1216px"
-              className="object-contain"
-            />
-          </Link>
-        ))}
+      <div className="relative">
+        {/* Móvil: versión casi cuadrada diseñada para pantallas angostas */}
+        <div
+          className="relative w-full overflow-hidden bg-white sm:hidden"
+          style={{ aspectRatio: "852 / 753" }}
+        >
+          {slides.map((s, i) => (
+            <Link
+              key={s.src}
+              href={s.href}
+              aria-hidden={i !== index}
+              tabIndex={i === index ? 0 : -1}
+              aria-label={s.label}
+              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                i === index ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+            >
+              <Image
+                src={s.mobileSrc}
+                alt={s.alt}
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </Link>
+          ))}
+        </div>
+
+        {/* Tablet/escritorio: banner panorámico original */}
+        <div
+          className="relative hidden w-full overflow-hidden bg-white sm:block"
+          style={{ aspectRatio: "1800 / 596" }}
+        >
+          {slides.map((s, i) => (
+            <Link
+              key={s.src}
+              href={s.href}
+              aria-hidden={i !== index}
+              tabIndex={i === index ? 0 : -1}
+              aria-label={s.label}
+              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                i === index ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+            >
+              <Image
+                src={s.src}
+                alt={s.alt}
+                fill
+                sizes="(max-width: 1280px) 100vw, 1216px"
+                className="object-contain"
+              />
+            </Link>
+          ))}
+        </div>
 
         {/* Flechas */}
         <button

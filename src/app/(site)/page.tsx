@@ -14,18 +14,32 @@ import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
 
 // Banners decorativos de categoría (diseños listos con logo): franjas a ancho
-// completo y proporción nativa para que nunca se recorte el arte ni el logo.
+// completo. Cuando hay una versión vertical dedicada para móvil (mobileSrc)
+// se usa esa en teléfonos y el banner panorámico desde tablet en adelante;
+// si no, el banner panorámico se muestra a su proporción nativa siempre.
 function BannerDivider({
   href,
   src,
+  mobileSrc,
   alt,
   ratio,
 }: {
   href: string;
   src: string;
+  mobileSrc?: string;
   alt: string;
   ratio: string;
 }) {
+  const img = (imgSrc: string) => (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      fill
+      sizes="100vw"
+      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+    />
+  );
+
   return (
     <section>
       <Reveal>
@@ -34,15 +48,23 @@ function BannerDivider({
           aria-label={alt}
           className="group block overflow-hidden"
         >
-          <div className="relative w-full" style={{ aspectRatio: ratio }}>
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              sizes="100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-          </div>
+          {mobileSrc ? (
+            <>
+              <div className="relative aspect-[5/7] w-full sm:hidden">
+                {img(mobileSrc)}
+              </div>
+              <div
+                className="relative hidden w-full sm:block"
+                style={{ aspectRatio: ratio }}
+              >
+                {img(src)}
+              </div>
+            </>
+          ) : (
+            <div className="relative w-full" style={{ aspectRatio: ratio }}>
+              {img(src)}
+            </div>
+          )}
         </Link>
       </Reveal>
     </section>
@@ -147,6 +169,7 @@ export default async function HomePage() {
       <BannerDivider
         href="/categoria/hogar"
         src="/img/decorativas/hogar.webp"
+        mobileSrc="/img/decorativas/mobile/hogar-movil.webp"
         alt="Percheros decorativos para el hogar con paisajes de ciudad"
         ratio="1800 / 465"
       />
@@ -260,6 +283,7 @@ export default async function HomePage() {
       <BannerDivider
         href="/categoria/moteros"
         src="/img/decorativas/moteros.webp"
+        mobileSrc="/img/decorativas/mobile/moteros-movil.webp"
         alt="Percheros Moteros para cascos, chaquetas y accesorios de viaje"
         ratio="1800 / 470"
       />
@@ -349,6 +373,7 @@ export default async function HomePage() {
       <BannerDivider
         href="/categoria/bike"
         src="/img/decorativas/bike.webp"
+        mobileSrc="/img/decorativas/mobile/bike-movil.webp"
         alt="Percheros Bike para ciclistas y amantes de la aventura"
         ratio="1800 / 470"
       />

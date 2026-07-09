@@ -47,6 +47,10 @@ next-env.d.ts
 # las versiones optimizadas en public/img/products)
 /productos/
 
+# Entregas de arte sin optimizar (fuente local; al sitio solo van las
+# versiones convertidas a webp en public/img/*/mobile)
+/IMG ANDRES*/
+
 # Skills instaladas localmente (no son código de la app)
 /.agents/
 skills-lock.json

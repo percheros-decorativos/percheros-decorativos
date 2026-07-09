@@ -8,13 +8,23 @@ import { ChevronRightIcon } from "@/components/ui/icons";
 // Slider principal fiel al PDF: banners "Útiles y ..." que rotan.
 // Reproducción automática siempre activa, con flechas, puntos, swipe y
 // teclado. Degrada a la 1ª slide sin JS.
+//
+// Arte dirigido: en vez de recortar el banner panorámico de escritorio para
+// que quepa en una pantalla angosta, se muestran DOS versiones — una
+// vertical diseñada para móvil (mobileSrc) y la panorámica original desde
+// tablet en adelante — cada una en su propio contenedor con la proporción
+// que le corresponde, intercambiadas por CSS (sin JS) según el ancho de
+// pantalla.
 
 type Slide = {
   src: string;
   alt: string;
   href: string;
   label: string;
-  /* Lado donde vive el texto del banner: en móvil el recorte se ancla ahí
+  /** Versión vertical (500×700) diseñada para móvil. Si falta, el banner de
+   * escritorio se muestra completo (object-contain) en vez de recortarse. */
+  mobileSrc?: string;
+  /* Lado donde vive el texto del banner: en escritorio ancla el recorte
      para que el mensaje "Útiles y ..." nunca quede fuera de cuadro. */
   pos: "object-left" | "object-center" | "object-right";
 };
@@ -22,6 +32,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     src: "/img/hero/banner-resilientes.webp",
+    mobileSrc: "/img/hero/mobile/dedios-movil.webp",
     alt: "Percheros decorativos útiles y resilientes, con mensajes de fe y esperanza",
     href: "/categoria/dedios",
     label: "Útiles y Resilientes",
@@ -29,6 +40,7 @@ const slides: Slide[] = [
   },
   {
     src: "/img/hero/banner-decorativos.webp",
+    mobileSrc: "/img/hero/mobile/hogar-movil.webp",
     alt: "Percheros decorativos con paisajes de ciudad para el hogar",
     href: "/categoria/hogar",
     label: "Útiles y Decorativos",
@@ -36,6 +48,7 @@ const slides: Slide[] = [
   },
   {
     src: "/img/hero/banner-practicos.webp",
+    mobileSrc: "/img/hero/mobile/mascotas-movil.webp",
     alt: "Percheros útiles y prácticos para organizar accesorios de mascotas",
     href: "/categoria/mascotas",
     label: "Útiles y Prácticos",
@@ -43,6 +56,7 @@ const slides: Slide[] = [
   },
   {
     src: "/img/hero/banner-funcionales.webp",
+    mobileSrc: "/img/hero/mobile/moteros-movil.webp",
     alt: "Percheros útiles y funcionales con temática motera",
     href: "/categoria/moteros",
     label: "Útiles y Funcionales",
@@ -50,6 +64,7 @@ const slides: Slide[] = [
   },
   {
     src: "/img/hero/banner-seguros.webp",
+    mobileSrc: "/img/hero/mobile/bike-movil.webp",
     alt: "Percheros útiles y seguros para ciclistas y amantes de la bici",
     href: "/categoria/bike",
     label: "Útiles y Seguros",
@@ -57,6 +72,7 @@ const slides: Slide[] = [
   },
   {
     src: "/img/hero/banner-comodos.webp",
+    mobileSrc: "/img/hero/mobile/guitarras-movil.webp",
     alt: "Percheros útiles y cómodos con temática musical de guitarras",
     href: "/categoria/guitarras",
     label: "Útiles y Cómodos",
@@ -106,28 +122,68 @@ export default function HeroSlider() {
         touchX.current = null;
       }}
     >
-      <div className="relative aspect-[5/2] w-full overflow-hidden sm:aspect-[4/1]">
-        {slides.map((s, i) => (
-          <Link
-            key={s.src}
-            href={s.href}
-            aria-hidden={i !== index}
-            tabIndex={i === index ? 0 : -1}
-            aria-label={`Ver categoría — ${s.label}`}
-            className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-              i === index ? "opacity-100" : "pointer-events-none opacity-0"
-            }`}
-          >
-            <Image
-              src={s.src}
-              alt={s.alt}
-              fill
-              sizes="100vw"
-              priority={i === 0}
-              className={`object-cover ${s.pos}`}
-            />
-          </Link>
-        ))}
+      <div className="relative mx-auto w-full max-w-[1800px]">
+        {/* Versión móvil: arte vertical dedicado (o el banner completo sin
+            recortar si un slide todavía no tiene versión móvil). */}
+        <div className="relative aspect-[5/7] w-full overflow-hidden sm:hidden">
+          {slides.map((s, i) => (
+            <Link
+              key={s.src}
+              href={s.href}
+              aria-hidden={i !== index}
+              tabIndex={i === index ? 0 : -1}
+              aria-label={`Ver categoría — ${s.label}`}
+              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                i === index ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+            >
+              {s.mobileSrc ? (
+                <Image
+                  src={s.mobileSrc}
+                  alt={s.alt}
+                  fill
+                  sizes="100vw"
+                  priority={i === 0}
+                  className="object-cover"
+                />
+              ) : (
+                <Image
+                  src={s.src}
+                  alt={s.alt}
+                  fill
+                  sizes="100vw"
+                  priority={i === 0}
+                  className="bg-crema-50 object-contain"
+                />
+              )}
+            </Link>
+          ))}
+        </div>
+
+        {/* Versión escritorio/tablet: banner panorámico original. */}
+        <div className="relative hidden aspect-[4/1] w-full overflow-hidden sm:block">
+          {slides.map((s, i) => (
+            <Link
+              key={s.src}
+              href={s.href}
+              aria-hidden={i !== index}
+              tabIndex={i === index ? 0 : -1}
+              aria-label={`Ver categoría — ${s.label}`}
+              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                i === index ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+            >
+              <Image
+                src={s.src}
+                alt={s.alt}
+                fill
+                sizes="100vw"
+                priority={i === 0}
+                className={`object-cover ${s.pos}`}
+              />
+            </Link>
+          ))}
+        </div>
 
         {/* Flechas */}
         <button
