@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "@/components/cart/AddToCartButton";
 import ProductCard from "@/components/ui/ProductCard";
+import ProductGallery from "@/components/ui/ProductGallery";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/ui/Reveal";
 import ProductSeoContent from "@/components/seo/ProductSeoContent";
@@ -98,7 +98,6 @@ export default async function ProductoPage({
   if (!product) notFound();
 
   const related = await getRelatedProducts(product.categoryId, product.id, 4);
-  const image = product.images[0];
   const inStock = product.stock > 0;
   const url = `${site.url}/producto/${product.slug}`;
   const nextYearEnd = new Date(new Date().getFullYear() + 1, 11, 31)
@@ -211,21 +210,7 @@ export default async function ProductoPage({
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Galería sticky */}
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-crema-100 shadow-lg ring-1 ring-carbon/10">
-              <Image
-                src={image?.url ?? "/img/placeholder-product.svg"}
-                alt={image?.alt ?? product.name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-              {product.isNew && (
-                <span className="absolute left-4 top-4 rounded-full bg-verde-500 px-3 py-1 text-sm font-bold text-white">
-                  NUEVO
-                </span>
-              )}
-            </div>
+            <ProductGallery images={product.images} isNew={product.isNew} />
           </div>
 
           {/* Info */}
@@ -286,7 +271,7 @@ export default async function ProductoPage({
                   slug: product.slug,
                   name: product.name,
                   priceCop: product.priceCop,
-                  image: image?.url ?? "/img/placeholder-product.svg",
+                  image: product.images[0]?.url ?? "/img/placeholder-product.svg",
                   maxStock: product.stock,
                 }}
               />

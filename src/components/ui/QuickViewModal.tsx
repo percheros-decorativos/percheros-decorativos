@@ -65,7 +65,7 @@ export default function QuickViewModal() {
             alt={product.name}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            className="object-contain p-4"
           />
         </div>
         <div className="flex flex-1 flex-col p-6">

@@ -43,6 +43,10 @@ next-env.d.ts
 # Referencia de diseño (PDF pesado >100MB — nunca subir a git)
 /design-reference/
 
+# Fotos originales e inventario de productos (fuente local; al sitio solo van
+# las versiones optimizadas en public/img/products)
+/productos/
+
 # Skills instaladas localmente (no son código de la app)
 /.agents/
 skills-lock.json

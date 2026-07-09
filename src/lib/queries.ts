@@ -56,6 +56,15 @@ function mapCategory(slug: string): UICategory | null {
   };
 }
 
+function productImages(p: CatProduct): { url: string; alt: string }[] {
+  const count = Math.max(1, p.photos ?? 1);
+  const base = p.image.replace(/\.webp$/, "");
+  return Array.from({ length: count }, (_, i) => ({
+    url: i === 0 ? p.image : `${base}-${i + 1}.webp`,
+    alt: i === 0 ? p.name : `${p.name} — vista ${i + 1}`,
+  }));
+}
+
 function mapProduct(p: CatProduct): UIProduct {
   const cat = catBySlug(p.categorySlug);
   return {
@@ -75,7 +84,7 @@ function mapProduct(p: CatProduct): UIProduct {
     featured: !!p.featured,
     isNew: !!p.isNew,
     categoryId: catId(p.categorySlug),
-    images: [{ url: p.image, alt: p.name }],
+    images: productImages(p),
     category: { name: cat?.name ?? "", slug: p.categorySlug },
     metaTitle: `${p.name} | Percheros Decorativos`,
     metaDescription: p.shortDesc,
