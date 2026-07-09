@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 
@@ -108,8 +109,11 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
         </div>
       )}
 
-      {/* Lightbox */}
-      {open && (
+      {/* Lightbox: va en un portal al <body> porque la animación de entrada
+          de página (.page-enter) deja un transform en un ancestro y eso
+          convertiría el position:fixed en relativo (quedaría fuera de vista). */}
+      {open &&
+        createPortal(
         <div
           role="dialog"
           aria-modal="true"
@@ -178,7 +182,8 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
               </div>
             </>
           )}
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
