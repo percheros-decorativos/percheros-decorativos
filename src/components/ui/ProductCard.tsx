@@ -4,19 +4,21 @@ import { formatPrice } from "@/lib/money";
 import ProductCardActions from "@/components/ui/ProductCardActions";
 import TiltCard from "@/components/ui/motion/TiltCard";
 
+export interface ProductCardData {
+  id: number;
+  slug: string;
+  name: string;
+  priceCop: number;
+  compareAtCop?: number | null;
+  stock: number;
+  isNew?: boolean;
+  shortDesc?: string | null;
+  images: { url: string; alt: string | null }[];
+  category?: { name: string } | null;
+}
+
 interface ProductCardProps {
-  product: {
-    id: number;
-    slug: string;
-    name: string;
-    priceCop: number;
-    compareAtCop?: number | null;
-    stock: number;
-    isNew?: boolean;
-    shortDesc?: string | null;
-    images: { url: string; alt: string | null }[];
-    category?: { name: string } | null;
-  };
+  product: ProductCardData;
   priority?: boolean;
 }
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
-import ProductCard from "@/components/ui/ProductCard";
 import CategoryCard from "@/components/ui/CategoryCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 import JsonLd from "@/components/JsonLd";
@@ -10,6 +9,7 @@ import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import Marquee from "@/components/ui/Marquee";
 import HeroSlider from "@/components/pages/HeroSlider";
 import ServicesSlider from "@/components/pages/ServicesSlider";
+import ProductsSlider from "@/components/pages/ProductsSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
 
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const [categories, featured] = await Promise.all([
     getCategories(),
-    getFeaturedProducts(8),
+    getFeaturedProducts(12),
   ]);
 
   const faqLd = {
@@ -158,13 +158,11 @@ export default async function HomePage() {
             <Reveal>
               <SectionTitle eyebrow="Catálogo">Encuentra tu perchero</SectionTitle>
             </Reveal>
-            <RevealStagger className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
-              {featured.map((p) => (
-                <RevealItem key={p.id}>
-                  <ProductCard product={p} />
-                </RevealItem>
-              ))}
-            </RevealStagger>
+            <Reveal>
+              <div className="mt-8">
+                <ProductsSlider products={featured} />
+              </div>
+            </Reveal>
             <div className="mt-10 text-center">
               <ButtonLink href="/categorias" variant="outline">
                 Ver todo el catálogo
