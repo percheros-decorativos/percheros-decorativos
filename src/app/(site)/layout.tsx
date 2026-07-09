@@ -28,7 +28,7 @@ export default async function SiteLayout({
     foundingDate: String(site.foundingYear),
     logo: {
       "@type": "ImageObject",
-      url: `${site.url}/img/products/perchero-ciudad-noche.webp`,
+      url: `${site.url}/icon-512.png`,
     },
     image: `${site.url}/og.png`,
     priceRange: "$$",
