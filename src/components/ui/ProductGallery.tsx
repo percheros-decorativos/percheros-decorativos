@@ -35,7 +35,7 @@ function Thumb({
       onClick={onClick}
       aria-label={`Ver foto ${index + 1}`}
       aria-current={active}
-      className={`relative h-16 w-16 flex-none overflow-hidden rounded-xl bg-crema-100 ring-2 transition sm:h-[4.5rem] sm:w-[4.5rem] ${
+      className={`relative h-16 w-16 flex-none overflow-hidden rounded-xl bg-white ring-2 transition sm:h-[4.5rem] sm:w-[4.5rem] ${
         active ? "ring-rojo-500" : "ring-transparent hover:ring-crema-200"
       } ${className}`}
     >
@@ -96,7 +96,7 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
       )}
 
       <div className="min-w-0 flex-1">
-        <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-crema-100 shadow-lg ring-1 ring-carbon/10">
+        <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white shadow-lg ring-1 ring-carbon/10">
           <button
             type="button"
             onClick={() => setOpen(true)}

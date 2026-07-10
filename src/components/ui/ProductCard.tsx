@@ -43,7 +43,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       />
       <Link
         href={`/producto/${product.slug}`}
-        className="relative block aspect-square overflow-hidden bg-crema-100"
+        className="relative block aspect-square overflow-hidden bg-white"
       >
         <Image
           src={image}

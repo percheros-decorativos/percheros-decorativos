@@ -59,7 +59,7 @@ export default function QuickViewModal() {
         >
           <X size={20} />
         </button>
-        <div className="relative aspect-square w-full bg-crema-100 md:w-1/2">
+        <div className="relative aspect-square w-full bg-white md:w-1/2">
           <Image
             src={product.image}
             alt={product.name}
