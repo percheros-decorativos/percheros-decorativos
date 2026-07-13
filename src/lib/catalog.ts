@@ -42,6 +42,7 @@ const catImg = (slug: string) => categoryStock[slug] ?? `/img/categories/${slug}
 const prodImg = (name: string) => `/img/products/${name}.webp`;
 
 export const categories: CatCategory[] = [
+  { slug: "dedios", name: "DeDios", tagline: "Útiles y Resilientes", description: "Percheros con mensajes e imágenes de fe y esperanza, para acompañar y decorar tu hogar.", image: catImg("dedios") },
   { slug: "hogar", name: "Hogar", tagline: "Útiles y Decorativos", description: "Percheros decorativos con imágenes de paisajes y diferentes temáticas, útiles para colgar accesorios livianos, ofreciendo organización, funcionalidad y decoración en el hogar.", image: catImg("hogar") },
   { slug: "mascotas", name: "Mascotas", tagline: "Útiles y Familiares", description: "Percheros diseñados para los amantes de las mascotas: organiza correas, juguetes y accesorios de tu compañero con estilo.", image: catImg("mascotas") },
   { slug: "moteros", name: "Moteros", tagline: "Útiles y Seguros", description: "Percheros con temática motera para colgar cascos, chaquetas y accesorios de viaje. Vive la pasión por las carreteras.", image: catImg("moteros") },
@@ -51,7 +52,6 @@ export const categories: CatCategory[] = [
   { slug: "corporativos", name: "Corporativos", tagline: "Útiles y Funcionales", description: "Percheros con la imagen de tu marca o empresa. Detalles corporativos útiles, funcionales y memorables.", image: catImg("corporativos") },
   { slug: "murales", name: "Murales", tagline: "Útiles y Decorativos", description: "Murales decorativos en madera que transforman cualquier pared en un espacio con personalidad y organización.", image: catImg("murales") },
   { slug: "souvenires", name: "Souvenires", tagline: "Útiles y Cómodos", description: "Recuerdos y detalles artesanales en madera, perfectos para sorprender en cualquier ocasión.", image: catImg("souvenires") },
-  { slug: "dedios", name: "DeDios", tagline: "Útiles y Resilientes", description: "Percheros con mensajes e imágenes de fe y esperanza, para acompañar y decorar tu hogar.", image: catImg("dedios") },
   { slug: "variados", name: "Variados", tagline: "Útiles y Funcionales", description: "Diseños variados para todos los gustos: una selección versátil de percheros artesanales.", image: catImg("variados") },
 ];
 
