@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Script from "next/script";
 import AddToCartButton from "@/components/cart/AddToCartButton";
 import ProductCard from "@/components/ui/ProductCard";
 import ProductGallery from "@/components/ui/ProductGallery";
@@ -274,6 +275,11 @@ export default async function ProductoPage({
                   image: product.images[0]?.url ?? "/img/placeholder-product.svg",
                   maxStock: product.stock,
                 }}
+              />
+              <Script
+                id="bold-ui-kit-slider"
+                src="https://bold.co/library/ui-kit.js?layout=vertical&type=slider"
+                strategy="lazyOnload"
               />
             </div>
 
