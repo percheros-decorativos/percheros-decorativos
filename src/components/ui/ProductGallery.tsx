@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
@@ -49,32 +49,69 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
   const [open, setOpen] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const [zoomScale, setZoomScale] = useState(2.2);
-  const [origin, setOrigin] = useState({ x: 50, y: 50 });
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const zoomBoxRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ x: number; y: number; panX: number; panY: number; moved: boolean } | null>(null);
   const count = images.length;
   const current = images[index] ?? images[0];
 
-  const close = useCallback(() => {
-    setOpen(false);
+  const resetZoom = useCallback(() => {
     setZoomed(false);
+    setZoomScale(2.2);
+    setPan({ x: 0, y: 0 });
   }, []);
 
-  // Sigue el cursor: al hacer zoom, el punto bajo el mouse queda fijo y la
-  // imagen se amplía alrededor de él, como una lupa.
-  const trackCursor = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!zoomed) return;
-    const r = e.currentTarget.getBoundingClientRect();
-    setOrigin({
-      x: Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)),
-      y: Math.max(0, Math.min(100, ((e.clientY - r.top) / r.height) * 100)),
-    });
+  const close = useCallback(() => {
+    setOpen(false);
+    resetZoom();
+  }, [resetZoom]);
+
+  // Recorta el desplazamiento para que la imagen ampliada no se arrastre
+  // más allá de donde su borde llega al centro del marco.
+  const clampPan = useCallback((p: { x: number; y: number }, scale: number) => {
+    const box = zoomBoxRef.current;
+    if (!box) return p;
+    const maxX = (box.clientWidth * (scale - 1)) / 2;
+    const maxY = (box.clientHeight * (scale - 1)) / 2;
+    return {
+      x: Math.max(-maxX, Math.min(maxX, p.x)),
+      y: Math.max(-maxY, Math.min(maxY, p.y)),
+    };
+  }, []);
+
+  // Un clic sin arrastre alterna el zoom; arrastrar (mouse o dedo) desplaza
+  // la imagen ampliada hacia los lados en vez de cerrar/abrir el zoom.
+  const onDragStart = (e: React.PointerEvent<HTMLDivElement>) => {
+    drag.current = { x: e.clientX, y: e.clientY, panX: pan.x, panY: pan.y, moved: false };
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+  const onDragMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!drag.current) return;
+    const dx = e.clientX - drag.current.x;
+    const dy = e.clientY - drag.current.y;
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) drag.current.moved = true;
+    if (zoomed && drag.current.moved) {
+      setPan(clampPan({ x: drag.current.panX + dx, y: drag.current.panY + dy }, zoomScale));
+    }
+  };
+  const onDragEnd = () => {
+    const wasDrag = drag.current?.moved;
+    drag.current = null;
+    if (wasDrag) return;
+    if (zoomed) resetZoom();
+    else setZoomed(true);
   };
 
   // Rueda del mouse: acerca o aleja más el zoom (entre 1.5x y 4x) sin cerrar
-  // el lightbox.
+  // el lightbox, re-recortando el desplazamiento a los nuevos límites.
   const onWheelZoom = (e: React.WheelEvent<HTMLDivElement>) => {
     if (!zoomed) return;
     e.preventDefault();
-    setZoomScale((s) => Math.max(1.5, Math.min(4, s + (e.deltaY < 0 ? 0.35 : -0.35))));
+    setZoomScale((s) => {
+      const next = Math.max(1.5, Math.min(4, s + (e.deltaY < 0 ? 0.35 : -0.35)));
+      setPan((p) => clampPan(p, next));
+      return next;
+    });
   };
   const prev = useCallback(
     () => setIndex((i) => (i - 1 + count) % count),
@@ -87,8 +124,13 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
-      else if (e.key === "ArrowLeft") prev();
-      else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") {
+        resetZoom();
+        prev();
+      } else if (e.key === "ArrowRight") {
+        resetZoom();
+        next();
+      }
     };
     window.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
@@ -97,7 +139,7 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
     };
-  }, [open, close, prev, next]);
+  }, [open, close, prev, next, resetZoom]);
 
   return (
     <div className="sm:flex sm:items-start sm:gap-4">
@@ -188,15 +230,15 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
           </button>
 
           <div
-            className={`relative h-[85vh] w-[92vw] overflow-hidden ${
-              zoomed ? "cursor-zoom-out" : "cursor-zoom-in"
+            ref={zoomBoxRef}
+            className={`relative h-[85vh] w-[92vw] touch-none overflow-hidden select-none ${
+              zoomed ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"
             }`}
-            onClick={(e) => {
-              e.stopPropagation();
-              setZoomed((z) => !z);
-              setZoomScale(2.2);
-            }}
-            onMouseMove={trackCursor}
+            onClick={(e) => e.stopPropagation()}
+            onPointerDown={onDragStart}
+            onPointerMove={onDragMove}
+            onPointerUp={onDragEnd}
+            onPointerCancel={onDragEnd}
             onWheel={onWheelZoom}
           >
             <Image
@@ -206,15 +248,17 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
               fill
               sizes="92vw"
               quality={95}
-              className="object-contain transition-transform duration-200 ease-out"
+              draggable={false}
+              className={`object-contain ${zoomed ? "" : "transition-transform duration-200 ease-out"}`}
               style={{
-                transform: zoomed ? `scale(${zoomScale})` : "scale(1)",
-                transformOrigin: `${origin.x}% ${origin.y}%`,
+                transform: zoomed
+                  ? `translate(${pan.x}px, ${pan.y}px) scale(${zoomScale})`
+                  : "scale(1)",
               }}
             />
             {zoomed && (
               <div className="pointer-events-none absolute bottom-5 right-5 rounded-full bg-carbon/5 px-3 py-1 text-xs font-medium text-carbon shadow-md ring-1 ring-carbon/10">
-                {zoomScale.toFixed(1)}× · rueda del mouse para más zoom
+                {zoomScale.toFixed(1)}× · arrastra para mover · rueda para zoom
               </div>
             )}
           </div>
@@ -225,7 +269,7 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setZoomed(false);
+                  resetZoom();
                   prev();
                 }}
                 aria-label="Foto anterior"
@@ -237,7 +281,7 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setZoomed(false);
+                  resetZoom();
                   next();
                 }}
                 aria-label="Foto siguiente"
