@@ -48,6 +48,8 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [zoomed, setZoomed] = useState(false);
+  const [zoomScale, setZoomScale] = useState(2.2);
+  const [origin, setOrigin] = useState({ x: 50, y: 50 });
   const count = images.length;
   const current = images[index] ?? images[0];
 
@@ -55,6 +57,25 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
     setOpen(false);
     setZoomed(false);
   }, []);
+
+  // Sigue el cursor: al hacer zoom, el punto bajo el mouse queda fijo y la
+  // imagen se amplía alrededor de él, como una lupa.
+  const trackCursor = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!zoomed) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    setOrigin({
+      x: Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)),
+      y: Math.max(0, Math.min(100, ((e.clientY - r.top) / r.height) * 100)),
+    });
+  };
+
+  // Rueda del mouse: acerca o aleja más el zoom (entre 1.5x y 4x) sin cerrar
+  // el lightbox.
+  const onWheelZoom = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (!zoomed) return;
+    e.preventDefault();
+    setZoomScale((s) => Math.max(1.5, Math.min(4, s + (e.deltaY < 0 ? 0.35 : -0.35))));
+  };
   const prev = useCallback(
     () => setIndex((i) => (i - 1 + count) % count),
     [count],
@@ -109,6 +130,7 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
               alt={current?.alt ?? "Producto"}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={90}
               className="object-contain p-6"
               priority
             />
@@ -172,7 +194,10 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
             onClick={(e) => {
               e.stopPropagation();
               setZoomed((z) => !z);
+              setZoomScale(2.2);
             }}
+            onMouseMove={trackCursor}
+            onWheel={onWheelZoom}
           >
             <Image
               key={current?.url}
@@ -180,10 +205,18 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
               alt={current?.alt ?? "Producto"}
               fill
               sizes="92vw"
-              className={`object-contain transition-transform duration-300 ${
-                zoomed ? "scale-[2]" : "scale-100"
-              }`}
+              quality={95}
+              className="object-contain transition-transform duration-200 ease-out"
+              style={{
+                transform: zoomed ? `scale(${zoomScale})` : "scale(1)",
+                transformOrigin: `${origin.x}% ${origin.y}%`,
+              }}
             />
+            {zoomed && (
+              <div className="pointer-events-none absolute bottom-5 right-5 rounded-full bg-carbon/5 px-3 py-1 text-xs font-medium text-carbon shadow-md ring-1 ring-carbon/10">
+                {zoomScale.toFixed(1)}× · rueda del mouse para más zoom
+              </div>
+            )}
           </div>
 
           {count > 1 && (

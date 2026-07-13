@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   images: {
     // Formatos modernos para mejores Core Web Vitals
     formats: ["image/avif", "image/webp"],
+    // Next 16 exige lista blanca de calidades; sin esto, quality={90}/{95}
+    // se recortan en silencio al 75 por defecto (fotos de producto + zoom).
+    qualities: [75, 90, 95],
     // Permitir imágenes remotas (las que el admin pegue como URL).
     remotePatterns: [{ protocol: "https", hostname: "**" }],
     // Necesario para procesar los placeholders SVG locales de forma segura.
