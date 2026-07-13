@@ -19,8 +19,8 @@ export default function Logo({
       <Image
         src={onDark ? "/img/logo-horizontal-blanco.svg" : "/img/logo-horizontal.svg"}
         alt="Percheros Decorativos"
-        width={230}
-        height={51}
+        width={266}
+        height={56}
         priority
         className="h-11 w-auto"
       />
