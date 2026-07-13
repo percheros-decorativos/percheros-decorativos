@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { checkoutSchema } from "@/lib/validation";
 import { boldIntegritySignature } from "@/lib/bold";
 import { createOrder } from "@/lib/orders";
-import { products } from "@/lib/catalog";
+import { getAllProducts } from "@/lib/queries";
 import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -31,7 +31,8 @@ export async function POST(request: Request) {
 
   const { customer, items } = parsed.data;
 
-  // Precios SIEMPRE desde el catálogo en código (nunca confiar en el cliente).
+  // Precios SIEMPRE desde el catálogo del servidor (nunca confiar en el cliente).
+  const products = await getAllProducts();
   const lines = [];
   for (const item of items) {
     const product = products.find((p) => p.id === item.id);

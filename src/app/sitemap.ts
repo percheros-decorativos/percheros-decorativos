@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { categories, products } from "@/lib/catalog";
+import { getAllProducts, getCategories } from "@/lib/queries";
 import { ciudades } from "@/lib/seo-locations";
 import { guias } from "@/lib/guias";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = site.url;
   const now = new Date();
+  const [categories, products] = await Promise.all([getCategories(), getAllProducts()]);
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, changeFrequency: "weekly", priority: 1 },

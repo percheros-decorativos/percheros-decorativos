@@ -74,10 +74,43 @@ export async function updateOrderStatus(
   boldTxId?: string,
 ): Promise<void> {
   if (!supabaseAdmin) return;
-  await supabaseAdmin
+  // Solo toca wompi_tx_id si viene uno nuevo (el webhook siempre lo manda).
+  // Si no, no lo pisa — así el panel de admin puede cambiar el estado a mano
+  // sin borrar el id de transacción de Bold ya guardado.
+  const patch: Record<string, unknown> = { status };
+  if (boldTxId) patch.wompi_tx_id = boldTxId;
+  await supabaseAdmin.from("orders").update(patch).eq("reference", reference);
+}
+
+export interface AdminOrderListItem {
+  id: string;
+  reference: string;
+  customerName: string;
+  customerEmail: string;
+  total: number;
+  status: string;
+  createdAt: string;
+}
+
+export async function listOrders(): Promise<AdminOrderListItem[]> {
+  if (!supabaseAdmin) return [];
+  const { data, error } = await supabaseAdmin
     .from("orders")
-    .update({ status, wompi_tx_id: boldTxId || null })
-    .eq("reference", reference);
+    .select("id, reference, customer_name, customer_email, total, status, created_at")
+    .order("created_at", { ascending: false });
+  if (error) {
+    console.error("[orders] list error:", error.message);
+    return [];
+  }
+  return (data ?? []).map((o) => ({
+    id: o.id,
+    reference: o.reference,
+    customerName: o.customer_name,
+    customerEmail: o.customer_email,
+    total: Number(o.total),
+    status: o.status,
+    createdAt: o.created_at,
+  }));
 }
 
 export async function getOrderByReference(reference: string) {
