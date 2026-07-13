@@ -15,10 +15,17 @@ interface ProductsSliderProps {
 }
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
+// Umbral en px antes de considerar que el mouse está arrastrando (no dando
+// clic). Capturar el puntero desde el primer pixel rompe la navegación de
+// los <Link> de ProductCard: el mouseup/click queda retargeteado al
+// contenedor en vez de al link, y el navegador nunca dispara la navegación.
+const DRAG_THRESHOLD = 6;
 
 export default function ProductsSlider({ products }: ProductsSliderProps) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const drag = useRef<{ x: number; scroll: number } | null>(null);
+  const drag = useRef<{ x: number; scroll: number; dragging: boolean; pointerId: number } | null>(
+    null,
+  );
   const reduceMotion = useReducedMotion();
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -57,14 +64,19 @@ export default function ProductsSlider({ products }: ProductsSliderProps) {
   const onPointerDown = (e: React.PointerEvent) => {
     const el = trackRef.current;
     if (!el || e.pointerType !== "mouse") return;
-    drag.current = { x: e.clientX, scroll: el.scrollLeft };
-    setIsDragging(true);
-    el.setPointerCapture(e.pointerId);
+    drag.current = { x: e.clientX, scroll: el.scrollLeft, dragging: false, pointerId: e.pointerId };
   };
   const onPointerMove = (e: React.PointerEvent) => {
     const el = trackRef.current;
     if (!el || !drag.current) return;
-    el.scrollLeft = drag.current.scroll - (e.clientX - drag.current.x);
+    const dx = e.clientX - drag.current.x;
+    if (!drag.current.dragging) {
+      if (Math.abs(dx) < DRAG_THRESHOLD) return;
+      drag.current.dragging = true;
+      setIsDragging(true);
+      el.setPointerCapture(drag.current.pointerId);
+    }
+    el.scrollLeft = drag.current.scroll - dx;
   };
   const endDrag = () => {
     drag.current = null;
