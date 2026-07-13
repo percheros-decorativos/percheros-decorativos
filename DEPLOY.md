@@ -21,7 +21,9 @@ dinámicos (órdenes/contacto) en Supabase, estado de carrito/favoritos en Zusta
    - `NEXT_PUBLIC_SITE_URL` = tu dominio (ej. `https://www.percherosdecorativos.com`)
    - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
    - `NEXT_PUBLIC_BOLD_API_KEY`, `BOLD_SECRET_KEY`, `NEXT_PUBLIC_BOLD_CURRENCY=COP`
-   - `ADMIN_PASSWORD` = clave fuerte (acceso a `/admin`, usuario `admin`)
+   - `ADMIN_PASSWORD` = clave fuerte y larga (login en `/admin/login`, sin
+     usuario — solo contraseña. Si esta variable no está definida, `/admin`
+     queda bloqueado por completo para todos, no abierto)
    - `SHIPPING_FLAT_COP` = costo de envío (o `0`)
 4. **Deploy**. Cada push a la rama principal redespliega automáticamente.
 

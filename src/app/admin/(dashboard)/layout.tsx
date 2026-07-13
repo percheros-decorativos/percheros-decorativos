@@ -1,8 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { logoutAction } from "../login/actions";
 
-// Layout del panel /admin. La autenticación (Basic Auth) ya la resuelve
-// src/middleware.ts para todo lo que empieza en /admin — nada que hacer acá.
+// Layout del panel /admin (rutas protegidas). Vive en el grupo (dashboard)
+// para que /admin/login, que no debe llevar este nav ni requiere sesión,
+// quede fuera de este layout. La sesión la verifica src/proxy.ts para todo
+// lo que empieza en /admin salvo /admin/login.
 
 export const metadata = {
   robots: { index: false, follow: false },
@@ -30,9 +33,19 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               Órdenes
             </Link>
           </nav>
-          <Link href="/" className="text-sm text-carbon/50 hover:text-carbon">
-            Ver sitio →
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="text-sm text-carbon/50 hover:text-carbon">
+              Ver sitio →
+            </Link>
+            <form action={logoutAction}>
+              <button
+                type="submit"
+                className="text-sm font-semibold text-carbon/50 hover:text-red-600"
+              >
+                Cerrar sesión
+              </button>
+            </form>
+          </div>
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
