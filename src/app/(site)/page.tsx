@@ -6,6 +6,7 @@ import CategoryCard from "@/components/ui/CategoryCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 import JsonLd from "@/components/JsonLd";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
+import { ArrowRight } from "lucide-react";
 import Marquee from "@/components/ui/Marquee";
 import HeroSlider from "@/components/pages/HeroSlider";
 import ServicesSlider from "@/components/pages/ServicesSlider";
@@ -152,17 +153,30 @@ export default async function HomePage() {
           </p>
         </Reveal>
         <RevealStagger className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {categories.slice(0, 8).map((c, i) => (
+          {categories.map((c, i) => (
             <RevealItem key={c.id}>
               <CategoryCard category={c} priority={i < 4} />
             </RevealItem>
           ))}
+          <RevealItem>
+            <Link
+              href="/categorias"
+              className="group flex h-full flex-col items-center justify-center gap-4 rounded-2xl border-2 border-rojo-500 bg-rojo-500 p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-rojo-600 hover:shadow-lg"
+            >
+              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/15 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-rojo-600">
+                <ArrowRight className="h-9 w-9 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <span>
+                <span className="block font-display text-xl font-extrabold uppercase tracking-tight text-white">
+                  Ver todas
+                </span>
+                <span className="mt-1 block text-sm font-medium text-white/80">
+                  Todas las categorías
+                </span>
+              </span>
+            </Link>
+          </RevealItem>
         </RevealStagger>
-        <div className="mt-8 text-center">
-          <ButtonLink href="/categorias" variant="outline">
-            Ver todas las categorías
-          </ButtonLink>
-        </div>
       </section>
 
       {/* ===================== BANNER HOGAR ===================== */}
