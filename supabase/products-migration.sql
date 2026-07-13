@@ -47,9 +47,11 @@ create or replace trigger products_updated_at
   for each row execute function set_updated_at();
 
 -- Catálogo actual (39 productos), con id explícito para no romper
--- referencias existentes de carrito/órdenes.
+-- referencias existentes de carrito/órdenes. "id" es identity GENERATED
+-- ALWAYS, así que hace falta OVERRIDING SYSTEM VALUE para poder fijarlo.
 insert into products
   (id, slug, name, category_slug, reference, short_desc, description, materials, dimensions, hardware, warranty, price_cop, compare_at_cop, stock, featured, is_new, images)
+overriding system value
 values
   (1, 'perchero-la-candelaria-bogota', 'Perchero La Candelaria Bogotá', 'hogar', 'PH1', 'Calles coloniales de La Candelaria, Bogotá.', 'Perchero decorativo con imagen de las calles coloniales de La Candelaria, en el centro histórico de Bogotá. Diseño en impresión de vinilo full color sobre madera.', 'Fabricados en madera atemporal de re-origen, impresión en vinilo adhesivo full color, herrajes metálicos de diferentes referencias.', 'Aprox. 30 x 7,5 x 1,5 cms', '2 ganchos duplex verticales', '6 meses', 30000, 40000, 2, true, false, '[{"url":"/img/products/perchero-la-candelaria-bogota.webp","alt":"Perchero La Candelaria Bogotá"},{"url":"/img/products/perchero-la-candelaria-bogota-2.webp","alt":"Perchero La Candelaria Bogotá — vista 2"},{"url":"/img/products/perchero-la-candelaria-bogota-3.webp","alt":"Perchero La Candelaria Bogotá — vista 3"}]'::jsonb),
   (2, 'perchero-la-candelaria-colores', 'Perchero La Candelaria Casas de Colores', 'hogar', 'PH1-1', 'Fachadas coloridas del barrio La Candelaria.', 'Perchero decorativo con las fachadas coloridas del barrio La Candelaria de Bogotá. Diseño en impresión de vinilo full color sobre madera.', 'Fabricados en madera atemporal de re-origen, impresión en vinilo adhesivo full color, herrajes metálicos de diferentes referencias.', 'Aprox. 30 x 7,5 x 1,5 cms', '2 ganchos duplex verticales', '6 meses', 30000, 40000, 2, false, false, '[{"url":"/img/products/perchero-la-candelaria-colores.webp","alt":"Perchero La Candelaria Casas de Colores"},{"url":"/img/products/perchero-la-candelaria-colores-2.webp","alt":"Perchero La Candelaria Casas de Colores — vista 2"},{"url":"/img/products/perchero-la-candelaria-colores-3.webp","alt":"Perchero La Candelaria Casas de Colores — vista 3"}]'::jsonb),
