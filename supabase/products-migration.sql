@@ -8,6 +8,15 @@
 -- servidor con la service_role key (supabaseAdmin), igual que "orders".
 -- =====================================================
 
+-- Función de updated_at: se crea aquí también (create or replace, es
+-- seguro repetirla) por si este proyecto no corrió schema.sql o la
+-- función no quedó creada por algún motivo — así esta migración no
+-- depende de nada externo.
+create or replace function set_updated_at()
+returns trigger as $$
+begin new.updated_at = now(); return new; end;
+$$ language plpgsql;
+
 create table if not exists products (
   id             bigint generated always as identity primary key,
   slug           text unique not null,
