@@ -153,14 +153,14 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
           role="dialog"
           aria-modal="true"
           aria-label={current?.alt ?? "Imagen ampliada"}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-white"
           onClick={close}
         >
           <button
             type="button"
             onClick={close}
             aria-label="Cerrar"
-            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/25"
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-carbon/5 text-carbon shadow-md ring-1 ring-carbon/10 transition hover:bg-carbon/10"
           >
             <X size={24} />
           </button>
@@ -196,7 +196,7 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
                   prev();
                 }}
                 aria-label="Foto anterior"
-                className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/25 sm:left-6"
+                className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-carbon/5 text-carbon shadow-md ring-1 ring-carbon/10 transition hover:bg-carbon/10 sm:left-6"
               >
                 <ChevronLeft size={26} />
               </button>
@@ -208,11 +208,11 @@ export default function ProductGallery({ images, isNew }: ProductGalleryProps) {
                   next();
                 }}
                 aria-label="Foto siguiente"
-                className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/25 sm:right-6"
+                className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-carbon/5 text-carbon shadow-md ring-1 ring-carbon/10 transition hover:bg-carbon/10 sm:right-6"
               >
                 <ChevronRight size={26} />
               </button>
-              <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1 text-sm text-white">
+              <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-carbon/5 px-3 py-1 text-sm text-carbon shadow-md ring-1 ring-carbon/10">
                 {index + 1} / {count}
               </div>
             </>
