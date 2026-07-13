@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Script from "next/script";
 import AddToCartButton from "@/components/cart/AddToCartButton";
+import BoldUiKitWidget from "@/components/cart/BoldUiKitWidget";
 import ProductCard from "@/components/ui/ProductCard";
 import ProductGallery from "@/components/ui/ProductGallery";
 import JsonLd from "@/components/JsonLd";
@@ -276,11 +276,7 @@ export default async function ProductoPage({
                   maxStock: product.stock,
                 }}
               />
-              <Script
-                id="bold-ui-kit-slider"
-                src="https://bold.co/library/ui-kit.js?layout=vertical&type=slider"
-                strategy="lazyOnload"
-              />
+              <BoldUiKitWidget />
             </div>
 
             {/* Prueba social / beneficios */}
