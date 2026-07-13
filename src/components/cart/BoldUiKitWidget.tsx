@@ -26,7 +26,7 @@ export default function BoldUiKitWidget() {
 
   return (
     <div className="mt-4 flex justify-center">
-      <div ref={containerRef} className="w-full max-w-xs scale-125 sm:scale-[1.35]" />
+      <div ref={containerRef} className="scale-125 sm:scale-[1.35]" />
     </div>
   );
 }
