@@ -3,6 +3,7 @@ import { checkoutSchema } from "@/lib/validation";
 import { boldIntegritySignature } from "@/lib/bold";
 import { createOrder } from "@/lib/orders";
 import { getAllProducts } from "@/lib/queries";
+import { shippingCostForCity } from "@/lib/shipping";
 import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -52,7 +53,7 @@ export async function POST(request: Request) {
   }
 
   const subtotal = lines.reduce((n, l) => n + l.unitPrice * l.quantity, 0);
-  const shipping = Number(process.env.SHIPPING_FLAT_COP || 0);
+  const shipping = shippingCostForCity(customer.city);
   const total = subtotal + shipping;
   const orderRef = generateOrderRef();
 

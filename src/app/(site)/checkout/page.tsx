@@ -6,6 +6,11 @@ import { useCartStore, useCartTotal } from "@/lib/store/cartStore";
 import { Button } from "@/components/ui/Button";
 import BoldButton, { type BoldConfig } from "@/components/cart/BoldButton";
 import { formatCOP as formatCop } from "@/lib/format";
+import {
+  shippingCostForCity,
+  SHIPPING_BOGOTA_COP,
+  SHIPPING_NACIONAL_COP,
+} from "@/lib/shipping";
 
 interface FormState {
   name: string;
@@ -40,6 +45,9 @@ export default function CheckoutPage() {
   function update<K extends keyof FormState>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }));
   }
+
+  const shipping = form.city.trim() ? shippingCostForCity(form.city) : null;
+  const total = subtotal + (shipping ?? 0);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -233,14 +241,25 @@ export default function CheckoutPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex justify-between border-t border-madera-200 pt-4">
+          <div className="mt-4 space-y-2 border-t border-madera-200 pt-4 text-sm">
+            <div className="flex justify-between">
+              <span className="text-carbon/70">Subtotal</span>
+              <span className="font-semibold">{formatCop(subtotal)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-carbon/70">Envío</span>
+              <span className="font-semibold">
+                {shipping !== null ? formatCop(shipping) : "Escribe tu ciudad"}
+              </span>
+            </div>
+          </div>
+          <div className="mt-3 flex justify-between border-t border-madera-200 pt-3">
             <span className="font-semibold">Total</span>
-            <span className="font-bold text-madera-800">
-              {formatCop(subtotal)}
-            </span>
+            <span className="font-bold text-madera-800">{formatCop(total)}</span>
           </div>
           <p className="mt-3 text-xs text-carbon/60">
-            El costo de envío se confirma según tu ciudad. Pago seguro con Bold.
+            Envío a Bogotá {formatCop(SHIPPING_BOGOTA_COP)} · Resto del país{" "}
+            {formatCop(SHIPPING_NACIONAL_COP)}. Pago seguro con Bold.
           </p>
         </aside>
       </div>

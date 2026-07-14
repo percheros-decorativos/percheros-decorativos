@@ -24,7 +24,6 @@ dinámicos (órdenes/contacto) en Supabase, estado de carrito/favoritos en Zusta
    - `ADMIN_PASSWORD` = clave fuerte y larga (login en `/admin/login`, sin
      usuario — solo contraseña. Si esta variable no está definida, `/admin`
      queda bloqueado por completo para todos, no abierto)
-   - `SHIPPING_FLAT_COP` = costo de envío (o `0`)
 4. **Deploy**. Cada push a la rama principal redespliega automáticamente.
 
 ## 4. Webhook de Bold
@@ -36,7 +35,12 @@ El catálogo vive en [`src/lib/catalog.ts`](src/lib/catalog.ts). Para agregar/ed
 productos, edita ese archivo (id, slug, nombre, precio, imágenes en `public/img/products`).
 Hoy hay **2 productos de ejemplo**; reemplázalos por los reales.
 
-## 6. SEO / GEO
+## 6. Envíos
+El costo de envío (Bogotá vs. resto del país) vive en
+[`src/lib/shipping.ts`](src/lib/shipping.ts). Para cambiar las tarifas, edita
+las constantes ahí; se aplican tanto en el checkout como en la API de órdenes.
+
+## 7. SEO / GEO
 - Sitemap dinámico: `/sitemap.xml` · Robots: `/robots.txt` · `public/llms.txt`
 - JSON-LD: Organization, WebSite, Product, BreadcrumbList, FAQ, Article.
 - SEO programático: páginas de ciudad (`/percheros/<ciudad>`) y guías (`/guias/<slug>`).

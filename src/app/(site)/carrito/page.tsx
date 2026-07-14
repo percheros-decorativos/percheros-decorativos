@@ -9,6 +9,7 @@ import {
 } from "@/lib/store/cartStore";
 import { ButtonLink } from "@/components/ui/Button";
 import { formatCOP } from "@/lib/format";
+import { SHIPPING_BOGOTA_COP, SHIPPING_NACIONAL_COP } from "@/lib/shipping";
 
 export default function CarritoPage() {
   const items = useCartStore((s) => s.items);
@@ -106,7 +107,10 @@ export default function CarritoPage() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-gris">Envío</dt>
-                <dd className="text-gris">Se calcula al pagar</dd>
+                <dd className="text-gris">
+                  Bogotá {formatCOP(SHIPPING_BOGOTA_COP)} · Nacional{" "}
+                  {formatCOP(SHIPPING_NACIONAL_COP)}
+                </dd>
               </div>
             </dl>
             <div className="mt-4 flex justify-between border-t border-rojo-100 pt-4 text-base">
