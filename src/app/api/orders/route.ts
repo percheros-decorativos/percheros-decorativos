@@ -33,9 +33,14 @@ export async function POST(request: Request) {
 
   const { customer, items } = parsed.data;
 
-  // Precios SIEMPRE desde el catálogo del servidor (nunca confiar en el cliente).
+  // Precios SIEMPRE desde el catálogo del servidor (nunca confiar en el
+  // cliente). product.priceCop ya trae la comisión de Bold incluida (ver
+  // markupPriceForBold en queries.ts) — es el precio real que ve y paga el
+  // cliente en todo el sitio. netPriceCop es el precio sin comisión, solo
+  // para el desglose contable interno.
   const products = await getAllProducts();
   const lines = [];
+  let netSubtotal = 0;
   for (const item of items) {
     const product = products.find((p) => p.id === item.id);
     if (!product) {
@@ -51,13 +56,16 @@ export async function POST(request: Request) {
       unitPrice: product.priceCop,
       quantity: item.quantity,
     });
+    netSubtotal += product.netPriceCop * item.quantity;
   }
 
   const subtotal = lines.reduce((n, l) => n + l.unitPrice * l.quantity, 0);
-  const shipping = shippingCostForCity(customer.city);
-  // El total se "engrosa" para que, tras el descuento de la comisión de
-  // Bold, al negocio le llegue exactamente subtotal + envío.
-  const { total, fee: boldFee } = grossUpForBold(subtotal + shipping);
+  const netShipping = shippingCostForCity(customer.city);
+  // El envío absorbe el fijo de $900 por transacción (no tiene sentido
+  // prorratearlo por artículo): se engrosa con tarifa + fijo completos.
+  const { total: shipping } = grossUpForBold(netShipping);
+  const total = subtotal + shipping;
+  const boldFee = subtotal - netSubtotal + (shipping - netShipping);
   const orderRef = generateOrderRef();
 
   // Persistir en Supabase (si está configurado; si no, sigue para no bloquear el pago).

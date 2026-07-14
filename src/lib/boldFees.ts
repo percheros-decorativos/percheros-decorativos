@@ -34,3 +34,16 @@ export function grossUpForBold(netAmount: number): BoldGrossUp {
   const total = Math.ceil((netAmount + BOLD_FEE_FIXED_COP) / (1 - BOLD_FEE_RATE));
   return { total, fee: total - netAmount };
 }
+
+/**
+ * Markup por artículo: solo la parte porcentual de la comisión (sin el fijo
+ * de $900, que es por transacción, no por unidad — se le suma una sola vez
+ * a la orden a través del envío, en grossUpForBold). Así el precio que ve
+ * el cliente en cada producto ya trae la comisión incluida, como un
+ * aumento normal de precio.
+ *
+ *   P' = P / (1 - tarifa)
+ */
+export function markupPriceForBold(basePrice: number): number {
+  return Math.ceil(basePrice / (1 - BOLD_FEE_RATE));
+}

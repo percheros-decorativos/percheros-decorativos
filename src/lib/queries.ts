@@ -7,6 +7,7 @@
 
 import { categories, products as fallbackProducts, type CatProduct } from "@/lib/catalog";
 import { supabaseAdmin, SUPABASE_CONFIGURED } from "@/lib/supabase";
+import { markupPriceForBold } from "@/lib/boldFees";
 
 export interface UIProduct {
   id: number;
@@ -19,8 +20,11 @@ export interface UIProduct {
   dimensions: string;
   hardware: string;
   warranty: string;
+  /** Precio mostrado al público: ya incluye la comisión de Bold. */
   priceCop: number;
   compareAtCop: number | null;
+  /** Precio real del catálogo, sin la comisión. Solo para contabilidad interna. */
+  netPriceCop: number;
   stock: number;
   featured: boolean;
   isNew: boolean;
@@ -85,8 +89,10 @@ function mapProduct(p: CatProduct): UIProduct {
     dimensions: p.dimensions,
     hardware: p.hardware,
     warranty: p.warranty,
-    priceCop: p.priceCop,
-    compareAtCop: p.compareAtCop ?? null,
+    priceCop: markupPriceForBold(p.priceCop),
+    compareAtCop:
+      p.compareAtCop != null ? markupPriceForBold(p.compareAtCop) : null,
+    netPriceCop: p.priceCop,
     stock: p.stock,
     featured: !!p.featured,
     isNew: !!p.isNew,
@@ -114,8 +120,12 @@ function mapDbProduct(row: any): UIProduct {
     dimensions: row.dimensions ?? "",
     hardware: row.hardware ?? "",
     warranty: row.warranty ?? "6 meses",
-    priceCop: Number(row.price_cop),
-    compareAtCop: row.compare_at_cop === null ? null : Number(row.compare_at_cop),
+    priceCop: markupPriceForBold(Number(row.price_cop)),
+    compareAtCop:
+      row.compare_at_cop === null
+        ? null
+        : markupPriceForBold(Number(row.compare_at_cop)),
+    netPriceCop: Number(row.price_cop),
     stock: row.stock,
     featured: !!row.featured,
     isNew: !!row.is_new,
