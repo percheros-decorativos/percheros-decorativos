@@ -19,8 +19,8 @@ export const site = {
   city: "Colombia",
   foundingYear: 2025,
   social: {
-    instagram: "https://instagram.com/percherosdecorativos",
-    facebook: "https://facebook.com/percherosdecorativos",
+    instagram: "https://www.instagram.com/percherosdecorativos/",
+    facebook: "https://www.facebook.com/profile.php?id=61550120445886",
     tiktok: "https://tiktok.com/@percherosdecorativos",
     whatsapp: "https://wa.me/573186044049",
   },
