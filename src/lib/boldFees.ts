@@ -21,12 +21,13 @@ export interface BoldGrossUp {
 }
 
 /**
- * Redondea hacia ARRIBA al siguiente mil (nunca al más cercano): así el
- * precio siempre queda limpio en COP y el negocio nunca recibe menos de lo
- * esperado por culpa del redondeo.
+ * Redondea hacia ARRIBA al siguiente precio terminado en 900 (precio
+ * "psicológico" de vitrina: 24.900, 26.900, etc.), nunca hacia abajo — así
+ * el negocio nunca recibe menos de lo esperado por culpa del redondeo.
  */
-function roundToThousand(n: number): number {
-  return Math.ceil(n / 1000) * 1000;
+function roundToCharmPrice(n: number): number {
+  const base900 = Math.floor(n / 1000) * 1000 + 900;
+  return base900 >= n ? base900 : base900 + 1000;
 }
 
 /**
@@ -39,7 +40,7 @@ function roundToThousand(n: number): number {
  */
 export function grossUpForBold(netAmount: number): BoldGrossUp {
   const raw = netAmount + netAmount * BOLD_FEE_RATE + BOLD_FEE_FIXED_COP;
-  const total = roundToThousand(raw);
+  const total = roundToCharmPrice(raw);
   return { total, fee: total - netAmount };
 }
 
