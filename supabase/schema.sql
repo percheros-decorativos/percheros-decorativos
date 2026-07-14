@@ -18,6 +18,7 @@ create table if not exists orders (
   shipping_country    text default 'CO',
   subtotal            numeric(12,2) not null default 0,
   shipping_cost       numeric(12,2) default 0,
+  bold_fee            numeric(12,2) default 0, -- comisión de Bold trasladada al cliente
   total               numeric(12,2) not null default 0,
   currency            text default 'COP',
   status              text default 'pending', -- pending | approved | declined | error

@@ -4,6 +4,7 @@ import { boldIntegritySignature } from "@/lib/bold";
 import { createOrder } from "@/lib/orders";
 import { getAllProducts } from "@/lib/queries";
 import { shippingCostForCity } from "@/lib/shipping";
+import { grossUpForBold } from "@/lib/boldFees";
 import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -54,7 +55,9 @@ export async function POST(request: Request) {
 
   const subtotal = lines.reduce((n, l) => n + l.unitPrice * l.quantity, 0);
   const shipping = shippingCostForCity(customer.city);
-  const total = subtotal + shipping;
+  // El total se "engrosa" para que, tras el descuento de la comisión de
+  // Bold, al negocio le llegue exactamente subtotal + envío.
+  const { total, fee: boldFee } = grossUpForBold(subtotal + shipping);
   const orderRef = generateOrderRef();
 
   // Persistir en Supabase (si está configurado; si no, sigue para no bloquear el pago).
@@ -64,6 +67,7 @@ export async function POST(request: Request) {
     items: lines,
     subtotal,
     shipping,
+    boldFee,
     total,
   });
 
@@ -85,6 +89,6 @@ export async function POST(request: Request) {
       description: `Pedido ${orderRef} - ${site.name}`,
       redirectionUrl: `${site.url}/checkout/confirmacion?order=${orderRef}`,
     },
-    totals: { subtotal, shipping, total },
+    totals: { subtotal, shipping, boldFee, total },
   });
 }

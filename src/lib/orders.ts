@@ -21,6 +21,7 @@ export interface NewOrderInput {
   }[];
   subtotal: number;
   shipping: number;
+  boldFee: number;
   total: number;
 }
 
@@ -38,6 +39,7 @@ export async function createOrder(input: NewOrderInput): Promise<boolean> {
     notes: input.customer.notes || null,
     subtotal: input.subtotal,
     shipping_cost: input.shipping,
+    bold_fee: input.boldFee,
     total: input.total,
     currency: "COP",
     status: "pending",

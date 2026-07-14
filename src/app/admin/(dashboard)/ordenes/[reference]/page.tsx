@@ -72,8 +72,12 @@ export default async function OrderDetailPage({
               <span className="text-carbon/60">Envío</span>
               <span>{formatCOP(order.shipping_cost)}</span>
             </div>
+            <div className="flex justify-between py-1">
+              <span className="text-carbon/60">Comisión Bold (trasladada)</span>
+              <span>{formatCOP(order.bold_fee ?? 0)}</span>
+            </div>
             <div className="flex justify-between border-t border-carbon/10 py-2 font-bold text-carbon">
-              <span>Total</span>
+              <span>Total cobrado</span>
               <span>{formatCOP(order.total)}</span>
             </div>
           </div>
