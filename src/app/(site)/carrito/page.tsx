@@ -10,7 +10,6 @@ import {
 import { ButtonLink } from "@/components/ui/Button";
 import { formatCOP } from "@/lib/format";
 import { SHIPPING_BOGOTA_COP, SHIPPING_NACIONAL_COP } from "@/lib/shipping";
-import { grossUpForBold } from "@/lib/boldFees";
 
 export default function CarritoPage() {
   const items = useCartStore((s) => s.items);
@@ -109,8 +108,8 @@ export default function CarritoPage() {
               <div className="flex justify-between">
                 <dt className="text-gris">Envío</dt>
                 <dd className="text-gris">
-                  Bogotá {formatCOP(grossUpForBold(SHIPPING_BOGOTA_COP).total)} ·
-                  Nacional {formatCOP(grossUpForBold(SHIPPING_NACIONAL_COP).total)}
+                  Bogotá {formatCOP(SHIPPING_BOGOTA_COP)} · Nacional{" "}
+                  {formatCOP(SHIPPING_NACIONAL_COP)}
                 </dd>
               </div>
             </dl>

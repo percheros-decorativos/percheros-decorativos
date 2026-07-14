@@ -4,7 +4,6 @@ import { boldIntegritySignature } from "@/lib/bold";
 import { createOrder } from "@/lib/orders";
 import { getAllProducts } from "@/lib/queries";
 import { shippingCostForCity } from "@/lib/shipping";
-import { grossUpForBold } from "@/lib/boldFees";
 import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -60,12 +59,11 @@ export async function POST(request: Request) {
   }
 
   const subtotal = lines.reduce((n, l) => n + l.unitPrice * l.quantity, 0);
-  const netShipping = shippingCostForCity(customer.city);
-  // El envío absorbe el fijo de $900 por transacción (no tiene sentido
-  // prorratearlo por artículo): se engrosa con tarifa + fijo completos.
-  const { total: shipping } = grossUpForBold(netShipping);
+  // El envío es tarifa fija (Bogotá/nacional), sin comisión de Bold — la
+  // comisión ya va incluida en el precio de cada artículo.
+  const shipping = shippingCostForCity(customer.city);
   const total = subtotal + shipping;
-  const boldFee = subtotal - netSubtotal + (shipping - netShipping);
+  const boldFee = subtotal - netSubtotal;
   const orderRef = generateOrderRef();
 
   // Persistir en Supabase (si está configurado; si no, sigue para no bloquear el pago).

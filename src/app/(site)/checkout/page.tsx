@@ -11,7 +11,6 @@ import {
   SHIPPING_BOGOTA_COP,
   SHIPPING_NACIONAL_COP,
 } from "@/lib/shipping";
-import { grossUpForBold } from "@/lib/boldFees";
 
 interface FormState {
   name: string;
@@ -48,11 +47,9 @@ export default function CheckoutPage() {
   }
 
   // subtotal (del carrito) ya trae la comisión de Bold incluida por
-  // artículo — ver markupPriceForBold en queries.ts. El envío se engrosa
-  // aparte porque además absorbe el fijo de $900 por transacción.
-  const shipping = form.city.trim()
-    ? grossUpForBold(shippingCostForCity(form.city)).total
-    : null;
+  // artículo — ver markupPriceForBold en queries.ts. El envío es tarifa
+  // fija, sin comisión: Bogotá $9.750, nacional $17.000.
+  const shipping = form.city.trim() ? shippingCostForCity(form.city) : null;
   const total = subtotal + (shipping ?? 0);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -264,10 +261,8 @@ export default function CheckoutPage() {
             <span className="font-bold text-madera-800">{formatCop(total)}</span>
           </div>
           <p className="mt-3 text-xs text-carbon/60">
-            Envío a Bogotá {formatCop(grossUpForBold(SHIPPING_BOGOTA_COP).total)} ·
-            Resto del país{" "}
-            {formatCop(grossUpForBold(SHIPPING_NACIONAL_COP).total)}. Pago
-            seguro con Bold.
+            Envío a Bogotá {formatCop(SHIPPING_BOGOTA_COP)} · Resto del país{" "}
+            {formatCop(SHIPPING_NACIONAL_COP)}. Pago seguro con Bold.
           </p>
         </aside>
       </div>

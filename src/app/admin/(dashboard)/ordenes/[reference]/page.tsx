@@ -80,8 +80,8 @@ export default async function OrderDetailPage({
           {(order.bold_fee ?? 0) > 0 && (
             <p className="mt-2 text-xs text-carbon/50">
               Incluye {formatCOP(order.bold_fee)} de comisión de Bold ya
-              trasladada al precio (Subtotal y Envío arriba ya la traen
-              sumada).
+              trasladada al precio de los productos (el Subtotal arriba ya
+              la trae sumada; el Envío es tarifa fija, sin comisión).
             </p>
           )}
 
