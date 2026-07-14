@@ -20,18 +20,22 @@ export interface BoldGrossUp {
   fee: number;
 }
 
+/** Redondea a la unidad de mil más cercana (precios "limpios" en COP). */
+function roundToThousand(n: number): number {
+  return Math.round(n / 1000) * 1000;
+}
+
 /**
  * Calcula el total a cobrar para que, después de que Bold descuente su
- * comisión (tarifa% del total + fijo), el comercio reciba exactamente
- * `netAmount`.
+ * comisión (tarifa% del total + fijo), el comercio reciba aproximadamente
+ * `netAmount` (el redondeo a miles puede variar el resultado en unos pocos
+ * cientos de pesos, un margen despreciable frente al precio del producto).
  *
  *   T = (N + fijo) / (1 - tarifa)
- *
- * Se redondea hacia arriba (COP no tiene centavos) para no perder margen
- * por el redondeo.
  */
 export function grossUpForBold(netAmount: number): BoldGrossUp {
-  const total = Math.ceil((netAmount + BOLD_FEE_FIXED_COP) / (1 - BOLD_FEE_RATE));
+  const raw = (netAmount + BOLD_FEE_FIXED_COP) / (1 - BOLD_FEE_RATE);
+  const total = roundToThousand(raw);
   return { total, fee: total - netAmount };
 }
 
@@ -40,10 +44,11 @@ export function grossUpForBold(netAmount: number): BoldGrossUp {
  * de $900, que es por transacción, no por unidad — se le suma una sola vez
  * a la orden a través del envío, en grossUpForBold). Así el precio que ve
  * el cliente en cada producto ya trae la comisión incluida, como un
- * aumento normal de precio.
+ * aumento normal de precio, redondeado a miles para que se vea limpio
+ * (ej. 25.888 → 26.000).
  *
  *   P' = P / (1 - tarifa)
  */
 export function markupPriceForBold(basePrice: number): number {
-  return Math.ceil(basePrice / (1 - BOLD_FEE_RATE));
+  return roundToThousand(basePrice / (1 - BOLD_FEE_RATE));
 }
