@@ -20,16 +20,20 @@ export interface BoldGrossUp {
   fee: number;
 }
 
-/** Redondea a la unidad de mil más cercana (precios "limpios" en COP). */
+/**
+ * Redondea hacia ARRIBA al siguiente mil (nunca al más cercano): así el
+ * precio siempre queda limpio en COP y el negocio nunca recibe menos de lo
+ * esperado por culpa del redondeo.
+ */
 function roundToThousand(n: number): number {
-  return Math.round(n / 1000) * 1000;
+  return Math.ceil(n / 1000) * 1000;
 }
 
 /**
  * Calcula el total a cobrar para que, después de que Bold descuente su
- * comisión (tarifa% del total + fijo), el comercio reciba aproximadamente
- * `netAmount` (el redondeo a miles puede variar el resultado en unos pocos
- * cientos de pesos, un margen despreciable frente al precio del producto).
+ * comisión (tarifa% del total + fijo), al comercio le llegue al menos
+ * `netAmount` (el redondeo hacia arriba a miles puede dejar unos pocos
+ * cientos de pesos de más, nunca de menos).
  *
  *   T = (N + fijo) / (1 - tarifa)
  */
