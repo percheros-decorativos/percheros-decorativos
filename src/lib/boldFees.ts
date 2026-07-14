@@ -30,29 +30,20 @@ function roundToThousand(n: number): number {
 }
 
 /**
- * Calcula el total a cobrar para que, después de que Bold descuente su
- * comisión (tarifa% del total + fijo), al comercio le llegue al menos
- * `netAmount` (el redondeo hacia arriba a miles puede dejar unos pocos
- * cientos de pesos de más, nunca de menos).
+ * Le suma la comisión de Bold (3,29% + $900) directo a un monto — cada
+ * artículo, o el envío, lleva su propia comisión completa e independiente
+ * (si el pedido tiene 3 artículos, el fijo de $900 se cuenta 3 veces, una
+ * por cada uno).
  *
- *   T = (N + fijo) / (1 - tarifa)
+ *   T = N + N×tarifa + fijo
  */
 export function grossUpForBold(netAmount: number): BoldGrossUp {
-  const raw = (netAmount + BOLD_FEE_FIXED_COP) / (1 - BOLD_FEE_RATE);
+  const raw = netAmount + netAmount * BOLD_FEE_RATE + BOLD_FEE_FIXED_COP;
   const total = roundToThousand(raw);
   return { total, fee: total - netAmount };
 }
 
-/**
- * Markup por artículo: solo la parte porcentual de la comisión (sin el fijo
- * de $900, que es por transacción, no por unidad — se le suma una sola vez
- * a la orden a través del envío, en grossUpForBold). Así el precio que ve
- * el cliente en cada producto ya trae la comisión incluida, como un
- * aumento normal de precio, redondeado a miles para que se vea limpio
- * (ej. 25.888 → 26.000).
- *
- *   P' = P / (1 - tarifa)
- */
+/** Markup por artículo: mismo cálculo que grossUpForBold, ya redondeado. */
 export function markupPriceForBold(basePrice: number): number {
-  return roundToThousand(basePrice / (1 - BOLD_FEE_RATE));
+  return grossUpForBold(basePrice).total;
 }
