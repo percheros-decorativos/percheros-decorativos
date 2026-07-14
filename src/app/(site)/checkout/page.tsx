@@ -48,7 +48,7 @@ export default function CheckoutPage() {
   }
 
   const shipping = form.city.trim() ? shippingCostForCity(form.city) : null;
-  const { total, fee: boldFee } = grossUpForBold(subtotal + (shipping ?? 0));
+  const { total } = grossUpForBold(subtotal + (shipping ?? 0));
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -253,10 +253,6 @@ export default function CheckoutPage() {
                 {shipping !== null ? formatCop(shipping) : "Escribe tu ciudad"}
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-carbon/70">Comisión pasarela de pago</span>
-              <span className="font-semibold">{formatCop(boldFee)}</span>
-            </div>
           </div>
           <div className="mt-3 flex justify-between border-t border-madera-200 pt-3">
             <span className="font-semibold">Total</span>
@@ -264,8 +260,7 @@ export default function CheckoutPage() {
           </div>
           <p className="mt-3 text-xs text-carbon/60">
             Envío a Bogotá {formatCop(SHIPPING_BOGOTA_COP)} · Resto del país{" "}
-            {formatCop(SHIPPING_NACIONAL_COP)}. El total incluye la comisión
-            de la pasarela de pago. Pago seguro con Bold.
+            {formatCop(SHIPPING_NACIONAL_COP)}. Pago seguro con Bold.
           </p>
         </aside>
       </div>
