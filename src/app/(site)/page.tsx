@@ -290,6 +290,31 @@ export default async function HomePage() {
             <ServicesSlider />
           </div>
         </Reveal>
+        <RevealStagger className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-6 px-4 sm:grid-cols-4 sm:gap-4">
+          {[
+            { slug: "servicio-al-cliente", label: "Servicio al Cliente", href: "/contacto" },
+            { slug: "instalacion", label: "Instalación", href: "/contacto?asunto=instalacion" },
+            { slug: "envios", label: "Envíos", href: "/contacto?asunto=envios" },
+            { slug: "formas-de-pago", label: "Formas de Pago", href: "/categorias" },
+          ].map((s) => (
+            <RevealItem key={s.slug}>
+              <Link
+                href={s.href}
+                className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1"
+              >
+                <span className="relative aspect-square w-full">
+                  <Image
+                    src={`/img/servicios/iconos/${s.slug}.webp`}
+                    alt={s.label}
+                    fill
+                    sizes="(max-width: 640px) 40vw, 180px"
+                    className="object-contain"
+                  />
+                </span>
+              </Link>
+            </RevealItem>
+          ))}
+        </RevealStagger>
       </section>
 
       {/* ===================== BANNER MOTEROS ===================== */}
