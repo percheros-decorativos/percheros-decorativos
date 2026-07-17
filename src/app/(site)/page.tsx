@@ -153,7 +153,7 @@ export default async function HomePage() {
           </p>
         </Reveal>
         <RevealStagger className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {categories.map((c, i) => (
+          {categories.slice(0, 7).map((c, i) => (
             <RevealItem key={c.id}>
               <CategoryCard category={c} priority={i < 4} />
             </RevealItem>
