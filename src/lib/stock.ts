@@ -20,16 +20,3 @@ export const stock = {
   fe: s("fe"),
 } as const;
 
-export const categoryStock: Record<string, string> = {
-  hogar: s("hogar"),
-  mascotas: s("mascotasReal"),
-  moteros: s("moteros"),
-  bike: s("bike"),
-  guitarras: s("guitarras"),
-  personalizados: s("personalizados"),
-  corporativos: s("oficina"),
-  murales: s("murales"),
-  souvenires: s("souvenires"),
-  dedios: s("fe"),
-  variados: s("interiorDeco"),
-};

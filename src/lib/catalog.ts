@@ -36,9 +36,7 @@ export interface CatProduct {
 const MATERIALES =
   "Fabricados en madera atemporal de re-origen, impresión en vinilo adhesivo full color, herrajes metálicos de diferentes referencias.";
 
-import { categoryStock } from "@/lib/stock";
-
-const catImg = (slug: string) => categoryStock[slug] ?? `/img/categories/${slug}.webp`;
+const catImg = (slug: string) => `/img/categories/${slug}.webp`;
 const prodImg = (name: string) => `/img/products/${name}.webp`;
 
 export const categories: CatCategory[] = [
