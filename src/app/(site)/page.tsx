@@ -183,7 +183,6 @@ export default async function HomePage() {
       <BannerDivider
         href="/categoria/hogar"
         src="/img/decorativas/hogar.webp"
-        mobileSrc="/img/decorativas/mobile/hogar-movil.webp"
         alt="Percheros decorativos para el hogar con paisajes de ciudad"
         ratio="1800 / 465"
       />
