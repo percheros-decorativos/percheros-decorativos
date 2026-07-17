@@ -11,6 +11,7 @@ import Marquee from "@/components/ui/Marquee";
 import HeroSlider from "@/components/pages/HeroSlider";
 import ServicesSlider from "@/components/pages/ServicesSlider";
 import ProductsSlider from "@/components/pages/ProductsSlider";
+import QuienesSomosSlider from "@/components/pages/QuienesSomosSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
 
@@ -223,7 +224,7 @@ export default async function HomePage() {
         </Reveal>
         <div className="mt-8 grid items-center gap-10 md:grid-cols-2">
           <Reveal direction="right">
-            <p className="text-lg leading-relaxed text-carbon">
+            <p className="text-center text-lg leading-relaxed text-carbon">
               <strong className="text-rojo-600">Percheros Decorativos</strong> es
               un Emprendimiento Artesanal; ofrecemos productos{" "}
               <strong className="text-rojo-600">
@@ -234,12 +235,12 @@ export default async function HomePage() {
               <strong className="text-rojo-600">organización</strong> en todo el
               hogar.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <span className="rounded-md bg-carbon px-4 py-2 text-sm font-bold uppercase tracking-wide text-white">
-                Emprendimiento Artesanal
-              </span>
-              <span className="font-display text-sm font-extrabold uppercase text-rojo-600">
-                100% Colombiano
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+              <span className="flex items-baseline gap-1.5 rounded-md bg-carbon px-4 py-2 text-sm font-bold uppercase tracking-wide text-white">
+                Emprendimiento{" "}
+                <span className="font-script text-lg normal-case tracking-normal">
+                  Artesanal
+                </span>
               </span>
               <Image
                 src="/img/badges/made-in-colombia.webp"
@@ -256,20 +257,17 @@ export default async function HomePage() {
                 className="h-12 w-auto object-contain"
               />
             </div>
-            <ButtonLink href="/quienes-somos" className="mt-6">
-              Conoce nuestra historia
-            </ButtonLink>
+            <p className="mt-2 text-center font-display text-sm font-extrabold uppercase text-rojo-600">
+              100% Colombiano
+            </p>
+            <div className="text-center">
+              <ButtonLink href="/quienes-somos" className="mt-6">
+                Conoce nuestra historia
+              </ButtonLink>
+            </div>
           </Reveal>
           <Reveal direction="left">
-            <div className="hover-lift relative mx-auto aspect-[2/3] w-full max-w-xs overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200">
-              <Image
-                src="/img/quienes/artesanias-1.webp"
-                alt="Emprendimiento colombiano — artesanías de Colombia"
-                fill
-                sizes="(max-width: 768px) 100vw, 22vw"
-                className="object-cover"
-              />
-            </div>
+            <QuienesSomosSlider />
           </Reveal>
         </div>
       </section>
