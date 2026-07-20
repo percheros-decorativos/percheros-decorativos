@@ -178,14 +178,6 @@ export default async function HomePage() {
         </RevealStagger>
       </section>
 
-      {/* ===================== BANNER HOGAR ===================== */}
-      <BannerDivider
-        href="/categoria/hogar"
-        src="/img/decorativas/hogar.webp"
-        alt="Percheros decorativos para el hogar con paisajes de ciudad"
-        ratio="1800 / 540"
-      />
-
       {/* ===================== DESTACADOS ===================== */}
       {featured.length > 0 && (
         <section className="bg-crema-50">
@@ -206,14 +198,6 @@ export default async function HomePage() {
           </div>
         </section>
       )}
-
-      {/* ===================== BANNER DEDIOS ===================== */}
-      <BannerDivider
-        href="/categoria/dedios"
-        src="/img/decorativas/dedios.webp"
-        alt="Percheros DeDIOS con imágenes de fe y esperanza"
-        ratio="1800 / 544"
-      />
 
       {/* ===================== QUIÉNES SOMOS ===================== */}
       <section className="mx-auto max-w-7xl px-4 py-16">
