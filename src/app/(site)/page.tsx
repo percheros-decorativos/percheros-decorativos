@@ -345,7 +345,10 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-16">
           <Reveal>
             <SectionTitle eyebrow="Comunidad">Parcheros</SectionTitle>
-            <p className="mt-6 text-center font-script text-3xl font-bold text-rojo-600 sm:text-4xl">
+            <p
+              className="mt-6 text-center text-3xl font-bold italic text-rojo-600 sm:text-4xl"
+              style={{ fontFamily: '"Calibri", sans-serif' }}
+            >
               ¡Únete a cualquiera de nuestras salidas según tu pasión y desparche!
             </p>
           </Reveal>
