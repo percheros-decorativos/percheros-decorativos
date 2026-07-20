@@ -12,6 +12,7 @@ import HeroSlider from "@/components/pages/HeroSlider";
 import ServicesSlider from "@/components/pages/ServicesSlider";
 import ProductsSlider from "@/components/pages/ProductsSlider";
 import QuienesSomosSlider from "@/components/pages/QuienesSomosSlider";
+import BannerSlider from "@/components/pages/BannerSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
 
@@ -312,13 +313,21 @@ export default async function HomePage() {
         </RevealStagger>
       </section>
 
-      {/* ===================== BANNER MOTEROS ===================== */}
-      <BannerDivider
-        href="/categoria/moteros"
-        src="/img/decorativas/moteros.webp"
-        mobileSrc="/img/decorativas/mobile/moteros-movil.webp"
-        alt="Percheros Moteros para cascos, chaquetas y accesorios de viaje"
-        ratio="1800 / 470"
+      {/* ===================== BANNER HOGAR / DEDIOS (slider) ===================== */}
+      <BannerSlider
+        ratio="1800 / 465"
+        slides={[
+          {
+            href: "/categoria/hogar",
+            src: "/img/decorativas/hogar.webp",
+            alt: "Percheros decorativos para el hogar con paisajes de ciudad",
+          },
+          {
+            href: "/categoria/dedios",
+            src: "/img/decorativas/dedios.webp",
+            alt: "Percheros DeDIOS con imágenes de fe y esperanza",
+          },
+        ]}
       />
 
       {/* ===================== PARCHEROS ===================== */}
