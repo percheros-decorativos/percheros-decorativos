@@ -81,41 +81,26 @@ const salidas = [
     title: "Moteras",
     src: "/img/parcheros/salidas-moteras.webp",
     accent: "text-rojo-600",
-    boxes: [
-      {
-        bg: "bg-carbon",
-        text: "El objetivo de las salidas moter@s es vivir la pasión por la libertad y las actividades relacionadas con las motocicletas.",
-      },
-      {
-        bg: "bg-rojo-500",
-        text: "Fomentando siempre la seguridad, solidaridad, respeto y colaboración.",
-      },
+    texts: [
+      "El objetivo de las salidas moter@s es vivir la pasión por la libertad y las actividades relacionadas con las motocicletas.",
+      "Fomentando siempre la seguridad, solidaridad, respeto y colaboración.",
     ],
   },
   {
     title: "Bike",
     src: "/img/parcheros/salidas-bikes.webp",
     accent: "text-rojo-600",
-    boxes: [
-      {
-        bg: "bg-carbon",
-        text: "El objetivo de las salidas MTB (Mountain Bike) es compartir la pasión por la bicicleta, la cultura bici y salir a rodar por caminos de trocha y montaña.",
-      },
+    texts: [
+      "El objetivo de las salidas MTB (Mountain Bike) es compartir la pasión por la bicicleta, la cultura bici y salir a rodar por caminos de trocha y montaña.",
     ],
   },
   {
     title: "Mascotas",
     src: "/img/parcheros/salidas-mascotas.webp",
     accent: "text-rojo-600",
-    boxes: [
-      {
-        bg: "bg-carbon",
-        text: "La finalidad de las salidas es caminar y compartir con nuestras mascotas.",
-      },
-      {
-        bg: "bg-rojo-500",
-        text: "En un espacio diferente acompañados de la naturaleza.",
-      },
+    texts: [
+      "La finalidad de las salidas es caminar y compartir con nuestras mascotas.",
+      "En un espacio diferente acompañados de la naturaleza.",
     ],
   },
 ];
