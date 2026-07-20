@@ -39,7 +39,7 @@ function BannerDivider({
       alt={alt}
       fill
       sizes="100vw"
-      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+      className="object-cover"
     />
   );
 
@@ -271,7 +271,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===================== SERVICIOS ===================== */}
-      <section className="bg-crema-50 py-16">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
             <SectionTitle eyebrow="Cómo te acompañamos">Nuestros servicios</SectionTitle>

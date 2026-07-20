@@ -43,7 +43,7 @@ export default function BannerSlider({
             aria-hidden={i !== index}
             tabIndex={i === index ? 0 : -1}
             aria-label={s.alt}
-            className={`group absolute inset-0 block overflow-hidden transition-opacity duration-700 ease-out ${
+            className={`absolute inset-0 block overflow-hidden transition-opacity duration-700 ease-out ${
               i === index ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
@@ -52,7 +52,7 @@ export default function BannerSlider({
               alt={s.alt}
               fill
               sizes="100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              className="object-cover"
             />
           </Link>
         ))}
