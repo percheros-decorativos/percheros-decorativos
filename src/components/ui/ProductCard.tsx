@@ -43,14 +43,14 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       />
       <Link
         href={`/producto/${product.slug}`}
-        className="relative block aspect-square overflow-hidden bg-white"
+        className="relative block aspect-[4/3] overflow-hidden bg-white"
       >
         <Image
           src={image}
           alt={img?.alt ?? product.name}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+          className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
           priority={priority}
         />
         {product.isNew && (
