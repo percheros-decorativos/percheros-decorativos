@@ -220,7 +220,7 @@ export default async function HomePage() {
         <Reveal>
           <SectionTitle eyebrow="Nuestra esencia">Quiénes somos</SectionTitle>
         </Reveal>
-        <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
+        <div className="mt-8 grid items-center gap-10 md:grid-cols-2">
           <Reveal direction="right">
             <p className="text-center text-lg leading-relaxed text-carbon">
               <strong className="text-rojo-600">Percheros Decorativos</strong> es
