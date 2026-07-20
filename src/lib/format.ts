@@ -16,3 +16,13 @@ export function formatCOPLong(amount?: number | null): string {
   if (!amount || amount <= 0) return "Consultar precio";
   return "COP $" + cop.format(amount);
 }
+
+/**
+ * "DeDios" se muestra como "DeDIOS" (mayúsculas solo en "DIOS"), una
+ * capitalización especial que un `text-transform: uppercase` por CSS
+ * rompería. Esta clase decide cuándo omitir esa transformación para que el
+ * nombre se muestre tal cual viene, en vez de "uppercase" para el resto.
+ */
+export function categoryCaseClass(name?: string | null): string {
+  return name?.toUpperCase() === "DEDIOS" ? "normal-case" : "uppercase";
+}

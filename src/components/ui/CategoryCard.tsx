@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { categoryCaseClass } from "@/lib/format";
 
 export default function CategoryCard({
   category,
@@ -36,7 +37,9 @@ export default function CategoryCard({
           {category.tagline}
         </span>
       )}
-      <h3 className="mt-1 font-display text-xl font-extrabold uppercase tracking-tight text-carbon group-hover:text-rojo-600">
+      <h3
+        className={`mt-1 font-display text-xl font-extrabold tracking-tight text-carbon group-hover:text-rojo-600 ${categoryCaseClass(category.name)}`}
+      >
         {category.name}
       </h3>
       <span className="mt-4 rounded-md bg-rojo-500 px-6 py-1.5 text-sm font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-rojo-600 group-hover:shadow-md">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatPrice } from "@/lib/money";
+import { categoryCaseClass } from "@/lib/format";
 import ProductCardActions from "@/components/ui/ProductCardActions";
 import TiltCard from "@/components/ui/motion/TiltCard";
 
@@ -66,7 +67,9 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       </Link>
       <div className="flex flex-1 flex-col p-4">
         {product.category && (
-          <p className="text-xs font-medium uppercase tracking-wide text-gris">
+          <p
+            className={`text-xs font-medium tracking-wide text-gris ${categoryCaseClass(product.category.name)}`}
+          >
             {product.category.name}
           </p>
         )}

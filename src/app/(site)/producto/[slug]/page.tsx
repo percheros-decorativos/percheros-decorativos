@@ -9,6 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/ui/Reveal";
 import ProductSeoContent from "@/components/seo/ProductSeoContent";
 import { formatCop } from "@/lib/money";
+import { categoryCaseClass } from "@/lib/format";
 import { buildKeywords } from "@/lib/product-seo";
 import { site } from "@/lib/site";
 import {
@@ -216,7 +217,9 @@ export default async function ProductoPage({
 
           {/* Info */}
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-rojo-500">
+            <p
+              className={`text-sm font-bold tracking-[0.18em] text-rojo-500 ${categoryCaseClass(product.category?.name)}`}
+            >
               {product.category?.name}
             </p>
             <h1 className="mt-2 font-display text-4xl font-extrabold leading-tight text-carbon sm:text-5xl">

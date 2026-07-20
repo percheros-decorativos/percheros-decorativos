@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { X } from "lucide-react";
 import { useQuickViewStore } from "@/lib/store/quickViewStore";
 import { useCartStore } from "@/lib/store/cartStore";
-import { formatCOP } from "@/lib/format";
+import { formatCOP, categoryCaseClass } from "@/lib/format";
 
 export default function QuickViewModal() {
   const product = useQuickViewStore((s) => s.product);
@@ -70,7 +70,9 @@ export default function QuickViewModal() {
         </div>
         <div className="flex flex-1 flex-col p-6">
           {product.categoryName && (
-            <p className="text-xs font-medium uppercase tracking-wide text-gris">
+            <p
+              className={`text-xs font-medium tracking-wide text-gris ${categoryCaseClass(product.categoryName)}`}
+            >
               {product.categoryName}
             </p>
           )}
