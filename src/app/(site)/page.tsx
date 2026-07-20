@@ -76,9 +76,47 @@ function BannerDivider({
 
 // Salidas de la comunidad Parcheros.
 const salidas = [
-  { title: "Salidas Moteras", src: "/img/parcheros/salidas-moteras.webp" },
-  { title: "Salidas Bike", src: "/img/parcheros/salidas-bikes.webp" },
-  { title: "Salidas Mascotas", src: "/img/parcheros/salidas-mascotas.webp" },
+  {
+    title: "Moteras",
+    src: "/img/parcheros/salidas-moteras.webp",
+    accent: "text-[#c8703a]",
+    boxes: [
+      {
+        bg: "bg-[#c8703a]",
+        text: "El objetivo de las salidas moter@s es vivir la pasión por la libertad y las actividades relacionadas con las motocicletas.",
+      },
+      {
+        bg: "bg-[#dba172]",
+        text: "Fomentando siempre la seguridad, solidaridad, respeto y colaboración.",
+      },
+    ],
+  },
+  {
+    title: "Bike",
+    src: "/img/parcheros/salidas-bikes.webp",
+    accent: "text-[#2f9fd1]",
+    boxes: [
+      {
+        bg: "bg-[#2f9fd1]",
+        text: "El objetivo de las salidas MTB (Mountain Bike) es compartir la pasión por la bicicleta, la cultura bici y salir a rodar por caminos de trocha y montaña.",
+      },
+    ],
+  },
+  {
+    title: "Mascotas",
+    src: "/img/parcheros/salidas-mascotas.webp",
+    accent: "text-[#4a8f3c]",
+    boxes: [
+      {
+        bg: "bg-[#4a8f3c]",
+        text: "La finalidad de las salidas es caminar y compartir con nuestras mascotas.",
+      },
+      {
+        bg: "bg-[#7ab86a]",
+        text: "En un espacio diferente acompañados de la naturaleza.",
+      },
+    ],
+  },
 ];
 
 export const metadata: Metadata = {
@@ -337,22 +375,32 @@ export default async function HomePage() {
               ¡Únete a cualquiera de nuestras salidas según tu pasión y desparche!
             </p>
           </Reveal>
-          <RevealStagger className="mt-8 grid gap-6 md:grid-cols-3">
+          <RevealStagger className="mt-8 grid gap-8 md:grid-cols-3">
             {salidas.map((s) => (
               <RevealItem key={s.title}>
-                <Link
-                  href="/parcheros"
-                  aria-label={s.title}
-                  className="hover-lift group block overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200"
-                >
-                  <div className="relative aspect-[7/3]">
+                <Link href="/parcheros" aria-label={s.title} className="hover-lift group block">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
                     <Image
                       src={s.src}
-                      alt={`${s.title} de la comunidad Parcheros`}
+                      alt={`Salidas ${s.title} de la comunidad Parcheros`}
                       fill
                       sizes="(max-width: 768px) 100vw, 30vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     />
+                  </div>
+                  <p className="mt-4 text-center font-display text-2xl font-black uppercase leading-none tracking-tight">
+                    <span className={s.accent}>¡Salidas</span>{" "}
+                    <span className="text-carbon">{s.title}!</span>
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    {s.boxes.map((b, i) => (
+                      <p
+                        key={i}
+                        className={`rounded-lg px-4 py-3 text-center text-sm font-semibold text-white ${b.bg}`}
+                      >
+                        {b.text}
+                      </p>
+                    ))}
                   </div>
                 </Link>
               </RevealItem>
