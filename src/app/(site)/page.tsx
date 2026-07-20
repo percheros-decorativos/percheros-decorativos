@@ -288,24 +288,30 @@ export default async function HomePage() {
         </Reveal>
         <RevealStagger className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-6 px-4 sm:grid-cols-4 sm:gap-4">
           {[
-            { slug: "servicio-al-cliente", label: "Servicio al Cliente", href: "/contacto" },
-            { slug: "instalacion", label: "Instalación", href: "/contacto?asunto=instalacion" },
-            { slug: "envios", label: "Envíos", href: "/contacto?asunto=envios" },
-            { slug: "formas-de-pago", label: "Formas de Pago", href: "/categorias" },
+            { slug: "servicio-al-cliente", label: "Servicio al Cliente", href: "/contacto", color: "#005f2c", w: 247, h: 320 },
+            { slug: "instalacion", label: "Instalación", href: "/contacto?asunto=instalacion", color: "#d24000", w: 320, h: 320 },
+            { slug: "envios", label: "Envíos", href: "/contacto?asunto=envios", color: "#47372a", w: 320, h: 190 },
+            { slug: "formas-de-pago", label: "Formas de Pago", href: "/categorias", color: "#056daa", w: 184, h: 320 },
           ].map((s) => (
             <RevealItem key={s.slug}>
               <Link
                 href={s.href}
                 className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1"
               >
-                <span className="relative aspect-square w-full">
+                <span className="relative flex h-24 w-full items-end justify-center sm:h-28">
                   <Image
                     src={`/img/servicios/iconos/${s.slug}.webp`}
-                    alt={s.label}
-                    fill
-                    sizes="(max-width: 640px) 40vw, 180px"
-                    className="object-contain object-bottom"
+                    alt=""
+                    width={s.w}
+                    height={s.h}
+                    className="h-auto max-h-full w-auto max-w-full object-contain"
                   />
+                </span>
+                <span
+                  className="mt-3 font-display text-sm font-extrabold uppercase tracking-wide sm:text-base"
+                  style={{ color: s.color }}
+                >
+                  {s.label}
                 </span>
               </Link>
             </RevealItem>
