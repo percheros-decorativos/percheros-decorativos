@@ -304,7 +304,7 @@ export default async function HomePage() {
                     alt={s.label}
                     fill
                     sizes="(max-width: 640px) 40vw, 180px"
-                    className="object-contain"
+                    className="object-contain object-bottom"
                   />
                 </span>
               </Link>
