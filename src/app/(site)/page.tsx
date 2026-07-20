@@ -220,8 +220,8 @@ export default async function HomePage() {
         <Reveal>
           <SectionTitle eyebrow="Nuestra esencia">Quiénes somos</SectionTitle>
         </Reveal>
-        <div className="mt-8 grid items-center gap-10 md:grid-cols-2">
-          <Reveal direction="right">
+        <div className="mt-8 flex flex-col items-center justify-center gap-10 md:flex-row">
+          <Reveal direction="right" className="w-full md:max-w-md">
             <p className="text-center text-lg leading-relaxed text-carbon">
               <strong className="text-rojo-600">Percheros Decorativos</strong> es
               un Emprendimiento Artesanal; ofrecemos productos{" "}
@@ -267,7 +267,7 @@ export default async function HomePage() {
               </ButtonLink>
             </div>
           </Reveal>
-          <Reveal direction="left">
+          <Reveal direction="left" className="w-full max-w-[240px] shrink-0">
             <QuienesSomosSlider />
           </Reveal>
         </div>
