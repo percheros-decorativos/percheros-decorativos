@@ -323,4 +323,14 @@ html { scrollbar-color: var(--color-piedra) transparent; }
     transition-duration: 0.01ms !important;
   }
   .hero-mesh { animation: none; }
+  /* La cinta de taglines es puramente decorativa (no transmite información
+     que dependa del movimiento): se deja fuera de la regla anterior para
+     que siga deslizando incluso con "reducir movimiento" activado — si no,
+     queda congelada a mitad de una vuelta (animation-iteration-count: 1),
+     mostrando el texto cortado en una posición rara en vez de detenida al
+     inicio. */
+  .animate-marquee {
+    animation-duration: 28s !important;
+    animation-iteration-count: infinite !important;
+  }
 }

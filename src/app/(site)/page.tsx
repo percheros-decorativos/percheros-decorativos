@@ -212,7 +212,8 @@ export default async function HomePage() {
               <strong className="text-rojo-600">
                 Útiles, Funcionales y Decorativos
               </strong>
-              , fabricados en madera y/o MDF, con diferentes diseños y herrajes,
+              , fabricados en madera de re-origen y/o MDF, con diferentes
+              diseños y herrajes,
               para una mejor{" "}
               <strong className="text-rojo-600">organización</strong> en todo el
               hogar.
