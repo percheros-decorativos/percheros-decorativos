@@ -204,7 +204,7 @@ export default async function HomePage() {
         <Reveal>
           <SectionTitle eyebrow="Nuestra esencia">Quiénes somos</SectionTitle>
         </Reveal>
-        <div className="mt-8 flex flex-col items-center justify-center gap-10 md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-center gap-10 md:flex-row md:gap-20 lg:gap-28">
           <Reveal direction="right" className="w-full md:max-w-md">
             <p className="text-center text-lg leading-relaxed text-carbon">
               <strong className="text-rojo-600">Percheros Decorativos</strong> es
