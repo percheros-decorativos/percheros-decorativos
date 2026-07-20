@@ -308,7 +308,7 @@ export default async function HomePage() {
                   />
                 </span>
                 <span
-                  className="mt-3 font-display text-sm font-extrabold uppercase tracking-wide sm:text-base"
+                  className="mt-3 whitespace-nowrap font-display text-xs font-extrabold uppercase tracking-tight sm:text-sm"
                   style={{ color: s.color }}
                 >
                   {s.label}
