@@ -149,9 +149,6 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <Reveal>
           <SectionTitle eyebrow="Explora">Nuestras categorías</SectionTitle>
-          <p className="mt-4 max-w-2xl text-gris">
-            Encuentra el perchero ideal según tu pasión y tu espacio.
-          </p>
         </Reveal>
         <RevealStagger className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {categories.slice(0, 7).map((c, i) => (
