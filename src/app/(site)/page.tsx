@@ -13,6 +13,7 @@ import ServicesSlider from "@/components/pages/ServicesSlider";
 import ProductsSlider from "@/components/pages/ProductsSlider";
 import QuienesSomosSlider from "@/components/pages/QuienesSomosSlider";
 import BannerSlider from "@/components/pages/BannerSlider";
+import SalidasCard from "@/components/pages/SalidasCard";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 import { stock } from "@/lib/stock";
 
@@ -79,14 +80,14 @@ const salidas = [
   {
     title: "Moteras",
     src: "/img/parcheros/salidas-moteras.webp",
-    accent: "text-[#c8703a]",
+    accent: "text-rojo-600",
     boxes: [
       {
-        bg: "bg-[#c8703a]",
+        bg: "bg-carbon",
         text: "El objetivo de las salidas moter@s es vivir la pasión por la libertad y las actividades relacionadas con las motocicletas.",
       },
       {
-        bg: "bg-[#dba172]",
+        bg: "bg-rojo-500",
         text: "Fomentando siempre la seguridad, solidaridad, respeto y colaboración.",
       },
     ],
@@ -94,10 +95,10 @@ const salidas = [
   {
     title: "Bike",
     src: "/img/parcheros/salidas-bikes.webp",
-    accent: "text-[#2f9fd1]",
+    accent: "text-rojo-600",
     boxes: [
       {
-        bg: "bg-[#2f9fd1]",
+        bg: "bg-carbon",
         text: "El objetivo de las salidas MTB (Mountain Bike) es compartir la pasión por la bicicleta, la cultura bici y salir a rodar por caminos de trocha y montaña.",
       },
     ],
@@ -105,14 +106,14 @@ const salidas = [
   {
     title: "Mascotas",
     src: "/img/parcheros/salidas-mascotas.webp",
-    accent: "text-[#4a8f3c]",
+    accent: "text-rojo-600",
     boxes: [
       {
-        bg: "bg-[#4a8f3c]",
+        bg: "bg-carbon",
         text: "La finalidad de las salidas es caminar y compartir con nuestras mascotas.",
       },
       {
-        bg: "bg-[#7ab86a]",
+        bg: "bg-rojo-500",
         text: "En un espacio diferente acompañados de la naturaleza.",
       },
     ],
@@ -378,31 +379,7 @@ export default async function HomePage() {
           <RevealStagger className="mt-8 grid gap-8 md:grid-cols-3">
             {salidas.map((s) => (
               <RevealItem key={s.title}>
-                <Link href="/parcheros" aria-label={s.title} className="hover-lift group block">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
-                    <Image
-                      src={s.src}
-                      alt={`Salidas ${s.title} de la comunidad Parcheros`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 30vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <p className="mt-4 text-center font-display text-2xl font-black uppercase leading-none tracking-tight">
-                    <span className={s.accent}>¡Salidas</span>{" "}
-                    <span className="text-carbon">{s.title}!</span>
-                  </p>
-                  <div className="mt-4 space-y-2">
-                    {s.boxes.map((b, i) => (
-                      <p
-                        key={i}
-                        className={`rounded-lg px-4 py-3 text-center text-sm font-semibold text-white ${b.bg}`}
-                      >
-                        {b.text}
-                      </p>
-                    ))}
-                  </div>
-                </Link>
+                <SalidasCard {...s} />
               </RevealItem>
             ))}
           </RevealStagger>
