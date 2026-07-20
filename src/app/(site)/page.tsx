@@ -360,6 +360,12 @@ export default async function HomePage() {
             >
               ¡Únete a cualquiera de nuestras salidas según tu pasión y desparche!
             </p>
+            <p className="mx-auto mt-4 max-w-xl text-center text-carbon">
+              Si te gusta el <strong>deporte</strong>, la <strong>cultuta bici</strong>,
+              salir a rodar, disfrutar de <strong>paisajes</strong> y compartir una{" "}
+              <strong>sana aventura</strong>.... púedes hacer parte de nuestras salidas
+              de <em className="text-rojo-600">Parcheros</em>.
+            </p>
           </Reveal>
           <RevealStagger className="mt-8 grid gap-8 md:grid-cols-3">
             {salidas.map((s) => (
