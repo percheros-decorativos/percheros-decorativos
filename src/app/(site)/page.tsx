@@ -264,9 +264,9 @@ export default async function HomePage() {
           <Reveal>
             <SectionTitle eyebrow="Cómo te acompañamos">Nuestros servicios</SectionTitle>
             <p className="mx-auto mt-4 max-w-2xl text-center text-gris">
-              Te acompañamos antes, durante y después de tu compra:
+              Te acompañamos antes, durante y después de tu compra
               <br />
-              instalación, envíos a toda Colombia y pago seguro con Bold.
+              Envíos a toda Colombia
             </p>
           </Reveal>
         </div>
