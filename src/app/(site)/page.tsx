@@ -220,7 +220,7 @@ export default async function HomePage() {
         <Reveal>
           <SectionTitle eyebrow="Nuestra esencia">Quiénes somos</SectionTitle>
         </Reveal>
-        <div className="mt-8 grid items-center gap-10 md:grid-cols-2">
+        <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
           <Reveal direction="right">
             <p className="text-center text-lg leading-relaxed text-carbon">
               <strong className="text-rojo-600">Percheros Decorativos</strong> es
@@ -236,7 +236,10 @@ export default async function HomePage() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <span className="flex items-baseline gap-1.5 rounded-md bg-carbon px-4 py-2 text-sm font-bold uppercase tracking-wide text-white">
                 Emprendimiento{" "}
-                <span className="font-script text-lg normal-case tracking-normal">
+                <span
+                  className="text-lg normal-case tracking-normal"
+                  style={{ fontFamily: '"Chiller", var(--font-script), cursive' }}
+                >
                   Artesanal
                 </span>
               </span>
