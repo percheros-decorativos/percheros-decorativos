@@ -302,13 +302,13 @@ export default async function HomePage() {
             >
               ¡Únete a cualquiera de nuestras salidas según tu pasión y desparche!
             </p>
-            <p className="mx-auto mt-2 max-w-xl text-center text-carbon">
+            <p className="mx-auto mt-2 max-w-4xl text-center text-carbon">
               Si te gusta el <strong>deporte</strong>, la <strong>cultuta bici</strong>,
               salir a rodar, disfrutar de <strong>paisajes</strong> y compartir una{" "}
               <strong>sana aventura</strong>....
               <br />
-              púedes hacer parte de nuestras salidas de{" "}
-              <strong>
+              Púedes hacer parte de nuestras salidas de{" "}
+              <strong className="font-black">
                 <em className="text-rojo-600">Parcheros</em>
               </strong>
               .
