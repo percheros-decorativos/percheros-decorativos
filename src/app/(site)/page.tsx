@@ -183,7 +183,7 @@ export default async function HomePage() {
         href="/categoria/hogar"
         src="/img/decorativas/hogar.webp"
         alt="Percheros decorativos para el hogar con paisajes de ciudad"
-        ratio="1800 / 465"
+        ratio="1800 / 540"
       />
 
       {/* ===================== DESTACADOS ===================== */}
@@ -211,8 +211,8 @@ export default async function HomePage() {
       <BannerDivider
         href="/categoria/dedios"
         src="/img/decorativas/dedios.webp"
-        alt="Percheros DeDios con imágenes de fe y esperanza"
-        ratio="1800 / 466"
+        alt="Percheros DeDIOS con imágenes de fe y esperanza"
+        ratio="1800 / 544"
       />
 
       {/* ===================== QUIÉNES SOMOS ===================== */}
@@ -315,7 +315,7 @@ export default async function HomePage() {
 
       {/* ===================== BANNER HOGAR / DEDIOS (slider) ===================== */}
       <BannerSlider
-        ratio="1800 / 465"
+        ratio="1800 / 542"
         slides={[
           {
             href: "/categoria/hogar",
