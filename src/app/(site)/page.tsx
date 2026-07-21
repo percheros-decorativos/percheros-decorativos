@@ -185,10 +185,10 @@ export default async function HomePage() {
               hogar.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-              <span className="flex items-baseline gap-1.5 rounded-md bg-carbon px-4 py-2 text-sm font-bold uppercase tracking-wide text-white">
+              <span className="flex items-baseline gap-2 rounded-md bg-carbon px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white">
                 Emprendimiento{" "}
                 <span
-                  className="text-xl normal-case tracking-normal"
+                  className="text-2xl normal-case tracking-normal"
                   style={{ fontFamily: '"Chiller", var(--font-script), cursive' }}
                 >
                   Artesanal
