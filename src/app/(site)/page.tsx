@@ -171,7 +171,7 @@ export default async function HomePage() {
           <SectionTitle eyebrow="Nuestra esencia">Quiénes somos</SectionTitle>
         </Reveal>
         <div className="mt-8 flex flex-col items-center justify-center gap-10 md:flex-row md:gap-20 lg:gap-28">
-          <Reveal direction="right" className="w-full md:max-w-md">
+          <Reveal direction="right" className="w-full md:max-w-xl">
             <p className="text-center text-lg leading-relaxed text-carbon">
               <strong className="text-rojo-600">Percheros Decorativos</strong> es
               un Emprendimiento Artesanal; ofrecemos productos{" "}
@@ -185,12 +185,9 @@ export default async function HomePage() {
               hogar.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-              <span className="flex items-baseline gap-1.5 rounded-md bg-carbon px-4 py-2 text-sm font-bold uppercase tracking-wide text-white">
+              <span className="flex items-baseline gap-2 rounded-md bg-carbon px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white">
                 Emprendimiento{" "}
-                <span
-                  className="text-lg normal-case tracking-normal"
-                  style={{ fontFamily: '"Chiller", var(--font-script), cursive' }}
-                >
+                <span className="text-2xl font-normal uppercase tracking-[0.12em] sm:text-3xl">
                   Artesanal
                 </span>
               </span>
@@ -218,7 +215,7 @@ export default async function HomePage() {
               </ButtonLink>
             </div>
           </Reveal>
-          <Reveal direction="left" className="w-full max-w-[240px] shrink-0">
+          <Reveal direction="left" className="w-full max-w-[280px] shrink-0">
             <QuienesSomosSlider />
           </Reveal>
         </div>
