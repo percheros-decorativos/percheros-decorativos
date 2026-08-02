@@ -184,7 +184,7 @@ export default async function HomePage() {
               <strong className="text-rojo-600">organización</strong> en todo el
               hogar.
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:justify-start">
               <span className="flex items-baseline gap-2 rounded-md bg-carbon px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white">
                 Emprendimiento{" "}
                 <span
@@ -209,10 +209,10 @@ export default async function HomePage() {
                 className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="mt-2 text-center font-display text-sm font-extrabold uppercase text-rojo-600">
+            <p className="mt-2 text-center font-display text-sm font-extrabold uppercase text-rojo-600 md:text-left">
               100% Colombiano
             </p>
-            <div className="text-center">
+            <div className="text-center md:text-left">
               <ButtonLink href="/quienes-somos" className="mt-6">
                 Conoce nuestra historia
               </ButtonLink>
@@ -331,44 +331,81 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <Reveal>
           <SectionTitle eyebrow="Compromiso">Obras sociales</SectionTitle>
-        </Reveal>
-        <div className="mt-8 grid items-center gap-8 md:grid-cols-2">
-          <Reveal direction="right">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="hover-lift relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200">
-                <Image
-                  src="/img/obras/obras-sociales-1.webp"
-                  alt="Obra social con niños en situación de vulnerabilidad"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 22vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="hover-lift relative mt-8 aspect-[3/4] overflow-hidden rounded-2xl shadow-md ring-1 ring-crema-200">
-                <Image
-                  src="/img/obras/obras-sociales-2.webp"
-                  alt="Obra social con adultos mayores"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 22vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </Reveal>
-          <Reveal direction="left">
-            <p className="text-carbon">
-              <strong className="text-rojo-600">Percheros Decorativos</strong>{" "}
-              está comprometido en realizar diferentes obras sociales en
-              situaciones de vulnerabilidad: hogares geriátricos, infantiles y
-              personas con algún tipo de discapacidad o enfermedad.
-            </p>
-            <p className="mt-4 font-script text-2xl font-bold text-carbon">
+          <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Image
+              src="/img/obras/icono-obras-sociales.webp"
+              alt="Icono de solidaridad y comunidad"
+              width={56}
+              height={56}
+              className="h-14 w-14 object-contain"
+            />
+            <p className="text-center font-script text-2xl font-bold text-carbon">
               ¡Por nuestros abuel@s, niñ@s y personas vulnerables!
             </p>
-            <ButtonLink href="/obras-sociales" variant="blue" className="mt-6">
-              Más info
-            </ButtonLink>
-          </Reveal>
+          </div>
+        </Reveal>
+        <RevealStagger className="mt-10 grid gap-8 md:grid-cols-2">
+          <RevealItem>
+            <div className="hover-lift overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200">
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src="/img/obras/infancia-futuro.webp"
+                  alt="Percheros Decorativos con niños y niñas — Infancia con Futuro"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-sm leading-relaxed text-carbon/80">
+                  <strong className="text-rojo-600">Percheros Decorativos</strong> está
+                  comprometido en realizar diferentes obras sociales en situaciones de
+                  vulnerabilidad; hogares geriátricos, infantiles, personas con algún
+                  tipo de discapacidad o enfermedad.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-carbon/80">
+                  <strong className="text-carbon">Infancia con Futuro:</strong>{" "}
+                  Acompañamos a nuestros niños y niñas brindándoles herramientas para
+                  su desarrollo, espacios seguros y oportunidades que impulsen sus
+                  sueños desde sus primeros años.
+                </p>
+              </div>
+            </div>
+          </RevealItem>
+          <RevealItem>
+            <div className="hover-lift overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200">
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src="/img/obras/adultos-mayores.webp"
+                  alt="Percheros Decorativos con adultos mayores — Dignidad para nuestros Adultos Mayores"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-sm leading-relaxed text-carbon/80">
+                  Brindamos <strong className="text-rojo-600">asesoría jurídica</strong>{" "}
+                  en los derechos fundamentales y dignidad humana con el objetivo de
+                  ofrecer colaboración, solidaridad y esperanza a quienes más lo
+                  necesiten, con el apoyo de nuestros clientes.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-carbon/80">
+                  <strong className="text-carbon">
+                    Dignidad para nuestros Adultos Mayores:
+                  </strong>{" "}
+                  Honramos la sabiduría de la tercera edad con actividades de
+                  integración, cuidado y programas de bienestar que aseguran una etapa
+                  senior plena y respetada.
+                </p>
+              </div>
+            </div>
+          </RevealItem>
+        </RevealStagger>
+        <div className="mt-10 text-center">
+          <ButtonLink href="/obras-sociales" variant="blue">
+            Más info
+          </ButtonLink>
         </div>
       </section>
 
