@@ -421,6 +421,61 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ===================== CLASIFICADOS OBRAS SOCIALES ===================== */}
+      <section className="mx-auto max-w-7xl px-4 py-16">
+          <Reveal>
+            <SectionTitle eyebrow="Ayuda solidaria">
+              Clasificados Obras Sociales
+            </SectionTitle>
+          </Reveal>
+          <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
+            <Reveal direction="right">
+              <p className="text-center text-lg leading-relaxed text-carbon md:text-left">
+                En este espacio damos a conocer diferentes clasificados
+                sociales; con el objetivo de que alguna persona que pueda
+                colaborar a mejorar la calidad de vida de quien lo necesita
+                sin ánimo de lucro.
+              </p>
+              <div className="mt-6 text-center md:text-left">
+                <ButtonLink href="/obras-sociales" variant="green">
+                  Más info
+                </ButtonLink>
+              </div>
+            </Reveal>
+            <Reveal direction="left">
+              <div className="relative mx-auto h-[360px] w-full max-w-sm sm:h-[420px]">
+                <div className="hover-lift absolute left-0 top-0 h-64 w-52 overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200 sm:h-72 sm:w-60">
+                  <Image
+                    src="/img/obras/clasificados-silla.webp"
+                    alt="Clasificados de obras sociales — silla de ruedas"
+                    fill
+                    sizes="240px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="hover-lift absolute bottom-0 left-24 h-56 w-44 overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200 sm:left-32 sm:h-64 sm:w-52">
+                  <Image
+                    src="/img/obras/clasificados-acompanante.webp"
+                    alt="Clasificados de obras sociales — acompañante con silla de ruedas"
+                    fill
+                    sizes="210px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="hover-lift absolute bottom-4 right-0 h-56 w-40 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-crema-200 sm:h-64 sm:w-48">
+                  <Image
+                    src="/img/obras/clasificados-andador.webp"
+                    alt="Clasificados de obras sociales — andador"
+                    fill
+                    sizes="190px"
+                    className="object-contain p-2"
+                  />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+      </section>
+
       {/* ===================== ALIADOS ===================== */}
       <section className="bg-crema-50">
         <div className="mx-auto max-w-7xl px-4 py-16">
