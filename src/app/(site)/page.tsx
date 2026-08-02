@@ -6,7 +6,7 @@ import CategoryCard from "@/components/ui/CategoryCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 import JsonLd from "@/components/JsonLd";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Baby, HeartHandshake } from "lucide-react";
 import Marquee from "@/components/ui/Marquee";
 import HeroSlider from "@/components/pages/HeroSlider";
 import ServicesSlider from "@/components/pages/ServicesSlider";
@@ -346,14 +346,15 @@ export default async function HomePage() {
         </Reveal>
         <RevealStagger className="mt-10 grid gap-8 md:grid-cols-2">
           <RevealItem>
-            <div className="hover-lift overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200">
-              <div className="relative aspect-[3/2]">
+            <div className="group overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200 transition-shadow duration-300 hover:shadow-xl">
+              <div className="h-1.5 bg-gradient-to-r from-sky-400 to-sky-600" />
+              <div className="relative aspect-[3/2] overflow-hidden">
                 <Image
                   src="/img/obras/infancia-futuro.webp"
                   alt="Percheros Decorativos con niños y niñas — Infancia con Futuro"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
@@ -363,24 +364,30 @@ export default async function HomePage() {
                   vulnerabilidad; hogares geriátricos, infantiles, personas con algún
                   tipo de discapacidad o enfermedad.
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-carbon/80">
-                  <strong className="text-carbon">Infancia con Futuro:</strong>{" "}
-                  Acompañamos a nuestros niños y niñas brindándoles herramientas para
-                  su desarrollo, espacios seguros y oportunidades que impulsen sus
-                  sueños desde sus primeros años.
-                </p>
+                <div className="mt-4 flex items-start gap-3 border-t border-crema-100 pt-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-600">
+                    <Baby size={18} />
+                  </span>
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    <strong className="text-carbon">Infancia con Futuro:</strong>{" "}
+                    Acompañamos a nuestros niños y niñas brindándoles herramientas para
+                    su desarrollo, espacios seguros y oportunidades que impulsen sus
+                    sueños desde sus primeros años.
+                  </p>
+                </div>
               </div>
             </div>
           </RevealItem>
           <RevealItem>
-            <div className="hover-lift overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200">
-              <div className="relative aspect-[3/2]">
+            <div className="group overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200 transition-shadow duration-300 hover:shadow-xl">
+              <div className="h-1.5 bg-gradient-to-r from-amber-400 to-amber-600" />
+              <div className="relative aspect-[3/2] overflow-hidden">
                 <Image
                   src="/img/obras/adultos-mayores.webp"
                   alt="Percheros Decorativos con adultos mayores — Dignidad para nuestros Adultos Mayores"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
@@ -390,14 +397,19 @@ export default async function HomePage() {
                   ofrecer colaboración, solidaridad y esperanza a quienes más lo
                   necesiten, con el apoyo de nuestros clientes.
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-carbon/80">
-                  <strong className="text-carbon">
-                    Dignidad para nuestros Adultos Mayores:
-                  </strong>{" "}
-                  Honramos la sabiduría de la tercera edad con actividades de
-                  integración, cuidado y programas de bienestar que aseguran una etapa
-                  senior plena y respetada.
-                </p>
+                <div className="mt-4 flex items-start gap-3 border-t border-crema-100 pt-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+                    <HeartHandshake size={18} />
+                  </span>
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    <strong className="text-carbon">
+                      Dignidad para nuestros Adultos Mayores:
+                    </strong>{" "}
+                    Honramos la sabiduría de la tercera edad con actividades de
+                    integración, cuidado y programas de bienestar que aseguran una etapa
+                    senior plena y respetada.
+                  </p>
+                </div>
               </div>
             </div>
           </RevealItem>
