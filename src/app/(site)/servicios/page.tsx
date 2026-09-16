@@ -26,13 +26,13 @@ export default function ServiciosPage() {
         <div className="grid gap-6 pt-7 md:grid-cols-3">
           {/* ===== Salidas Moter@s ===== */}
           <article className="relative pt-7">
-            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-rojo-500 shadow-lg ring-4 ring-white">
+            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-rojo-100">
               <Image
                 src="/img/categories/moteros.webp"
                 alt=""
                 width={28}
                 height={28}
-                className="h-7 w-7 shrink-0 brightness-0 invert"
+                className="h-7 w-7 shrink-0"
               />
             </div>
             <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
@@ -84,13 +84,13 @@ export default function ServiciosPage() {
 
           {/* ===== Servicio Bike ===== */}
           <article className="relative pt-7">
-            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-rojo-500 shadow-lg ring-4 ring-white">
+            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-rojo-100">
               <Image
                 src="/img/categories/bike.webp"
                 alt=""
                 width={28}
                 height={28}
-                className="h-7 w-7 shrink-0 brightness-0 invert"
+                className="h-7 w-7 shrink-0"
               />
             </div>
             <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
@@ -175,13 +175,13 @@ export default function ServiciosPage() {
 
           {/* ===== Servicios/Accesorios Mascotas ===== */}
           <article className="relative pt-7">
-            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-rojo-500 shadow-lg ring-4 ring-white">
+            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-rojo-100">
               <Image
                 src="/img/categories/mascotas.webp"
                 alt=""
                 width={28}
                 height={28}
-                className="h-7 w-7 shrink-0 brightness-0 invert"
+                className="h-7 w-7 shrink-0"
               />
             </div>
             <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
