@@ -1,5 +1,6 @@
 import "server-only";
 import { supabaseAdmin } from "@/lib/supabase";
+import { INSTALLATION_SERVICE_LABEL } from "@/lib/addons";
 
 export interface NewOrderInput {
   reference: string;
@@ -23,6 +24,8 @@ export interface NewOrderInput {
   shipping: number;
   boldFee: number;
   total: number;
+  /** Costo del servicio de instalación, si el cliente lo seleccionó. */
+  installation?: number;
 }
 
 /** Crea la orden en Supabase (status pending). Degrada si no está configurado. */
@@ -54,18 +57,28 @@ export async function createOrder(input: NewOrderInput): Promise<boolean> {
     .select("id")
     .eq("reference", input.reference)
     .single();
-  if (order?.id && input.items.length) {
-    await supabaseAdmin.from("order_items").insert(
-      input.items.map((i) => ({
+  if (order?.id) {
+    const rows = input.items.map((i) => ({
+      order_id: order.id,
+      product_id: String(i.productId),
+      product_name: i.productName,
+      product_slug: i.productSlug,
+      quantity: i.quantity,
+      unit_price: i.unitPrice,
+      total_price: i.unitPrice * i.quantity,
+    }));
+    if (input.installation) {
+      rows.push({
         order_id: order.id,
-        product_id: String(i.productId),
-        product_name: i.productName,
-        product_slug: i.productSlug,
-        quantity: i.quantity,
-        unit_price: i.unitPrice,
-        total_price: i.unitPrice * i.quantity,
-      })),
-    );
+        product_id: "installation",
+        product_name: INSTALLATION_SERVICE_LABEL,
+        product_slug: "instalacion",
+        quantity: 1,
+        unit_price: input.installation,
+        total_price: input.installation,
+      });
+    }
+    if (rows.length) await supabaseAdmin.from("order_items").insert(rows);
   }
   return true;
 }

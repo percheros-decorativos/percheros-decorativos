@@ -332,11 +332,11 @@ export default async function HomePage() {
           <SectionTitle eyebrow="Hablemos">Contáctenos</SectionTitle>
           <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-rojo-100 bg-crema-50 p-8 text-center">
             <p className="text-lg text-carbon">
-              Escríbenos y nos contactaremos lo más pronto. ¿Tienes una idea para
-              un perchero personalizado? ¡Cuéntanos!
+              Escríbenos y nos contactaremos lo más pronto. ¿Tienes una idea
+              para un perchero personalizado?
             </p>
             <ButtonLink href="/contacto" size="lg" className="mt-6">
-              Ir al formulario de contacto
+              ¡Cuéntanos!
             </ButtonLink>
           </div>
         </Reveal>

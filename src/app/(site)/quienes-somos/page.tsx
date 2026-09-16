@@ -128,9 +128,9 @@ export default function QuienesSomosPage() {
               <Image
                 src={`/img/quienes-somos/${v.icon}.webp`}
                 alt=""
-                width={40}
-                height={40}
-                className="h-10 w-10"
+                width={64}
+                height={64}
+                className="h-16 w-16"
               />
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
                 {v.title}

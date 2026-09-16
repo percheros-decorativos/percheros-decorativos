@@ -11,6 +11,10 @@ import {
   SHIPPING_BOGOTA_COP,
   SHIPPING_NACIONAL_COP,
 } from "@/lib/shipping";
+import {
+  INSTALLATION_SERVICE_COP,
+  INSTALLATION_SERVICE_LABEL,
+} from "@/lib/addons";
 
 interface FormState {
   name: string;
@@ -41,6 +45,7 @@ export default function CheckoutPage() {
   const [error, setError] = useState<string | null>(null);
   const [bold, setBold] = useState<BoldConfig | null>(null);
   const [orderRef, setOrderRef] = useState<string | null>(null);
+  const [installation, setInstallation] = useState(false);
 
   function update<K extends keyof FormState>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }));
@@ -50,7 +55,8 @@ export default function CheckoutPage() {
   // artículo — ver markupPriceForBold en queries.ts. El envío es tarifa
   // fija, sin comisión: Bogotá $9.750, nacional $17.000.
   const shipping = form.city.trim() ? shippingCostForCity(form.city) : null;
-  const total = subtotal + (shipping ?? 0);
+  const installationCost = installation ? INSTALLATION_SERVICE_COP : 0;
+  const total = subtotal + (shipping ?? 0) + installationCost;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -63,6 +69,7 @@ export default function CheckoutPage() {
         body: JSON.stringify({
           customer: { ...form },
           items: items.map((i) => ({ id: i.id, quantity: i.quantity })),
+          installation,
         }),
       });
       const data = await res.json();
@@ -217,6 +224,25 @@ export default function CheckoutPage() {
             </label>
           </div>
 
+          <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-madera-100 bg-crema-50 p-4 transition-colors hover:bg-crema-100">
+            <input
+              type="checkbox"
+              checked={installation}
+              onChange={(e) => setInstallation(e.target.checked)}
+              className="mt-0.5 h-5 w-5 shrink-0 rounded border-madera-300 text-rojo-500 focus:ring-rojo-400"
+            />
+            <span>
+              <span className="block text-sm font-semibold text-madera-900">
+                Agregar servicio de instalación — {formatCop(INSTALLATION_SERVICE_COP)}
+              </span>
+              <span className="block text-xs text-carbon/60">
+                {INSTALLATION_SERVICE_LABEL}: un técnico lo instala por ti (solo
+                disponible en ciudades con cobertura, te confirmamos por
+                WhatsApp).
+              </span>
+            </span>
+          </label>
+
           {error && (
             <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
               {error}
@@ -255,6 +281,14 @@ export default function CheckoutPage() {
                 {shipping !== null ? formatCop(shipping) : "Escribe tu ciudad"}
               </span>
             </div>
+            {installation && (
+              <div className="flex justify-between">
+                <span className="text-carbon/70">Instalación</span>
+                <span className="font-semibold">
+                  {formatCop(INSTALLATION_SERVICE_COP)}
+                </span>
+              </div>
+            )}
           </div>
           <div className="mt-3 flex justify-between border-t border-madera-200 pt-3">
             <span className="font-semibold">Total</span>

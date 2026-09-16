@@ -18,6 +18,7 @@ export const checkoutSchema = z.object({
       }),
     )
     .min(1, "El carrito está vacío"),
+  installation: z.boolean().optional().default(false),
 });
 
 export type CheckoutInput = z.infer<typeof checkoutSchema>;

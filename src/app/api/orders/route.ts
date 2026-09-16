@@ -4,6 +4,7 @@ import { boldIntegritySignature } from "@/lib/bold";
 import { createOrder } from "@/lib/orders";
 import { getAllProducts } from "@/lib/queries";
 import { shippingCostForCity } from "@/lib/shipping";
+import { INSTALLATION_SERVICE_COP } from "@/lib/addons";
 import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { customer, items } = parsed.data;
+  const { customer, items, installation } = parsed.data;
 
   // Precios SIEMPRE desde el catálogo del servidor (nunca confiar en el
   // cliente). product.priceCop ya trae la comisión de Bold incluida (ver
@@ -60,9 +61,12 @@ export async function POST(request: Request) {
 
   const subtotal = lines.reduce((n, l) => n + l.unitPrice * l.quantity, 0);
   // El envío es tarifa fija (Bogotá/nacional), sin comisión de Bold — la
-  // comisión ya va incluida en el precio de cada artículo.
+  // comisión ya va incluida en el precio de cada artículo. La instalación
+  // (opcional) es igual: costo fijo, calculado siempre en el servidor, nunca
+  // confiando en un monto que mande el cliente.
   const shipping = shippingCostForCity(customer.city);
-  const total = subtotal + shipping;
+  const installationCost = installation ? INSTALLATION_SERVICE_COP : 0;
+  const total = subtotal + shipping + installationCost;
   const boldFee = subtotal - netSubtotal;
   const orderRef = generateOrderRef();
 
@@ -75,6 +79,7 @@ export async function POST(request: Request) {
     shipping,
     boldFee,
     total,
+    installation: installationCost || undefined,
   });
 
   const currency = process.env.NEXT_PUBLIC_BOLD_CURRENCY || "COP";
@@ -95,6 +100,6 @@ export async function POST(request: Request) {
       description: `Pedido ${orderRef} - ${site.name}`,
       redirectionUrl: `${site.url}/checkout/confirmacion?order=${orderRef}`,
     },
-    totals: { subtotal, shipping, boldFee, total },
+    totals: { subtotal, shipping, boldFee, installation: installationCost, total },
   });
 }
