@@ -43,7 +43,7 @@ export default function PageHero({
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-carbon/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-carbon/70 via-carbon/40 to-carbon/20" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
           {breadcrumb && (
             <nav aria-label="Migas de pan" className="mb-3 text-sm text-white/70">
