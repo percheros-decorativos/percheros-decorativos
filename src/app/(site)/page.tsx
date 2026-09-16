@@ -180,7 +180,7 @@ export default async function HomePage() {
               <strong className="text-rojo-600">organización</strong> en todo el
               hogar.
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:justify-start">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <span className="inline-flex items-center gap-2.5 rounded-md bg-carbon px-5 py-3 text-sm font-bold uppercase tracking-wide text-white">
                 Emprendimiento{" "}
                 <span
@@ -204,10 +204,10 @@ export default async function HomePage() {
                 className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="mt-2 text-center font-display text-sm font-extrabold uppercase text-rojo-600 md:text-left">
+            <p className="mt-2 text-center font-display text-sm font-extrabold uppercase text-rojo-600">
               100% Colombiano
             </p>
-            <div className="text-center md:text-left">
+            <div className="text-center">
               <ButtonLink href="/quienes-somos" className="mt-6">
                 Conoce nuestra historia
               </ButtonLink>
