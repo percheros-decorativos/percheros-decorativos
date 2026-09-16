@@ -62,7 +62,7 @@ export default function ServiciosPage() {
                 </div>
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <ServiceExpand summary="Percheros para tu casco y tu moto">
+                <ServiceExpand summary="Percheros temáticos para casco y accesorios">
                   <p className="text-sm leading-relaxed text-carbon/80">
                     Venta de percheros temáticos para cascos y accesorios;
                     servicio de personalización de percheros con la marca o

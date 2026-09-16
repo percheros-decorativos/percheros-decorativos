@@ -224,25 +224,6 @@ export default function CheckoutPage() {
             </label>
           </div>
 
-          <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-madera-100 bg-crema-50 p-4 transition-colors hover:bg-crema-100">
-            <input
-              type="checkbox"
-              checked={installation}
-              onChange={(e) => setInstallation(e.target.checked)}
-              className="mt-0.5 h-5 w-5 shrink-0 rounded border-madera-300 text-rojo-500 focus:ring-rojo-400"
-            />
-            <span>
-              <span className="block text-sm font-semibold text-madera-900">
-                Agregar servicio de instalación — {formatCop(INSTALLATION_SERVICE_COP)}
-              </span>
-              <span className="block text-xs text-carbon/60">
-                {INSTALLATION_SERVICE_LABEL}: un técnico lo instala por ti (solo
-                disponible en ciudades con cobertura, te confirmamos por
-                WhatsApp).
-              </span>
-            </span>
-          </label>
-
           {error && (
             <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
               {error}
@@ -270,6 +251,25 @@ export default function CheckoutPage() {
               </li>
             ))}
           </ul>
+
+          <label className="mt-4 flex cursor-pointer items-start gap-3 rounded-xl border border-madera-200 bg-white p-3.5 transition-colors hover:bg-crema-50">
+            <input
+              type="checkbox"
+              checked={installation}
+              onChange={(e) => setInstallation(e.target.checked)}
+              className="mt-0.5 h-5 w-5 shrink-0 rounded border-madera-300 text-rojo-500 focus:ring-rojo-400"
+            />
+            <span>
+              <span className="block text-sm font-semibold text-madera-900">
+                Agregar instalación — {formatCop(INSTALLATION_SERVICE_COP)}
+              </span>
+              <span className="block text-xs text-carbon/60">
+                {INSTALLATION_SERVICE_LABEL}: un técnico lo instala por ti
+                (según cobertura, te confirmamos por WhatsApp).
+              </span>
+            </span>
+          </label>
+
           <div className="mt-4 space-y-2 border-t border-madera-200 pt-4 text-sm">
             <div className="flex justify-between">
               <span className="text-carbon/70">Subtotal</span>
