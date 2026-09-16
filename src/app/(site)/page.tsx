@@ -15,7 +15,7 @@ import QuienesSomosSlider from "@/components/pages/QuienesSomosSlider";
 import BannerSlider from "@/components/pages/BannerSlider";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
 
-// Comunidad: Parcheros, Obras Sociales, Clasificados Sociales y Aliados.
+// Comunidad: Parcheros, Comunidad (obras sociales), Clasificados Sociales y Aliados.
 const comunidad = [
   {
     title: "Parcheros",
@@ -24,16 +24,16 @@ const comunidad = [
     href: "/servicios",
   },
   {
-    title: "Obras Sociales",
+    title: "Comunidad",
     text: "Apoyamos a niños, adultos mayores y personas en situación de vulnerabilidad.",
     icon: "icon-obras-sociales",
-    href: "/obras-sociales",
+    href: "/comunidad",
   },
   {
     title: "Clasificados Sociales",
     text: "Ayuda solidaria: conecta con quien necesita colaboración, sin ánimo de lucro.",
     icon: "icon-clasificados",
-    href: "/obras-sociales#clasificados",
+    href: "/comunidad#clasificados",
   },
   {
     title: "Aliados Comerciales",

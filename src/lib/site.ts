@@ -38,7 +38,7 @@ export const mainNav = [
   { label: "Quiénes Somos", href: "/quienes-somos" },
   { label: "Galería", href: "/galeria" },
   { label: "Servicios", href: "/servicios" },
-  { label: "Obras Sociales", href: "/obras-sociales" },
+  { label: "Comunidad", href: "/comunidad" },
   { label: "Contáctenos", href: "/contacto" },
 ] as const;
 

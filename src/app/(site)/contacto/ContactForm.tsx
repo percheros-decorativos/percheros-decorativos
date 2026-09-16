@@ -16,7 +16,7 @@ const categorias = [
   "Instalación",
   "Envíos",
   "Servicios",
-  "Obras sociales",
+  "Comunidad",
   "Aliados",
 ];
 
@@ -27,7 +27,7 @@ const asuntoMap: Record<string, string> = {
   moteros: "Moteros",
   bike: "Bike",
   mascotas: "Mascotas",
-  "obras-sociales": "Obras sociales",
+  comunidad: "Comunidad",
   aliados: "Aliados",
 };
 

@@ -27,7 +27,7 @@ const cols = [
     title: "Comunidad",
     links: [
       { label: "Servicios", href: "/servicios" },
-      { label: "Obras Sociales", href: "/obras-sociales" },
+      { label: "Comunidad", href: "/comunidad" },
       { label: "Aliados", href: "/aliados" },
       { label: "Guías", href: "/guias" },
     ],
