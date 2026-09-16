@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/components/ui/Logo";
@@ -22,6 +23,7 @@ import { useCartCount, useCartStore } from "@/lib/store/cartStore";
 export interface NavCategory {
   slug: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export default function Header({ categories = [] }: { categories?: NavCategory[] }) {
@@ -95,13 +97,22 @@ export default function Header({ categories = [] }: { categories?: NavCategory[]
                       )}
                     </Link>
                     {isCats && catsOpen && categories.length > 0 && (
-                      <ul className="absolute left-0 top-full z-50 w-52 overflow-hidden rounded-md border border-rojo-100 bg-white py-1 shadow-xl">
+                      <ul className="absolute left-0 top-full z-50 w-56 overflow-hidden rounded-md border border-rojo-100 bg-white py-1 shadow-xl">
                         {categories.map((c) => (
                           <li key={c.slug}>
                             <Link
                               href={`/categoria/${c.slug}`}
-                              className="block px-4 py-2 text-sm font-medium normal-case tracking-normal text-carbon hover:bg-rojo-50 hover:text-rojo-600"
+                              className="flex items-center gap-3 px-4 py-2 text-sm font-medium normal-case tracking-normal text-carbon hover:bg-rojo-50 hover:text-rojo-600"
                             >
+                              {c.imageUrl && (
+                                <Image
+                                  src={c.imageUrl}
+                                  alt=""
+                                  width={20}
+                                  height={20}
+                                  className="h-5 w-5 shrink-0 object-contain"
+                                />
+                              )}
                               {c.name}
                             </Link>
                           </li>

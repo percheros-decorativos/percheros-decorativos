@@ -12,7 +12,11 @@ export default async function SiteLayout({
   children: React.ReactNode;
 }) {
   const categories = await getCategories();
-  const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name }));
+  const navCategories = categories.map((c) => ({
+    slug: c.slug,
+    name: c.name,
+    imageUrl: c.imageUrl,
+  }));
 
   // Datos estructurados globales del storefront (SEO + GEO)
   const orgLd = {
