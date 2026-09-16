@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import { site } from "@/lib/site";
@@ -14,20 +16,28 @@ const valores = [
   {
     title: "Artesanía colombiana",
     text: "Cada perchero se fabrica a mano en madera y MDF, cuidando cada detalle y acabado.",
+    icon: "icon-artesania",
   },
   {
     title: "Útiles y funcionales",
     text: "Diseñamos productos que organizan tu hogar con estilo, no solo decoración.",
+    icon: "icon-funcional",
   },
   {
     title: "Calidad y garantía",
     text: "Herrajes metálicos resistentes y garantía en todos nuestros productos.",
+    icon: "icon-calidad",
   },
   {
     title: "Compromiso social",
     text: "Apoyamos obras sociales para personas en situación de vulnerabilidad.",
+    icon: "icon-compromiso",
   },
 ];
+
+const catalogoMsg = encodeURIComponent(
+  "¡Hola! Quiero ver el catálogo completo de percheros decorativos.",
+);
 
 export default function QuienesSomosPage() {
   return (
@@ -37,6 +47,7 @@ export default function QuienesSomosPage() {
         title="Quiénes Somos"
         subtitle={site.description}
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Quiénes Somos" }]}
+        bgImage="/img/quienes-somos/banner.webp"
       />
 
       <section className="mx-auto max-w-3xl px-4 py-12">
@@ -61,13 +72,67 @@ export default function QuienesSomosPage() {
           </p>
         </div>
 
+        {/* CTAs: catálogo por WhatsApp + ver categorías */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <a
+            href={`https://wa.me/${site.whatsapp}?text=${catalogoMsg}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-4 rounded-2xl border-2 border-verde-500 bg-verde-500 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-verde-600 hover:shadow-lg"
+          >
+            <Image
+              src="/img/quienes-somos/icon-catalogo.webp"
+              alt=""
+              width={44}
+              height={44}
+              className="h-11 w-11 shrink-0 brightness-0 invert"
+            />
+            <span>
+              <span className="block font-display text-lg font-bold text-white">
+                Ver catálogo completo
+              </span>
+              <span className="text-sm text-white/85">
+                Chatea por WhatsApp y te lo enviamos
+              </span>
+            </span>
+          </a>
+
+          <Link
+            href="/categorias"
+            className="group flex items-center gap-4 rounded-2xl border-2 border-rojo-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-rojo-300 hover:shadow-lg"
+          >
+            <Image
+              src="/img/quienes-somos/icon-categorias.webp"
+              alt=""
+              width={44}
+              height={44}
+              className="h-11 w-11 shrink-0"
+            />
+            <span>
+              <span className="block font-display text-lg font-bold text-madera-900">
+                Ver todas las categorías
+              </span>
+              <span className="text-sm text-carbon/70">
+                Explora por estilo y espacio
+              </span>
+            </span>
+          </Link>
+        </div>
+
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           {valores.map((v) => (
             <div
               key={v.title}
               className="rounded-2xl border border-madera-100 bg-white p-5 shadow-sm"
             >
-              <h2 className="font-display text-lg font-semibold text-madera-800">
+              <Image
+                src={`/img/quienes-somos/${v.icon}.webp`}
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10"
+              />
+              <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
                 {v.title}
               </h2>
               <p className="mt-2 text-sm text-carbon/70">{v.text}</p>
