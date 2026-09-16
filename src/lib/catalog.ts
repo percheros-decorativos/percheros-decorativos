@@ -49,7 +49,6 @@ export const categories: CatCategory[] = [
   { slug: "personalizados", name: "Personalizados", tagline: "Útiles y Prácticos", description: "Percheros hechos a tu medida: nombres, fechas, logos o diseños únicos para regalar o decorar a tu estilo.", image: catImg("personalizados") },
   { slug: "corporativos", name: "Corporativos", tagline: "Útiles y Funcionales", description: "Percheros con la imagen de tu marca o empresa. Detalles corporativos útiles, funcionales y memorables.", image: catImg("corporativos") },
   { slug: "murales", name: "Murales", tagline: "Útiles y Decorativos", description: "Murales decorativos en madera que transforman cualquier pared en un espacio con personalidad y organización.", image: catImg("murales") },
-  { slug: "souvenires", name: "Souvenires", tagline: "Útiles y Cómodos", description: "Recuerdos y detalles artesanales en madera, perfectos para sorprender en cualquier ocasión.", image: catImg("souvenires") },
   { slug: "variados", name: "Variados", tagline: "Útiles y Funcionales", description: "Diseños variados para todos los gustos: una selección versátil de percheros artesanales.", image: catImg("variados") },
 ];
 
