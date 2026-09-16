@@ -25,81 +25,74 @@ export default function ServiciosPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-6 pt-7 md:grid-cols-3">
           {/* ===== Salidas Moter@s ===== */}
-          <article className="relative pt-7">
-            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-rojo-100">
+          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+            <div className="flex flex-col items-center px-4 pt-6 text-center">
               <Image
                 src="/img/categories/moteros.webp"
                 alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7 shrink-0"
+                width={64}
+                height={64}
+                className="h-16 w-16"
               />
+              <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
+                Salidas Moter@s
+              </h2>
             </div>
-            <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
-              <div className="flex items-center justify-center bg-rojo-500 px-4 pb-3 pt-8">
-                <h2 className="font-display text-lg font-bold text-white">
-                  Salidas Moter@s
-                </h2>
+            <div className="mt-4 grid grid-cols-2 gap-0.5 bg-white">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/salidas-moteras-1.webp"
+                  alt="Salida de percheros moteras por carretera de montaña"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
               </div>
-              <div className="grid grid-cols-2 gap-0.5 bg-white">
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src="/img/servicios/salidas-moteras-1.webp"
-                    alt="Salida de percheros moteras por carretera de montaña"
-                    fill
-                    sizes="(max-width: 768px) 50vw, 200px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src="/img/servicios/salidas-moteras-2.webp"
-                    alt="Grupo de moteros rodando al atardecer"
-                    fill
-                    sizes="(max-width: 768px) 50vw, 200px"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/salidas-moteras-2.webp"
+                  alt="Grupo de moteros rodando al atardecer"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
               </div>
-              <div className="flex flex-1 flex-col p-6">
-                <ServiceExpand summary="Percheros temáticos para casco y accesorios">
-                  <p className="text-sm leading-relaxed text-carbon/80">
-                    Venta de percheros temáticos para cascos y accesorios;
-                    servicio de personalización de percheros con la marca o
-                    modelo de la moto.
-                  </p>
-                </ServiceExpand>
-                <div className="mt-auto pt-6 text-center">
-                  <ButtonLink
-                    href="/contacto?asunto=moteros"
-                    variant="dark"
-                    className="w-full"
-                  >
-                    Unirme a Salidas
-                  </ButtonLink>
-                </div>
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <ServiceExpand summary="Percheros temáticos para casco y accesorios">
+                <p className="text-sm leading-relaxed text-carbon/80">
+                  Venta de percheros temáticos para cascos y accesorios;
+                  servicio de personalización de percheros con la marca o
+                  modelo de la moto.
+                </p>
+              </ServiceExpand>
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=moteros"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Unirme a Salidas
+                </ButtonLink>
               </div>
             </div>
           </article>
 
           {/* ===== Servicio Bike ===== */}
-          <article className="relative pt-7">
-            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-rojo-100">
+          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+            <div className="flex flex-col items-center px-4 pt-6 text-center">
               <Image
                 src="/img/categories/bike.webp"
                 alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7 shrink-0"
+                width={64}
+                height={64}
+                className="h-16 w-16"
               />
+              <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
+                Servicio Bike
+              </h2>
             </div>
-            <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
-              <div className="flex items-center justify-center bg-rojo-500 px-4 pb-3 pt-8">
-                <h2 className="font-display text-lg font-bold text-white">
-                  Servicio Bike
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 gap-0.5 bg-white">
+            <div className="mt-4 grid grid-cols-2 gap-0.5 bg-white">
                 <div className="relative aspect-square overflow-hidden">
                   <Image
                     src="/img/servicios/grua-bici-1.webp"
@@ -170,27 +163,23 @@ export default function ServiciosPage() {
                   </ButtonLink>
                 </div>
               </div>
-            </div>
           </article>
 
           {/* ===== Servicios/Accesorios Mascotas ===== */}
-          <article className="relative pt-7">
-            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-rojo-100">
+          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+            <div className="flex flex-col items-center px-4 pt-6 text-center">
               <Image
                 src="/img/categories/mascotas.webp"
                 alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7 shrink-0"
+                width={64}
+                height={64}
+                className="h-16 w-16"
               />
+              <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
+                Servicios/Accesorios Mascotas
+              </h2>
             </div>
-            <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
-              <div className="flex items-center justify-center bg-rojo-500 px-4 pb-3 pt-8">
-                <h2 className="font-display text-lg font-bold text-white">
-                  Servicios/Accesorios Mascotas
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 gap-0.5 bg-white">
+            <div className="mt-4 grid grid-cols-2 gap-0.5 bg-white">
                 <div className="relative aspect-square overflow-hidden">
                   <Image
                     src="/img/servicios/paseo-canino-1.webp"
@@ -262,7 +251,6 @@ export default function ServiciosPage() {
                   </ButtonLink>
                 </div>
               </div>
-            </div>
           </article>
         </div>
 
