@@ -181,11 +181,10 @@ export default async function HomePage() {
               hogar.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:justify-start">
-              <span className="flex items-baseline gap-2 rounded-md bg-carbon px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white">
+              <span className="inline-flex items-center gap-2.5 rounded-md bg-carbon px-5 py-3 text-sm font-bold uppercase tracking-wide text-white">
                 Emprendimiento{" "}
                 <span
-                  className="text-2xl normal-case tracking-normal"
-                  style={{ fontFamily: '"Chiller", var(--font-script), cursive' }}
+                  className="font-script text-xl normal-case leading-none tracking-normal"
                 >
                   Artesanal
                 </span>
