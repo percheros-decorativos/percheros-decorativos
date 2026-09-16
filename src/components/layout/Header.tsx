@@ -102,15 +102,15 @@ export default function Header({ categories = [] }: { categories?: NavCategory[]
                           <li key={c.slug}>
                             <Link
                               href={`/categoria/${c.slug}`}
-                              className="flex items-center gap-3 px-4 py-2 text-sm font-medium normal-case tracking-normal text-carbon hover:bg-rojo-50 hover:text-rojo-600"
+                              className="flex items-center gap-3 px-4 py-1.5 text-sm font-medium normal-case tracking-normal text-carbon hover:bg-rojo-50 hover:text-rojo-600"
                             >
                               {c.imageUrl && (
                                 <Image
                                   src={c.imageUrl}
                                   alt=""
-                                  width={20}
-                                  height={20}
-                                  className="h-5 w-5 shrink-0 object-contain"
+                                  width={28}
+                                  height={28}
+                                  className="h-7 w-7 shrink-0 object-contain"
                                 />
                               )}
                               {c.name}
