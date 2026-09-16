@@ -25,7 +25,7 @@ export default function ServiciosPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-6 pt-7 md:grid-cols-3">
           {/* ===== Salidas Moter@s ===== */}
-          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_35px_-15px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1">
             <div className="flex flex-col items-center px-4 pt-6 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-rojo-50">
                 <Image
@@ -37,7 +37,7 @@ export default function ServiciosPage() {
                 />
               </span>
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
-                Salidas Moter@s
+                Salidas Moter@
               </h2>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-0.5 bg-white">
@@ -81,7 +81,7 @@ export default function ServiciosPage() {
           </article>
 
           {/* ===== Servicio Bike ===== */}
-          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_35px_-15px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1">
             <div className="flex flex-col items-center px-4 pt-6 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-rojo-50">
                 <Image
@@ -93,7 +93,7 @@ export default function ServiciosPage() {
                 />
               </span>
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
-                Servicio Bike
+                Asistencia Bike
               </h2>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-0.5 bg-white">
@@ -170,7 +170,7 @@ export default function ServiciosPage() {
           </article>
 
           {/* ===== Servicios/Accesorios Mascotas ===== */}
-          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_35px_-15px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1">
             <div className="flex flex-col items-center px-4 pt-6 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-rojo-50">
                 <Image
@@ -182,7 +182,7 @@ export default function ServiciosPage() {
                 />
               </span>
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
-                Servicios/Accesorios Mascotas
+                Paseo Mascotas
               </h2>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-0.5 bg-white">
