@@ -37,6 +37,26 @@ export default function ServiciosPage() {
                 Salidas Moter@s
               </h2>
             </div>
+            <div className="grid grid-cols-2 gap-0.5 bg-white">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/salidas-moteras-1.webp"
+                  alt="Salida de percheros moteras por carretera de montaña"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/salidas-moteras-2.webp"
+                  alt="Grupo de moteros rodando al atardecer"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
             <div className="flex flex-1 flex-col p-6">
               <p className="text-sm leading-relaxed text-carbon/80">
                 Venta de percheros temáticos para cascos y accesorios; servicio
@@ -68,6 +88,26 @@ export default function ServiciosPage() {
               <h2 className="font-display text-lg font-bold text-white">
                 Servicio Bike
               </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-0.5 bg-white">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/grua-bici-1.webp"
+                  alt="Bicicleta de montaña lista para transportar"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/grua-bici-2.webp"
+                  alt="Recogida de bicicleta en portabicicletas de vehículo"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
+              </div>
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
               <p className="text-center font-bold text-madera-900">
@@ -134,6 +174,26 @@ export default function ServiciosPage() {
               <h2 className="font-display text-lg font-bold text-white">
                 Servicios/Accesorios Mascotas
               </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-0.5 bg-white">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/paseo-canino-1.webp"
+                  alt="Paseador con varios perros en caminata grupal"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src="/img/servicios/paseo-canino-2.webp"
+                  alt="Paseador caminando con perros en el parque"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 200px"
+                  className="object-cover"
+                />
+              </div>
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
               <p>
