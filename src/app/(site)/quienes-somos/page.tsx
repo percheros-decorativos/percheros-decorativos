@@ -99,20 +99,20 @@ export default function QuienesSomosPage() {
 
           <Link
             href="/categorias"
-            className="group flex items-center gap-4 rounded-2xl border-2 border-rojo-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-rojo-300 hover:shadow-lg"
+            className="group flex items-center gap-4 rounded-2xl border-2 border-rojo-500 bg-rojo-500 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rojo-600 hover:shadow-lg"
           >
             <Image
               src="/img/quienes-somos/icon-categorias.webp"
               alt=""
               width={44}
               height={44}
-              className="h-11 w-11 shrink-0"
+              className="h-11 w-11 shrink-0 brightness-0 invert"
             />
             <span>
-              <span className="block font-display text-lg font-bold text-madera-900">
+              <span className="block font-display text-lg font-bold text-white">
                 Ver todas las categorías
               </span>
-              <span className="text-sm text-carbon/70">
+              <span className="text-sm text-white/85">
                 Explora por estilo y espacio
               </span>
             </span>
@@ -123,7 +123,7 @@ export default function QuienesSomosPage() {
           {valores.map((v) => (
             <div
               key={v.title}
-              className="rounded-2xl border border-madera-100 bg-white p-5 shadow-sm"
+              className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)] transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.2)]"
             >
               <Image
                 src={`/img/quienes-somos/${v.icon}.webp`}
