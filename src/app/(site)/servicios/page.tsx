@@ -27,13 +27,15 @@ export default function ServiciosPage() {
           {/* ===== Salidas Moter@s ===== */}
           <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
             <div className="flex flex-col items-center px-4 pt-6 text-center">
-              <Image
-                src="/img/categories/moteros.webp"
-                alt=""
-                width={64}
-                height={64}
-                className="h-16 w-16"
-              />
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-rojo-50">
+                <Image
+                  src="/img/categories/moteros.webp"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-9 w-9"
+                />
+              </span>
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
                 Salidas Moter@s
               </h2>
@@ -81,13 +83,15 @@ export default function ServiciosPage() {
           {/* ===== Servicio Bike ===== */}
           <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
             <div className="flex flex-col items-center px-4 pt-6 text-center">
-              <Image
-                src="/img/categories/bike.webp"
-                alt=""
-                width={64}
-                height={64}
-                className="h-16 w-16"
-              />
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-rojo-50">
+                <Image
+                  src="/img/categories/bike.webp"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-9 w-9"
+                />
+              </span>
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
                 Servicio Bike
               </h2>
@@ -168,13 +172,15 @@ export default function ServiciosPage() {
           {/* ===== Servicios/Accesorios Mascotas ===== */}
           <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
             <div className="flex flex-col items-center px-4 pt-6 text-center">
-              <Image
-                src="/img/categories/mascotas.webp"
-                alt=""
-                width={64}
-                height={64}
-                className="h-16 w-16"
-              />
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-rojo-50">
+                <Image
+                  src="/img/categories/mascotas.webp"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-9 w-9"
+                />
+              </span>
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
                 Servicios/Accesorios Mascotas
               </h2>
@@ -252,19 +258,6 @@ export default function ServiciosPage() {
                 </div>
               </div>
           </article>
-        </div>
-
-        <div className="mt-10 rounded-3xl bg-bosque-500 p-8 text-center text-crema-100">
-          <h2 className="font-display text-2xl font-bold text-white">
-            ¿Quieres unirte?
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-crema-100/90">
-            Diligencia el formulario y nos pondremos en contacto contigo para
-            que seas parte de nuestras próximas salidas o agendes tu servicio.
-          </p>
-          <ButtonLink href="/contacto?asunto=servicios" className="mt-5">
-            Quiero unirme
-          </ButtonLink>
         </div>
       </section>
     </>
