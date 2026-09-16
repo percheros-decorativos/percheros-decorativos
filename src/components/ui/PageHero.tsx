@@ -33,7 +33,7 @@ export default function PageHero({
 
   if (bgImage) {
     return (
-      <header className="relative overflow-hidden border-b border-rojo-100">
+      <header className="relative min-h-[300px] overflow-hidden border-b border-rojo-100 md:min-h-[320px]">
         {breadcrumbLd && <JsonLd data={breadcrumbLd} />}
         <Image
           src={bgImage}
@@ -44,7 +44,7 @@ export default function PageHero({
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-carbon/70 via-carbon/40 to-carbon/20" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <div className="relative mx-auto flex min-h-[300px] max-w-7xl flex-col justify-center px-4 py-8 md:min-h-[320px]">
           {breadcrumb && (
             <nav aria-label="Migas de pan" className="mb-3 text-sm text-white/70">
               {breadcrumb.map((b, i) => (
