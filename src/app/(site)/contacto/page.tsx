@@ -19,6 +19,7 @@ export default function ContactoPage() {
         title="Contáctenos"
         subtitle="Escríbenos y nos contactaremos lo más pronto posible."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Contáctenos" }]}
+        bgImage="/img/contacto/banner.webp"
       />
 
       <section className="mx-auto max-w-5xl px-4 py-12">

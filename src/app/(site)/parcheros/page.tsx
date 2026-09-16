@@ -32,6 +32,7 @@ export default function ParcherosPage() {
         title="Parcheros"
         subtitle="¡Únete a cualquiera de nuestras salidas según tu pasión y desparcha! Aventura sana, seguridad y buena compañía."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Parcheros" }]}
+        bgImage="/img/parcheros/banner.webp"
       />
 
       <section className="mx-auto max-w-5xl px-4 py-12">

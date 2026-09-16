@@ -23,6 +23,7 @@ export default async function GaleriaPage() {
         title="Galería"
         subtitle="Una muestra de nuestros percheros decorativos hechos a mano."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Galería" }]}
+        bgImage="/img/galeria/banner.webp"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-12">
