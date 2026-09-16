@@ -15,7 +15,7 @@ const categorias = [
   "Corporativos",
   "Instalación",
   "Envíos",
-  "Parcheros",
+  "Servicios",
   "Obras sociales",
   "Aliados",
 ];
@@ -23,7 +23,10 @@ const categorias = [
 const asuntoMap: Record<string, string> = {
   instalacion: "Instalación",
   envios: "Envíos",
-  parcheros: "Parcheros",
+  servicios: "Servicios",
+  moteros: "Moteros",
+  bike: "Bike",
+  mascotas: "Mascotas",
   "obras-sociales": "Obras sociales",
   aliados: "Aliados",
 };

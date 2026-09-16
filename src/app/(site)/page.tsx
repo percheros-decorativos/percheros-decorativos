@@ -6,44 +6,40 @@ import CategoryCard from "@/components/ui/CategoryCard";
 import SectionTitle from "@/components/ui/SectionTitle";
 import JsonLd from "@/components/JsonLd";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
-import { ArrowRight, Baby, HeartHandshake } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Marquee from "@/components/ui/Marquee";
 import HeroSlider from "@/components/pages/HeroSlider";
 import ServicesSlider from "@/components/pages/ServicesSlider";
 import ProductsSlider from "@/components/pages/ProductsSlider";
 import QuienesSomosSlider from "@/components/pages/QuienesSomosSlider";
 import BannerSlider from "@/components/pages/BannerSlider";
-import SalidasCard from "@/components/pages/SalidasCard";
 import { getCategories, getFeaturedProducts } from "@/lib/queries";
-import { stock } from "@/lib/stock";
 
-// Salidas de la comunidad Parcheros.
-const salidas = [
+// Comunidad: Parcheros, Obras Sociales, Clasificados Sociales y Aliados.
+const comunidad = [
   {
-    title: "Moteras",
-    src: "/img/parcheros/salidas-moteras.webp",
-    accent: "text-rojo-600",
-    texts: [
-      "El objetivo de las salidas moter@s es vivir la pasión por la libertad y las actividades relacionadas con las motocicletas.",
-      "Fomentando siempre la seguridad, solidaridad, respeto y colaboración.",
-    ],
+    title: "Parcheros",
+    text: "Salidas moteras, bike y mascotas para vivir la aventura en comunidad.",
+    icon: "icon-parcheros",
+    href: "/servicios",
   },
   {
-    title: "Bike",
-    src: "/img/parcheros/salidas-bikes.webp",
-    accent: "text-rojo-600",
-    texts: [
-      "El objetivo de las salidas MTB (Mountain Bike) es compartir la pasión por la bicicleta, la cultura bici y salir a rodar por caminos de trocha y montaña.",
-    ],
+    title: "Obras Sociales",
+    text: "Apoyamos a niños, adultos mayores y personas en situación de vulnerabilidad.",
+    icon: "icon-obras-sociales",
+    href: "/obras-sociales",
   },
   {
-    title: "Mascotas",
-    src: "/img/parcheros/salidas-mascotas.webp",
-    accent: "text-rojo-600",
-    texts: [
-      "La finalidad de las salidas es caminar y compartir con nuestras mascotas.",
-      "En un espacio diferente acompañados de la naturaleza.",
-    ],
+    title: "Clasificados Sociales",
+    text: "Ayuda solidaria: conecta con quien necesita colaboración, sin ánimo de lucro.",
+    icon: "icon-clasificados",
+    href: "/obras-sociales#clasificados",
+  },
+  {
+    title: "Aliados Comerciales",
+    text: "Descubre emprendimientos y negocios aliados de nuestra red de apoyo.",
+    icon: "icon-aliados",
+    href: "/aliados",
   },
 ];
 
@@ -291,222 +287,43 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* ===================== PARCHEROS ===================== */}
+      {/* ===================== COMUNIDAD ===================== */}
       <section className="bg-crema-50">
         <div className="mx-auto max-w-7xl px-4 py-16">
           <Reveal>
-            <SectionTitle eyebrow="Comunidad">Parcheros</SectionTitle>
-            <p
-              className="mt-6 text-center text-3xl font-bold italic text-rojo-600 sm:text-4xl"
-              style={{ fontFamily: '"Calibri", sans-serif' }}
-            >
-              ¡Únete a cualquiera de nuestras salidas según tu pasión y desparche!
-            </p>
-            <p className="mx-auto mt-2 max-w-4xl text-center text-carbon">
-              Si te gusta el <strong>deporte</strong>, la <strong>cultuta bici</strong>,
-              salir a rodar, disfrutar de <strong>paisajes</strong> y compartir una{" "}
-              <strong>sana aventura</strong>....
-              <br />
-              Púedes hacer parte de nuestras salidas de{" "}
-              <strong className="font-black">
-                <em className="text-rojo-600">Parcheros</em>
-              </strong>
-              .
+            <SectionTitle eyebrow="Comunidad">
+              Más que percheros
+            </SectionTitle>
+            <p className="mx-auto mt-2 max-w-2xl text-center text-carbon/75">
+              Salidas, obras sociales, ayuda solidaria y aliados: así vivimos
+              la comunidad Percheros Decorativos.
             </p>
           </Reveal>
-          <RevealStagger className="mt-8 grid gap-8 md:grid-cols-3">
-            {salidas.map((s) => (
-              <RevealItem key={s.title}>
-                <SalidasCard {...s} />
+          <RevealStagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {comunidad.map((c) => (
+              <RevealItem key={c.title}>
+                <div className="flex h-full flex-col items-center rounded-2xl bg-white p-6 text-center shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)] transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.2)]">
+                  <Image
+                    src={`/img/comunidad/${c.icon}.webp`}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="h-14 w-14"
+                  />
+                  <h3 className="mt-3 font-display text-lg font-semibold text-madera-800">
+                    {c.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-carbon/70">{c.text}</p>
+                  <Link
+                    href={c.href}
+                    className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold text-rojo-600 hover:text-rojo-700 hover:underline"
+                  >
+                    Más info <ArrowRight size={14} />
+                  </Link>
+                </div>
               </RevealItem>
             ))}
           </RevealStagger>
-          <div className="mt-8 text-center">
-            <ButtonLink href="/parcheros">Quiero unirme</ButtonLink>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== OBRAS SOCIALES ===================== */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <Reveal>
-          <SectionTitle eyebrow="Compromiso">Obras sociales</SectionTitle>
-          <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Image
-              src="/img/obras/icono-obras-sociales.webp"
-              alt="Icono de solidaridad y comunidad"
-              width={56}
-              height={56}
-              className="h-14 w-14 object-contain"
-            />
-            <p className="text-center font-script text-2xl font-bold text-carbon">
-              ¡Por nuestros abuel@s, niñ@s y personas vulnerables!
-            </p>
-          </div>
-        </Reveal>
-        <RevealStagger className="mt-10 grid gap-8 md:grid-cols-2">
-          <RevealItem>
-            <div className="group overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200 transition-shadow duration-300 hover:shadow-xl">
-              <div className="h-1.5 bg-gradient-to-r from-sky-400 to-sky-600" />
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <Image
-                  src="/img/obras/infancia-futuro.webp"
-                  alt="Percheros Decorativos con niños y niñas — Infancia con Futuro"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-sm leading-relaxed text-carbon/80">
-                  <strong className="text-rojo-600">Percheros Decorativos</strong> está
-                  comprometido en realizar diferentes obras sociales en situaciones de
-                  vulnerabilidad; hogares geriátricos, infantiles, personas con algún
-                  tipo de discapacidad o enfermedad.
-                </p>
-                <div className="mt-4 flex items-start gap-3 border-t border-crema-100 pt-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-600">
-                    <Baby size={18} />
-                  </span>
-                  <p className="text-sm leading-relaxed text-carbon/80">
-                    <strong className="text-carbon">Infancia con Futuro:</strong>{" "}
-                    Acompañamos a nuestros niños y niñas brindándoles herramientas para
-                    su desarrollo, espacios seguros y oportunidades que impulsen sus
-                    sueños desde sus primeros años.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </RevealItem>
-          <RevealItem>
-            <div className="group overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200 transition-shadow duration-300 hover:shadow-xl">
-              <div className="h-1.5 bg-gradient-to-r from-amber-400 to-amber-600" />
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <Image
-                  src="/img/obras/adultos-mayores.webp"
-                  alt="Percheros Decorativos con adultos mayores — Dignidad para nuestros Adultos Mayores"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-sm leading-relaxed text-carbon/80">
-                  Brindamos <strong className="text-rojo-600">asesoría jurídica</strong>{" "}
-                  en los derechos fundamentales y dignidad humana con el objetivo de
-                  ofrecer colaboración, solidaridad y esperanza a quienes más lo
-                  necesiten, con el apoyo de nuestros clientes.
-                </p>
-                <div className="mt-4 flex items-start gap-3 border-t border-crema-100 pt-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
-                    <HeartHandshake size={18} />
-                  </span>
-                  <p className="text-sm leading-relaxed text-carbon/80">
-                    <strong className="text-carbon">
-                      Dignidad para nuestros Adultos Mayores:
-                    </strong>{" "}
-                    Honramos la sabiduría de la tercera edad con actividades de
-                    integración, cuidado y programas de bienestar que aseguran una etapa
-                    senior plena y respetada.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </RevealItem>
-        </RevealStagger>
-        <div className="mt-10 text-center">
-          <ButtonLink href="/obras-sociales" variant="blue">
-            Más info
-          </ButtonLink>
-        </div>
-      </section>
-
-      {/* ===================== CLASIFICADOS OBRAS SOCIALES ===================== */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
-          <Reveal>
-            <SectionTitle eyebrow="Ayuda solidaria">
-              Clasificados Obras Sociales
-            </SectionTitle>
-          </Reveal>
-          <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
-            <Reveal direction="right">
-              <p className="text-center text-lg leading-relaxed text-carbon md:text-left">
-                En este espacio damos a conocer diferentes clasificados
-                sociales; con el objetivo de que alguna persona que pueda
-                colaborar a mejorar la calidad de vida de quien lo necesita
-                sin ánimo de lucro.
-              </p>
-              <div className="mt-6 text-center md:text-left">
-                <ButtonLink href="/obras-sociales" variant="green">
-                  Más info
-                </ButtonLink>
-              </div>
-            </Reveal>
-            <Reveal direction="left">
-              <div className="relative mx-auto h-[360px] w-full max-w-sm sm:h-[420px]">
-                <div className="hover-lift absolute left-0 top-0 h-64 w-52 overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200 sm:h-72 sm:w-60">
-                  <Image
-                    src="/img/obras/clasificados-silla.webp"
-                    alt="Clasificados de obras sociales — silla de ruedas"
-                    fill
-                    sizes="240px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="hover-lift absolute bottom-0 left-24 h-56 w-44 overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200 sm:left-32 sm:h-64 sm:w-52">
-                  <Image
-                    src="/img/obras/clasificados-acompanante.webp"
-                    alt="Clasificados de obras sociales — acompañante con silla de ruedas"
-                    fill
-                    sizes="210px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="hover-lift absolute bottom-4 right-0 h-56 w-40 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-crema-200 sm:h-64 sm:w-48">
-                  <Image
-                    src="/img/obras/clasificados-andador.webp"
-                    alt="Clasificados de obras sociales — andador"
-                    fill
-                    sizes="190px"
-                    className="object-contain p-2"
-                  />
-                </div>
-              </div>
-            </Reveal>
-          </div>
-      </section>
-
-      {/* ===================== ALIADOS ===================== */}
-      <section className="bg-crema-50">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <Reveal>
-            <SectionTitle eyebrow="Red de apoyo">Aliados comerciales</SectionTitle>
-          </Reveal>
-          <div className="mt-8 grid items-center gap-8 md:grid-cols-2">
-            <Reveal direction="right">
-              <div className="hover-lift relative aspect-[16/10] overflow-hidden rounded-2xl shadow-md">
-                <Image
-                  src={stock.buceo}
-                  alt="Aliados comerciales — club de buceo"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
-            <Reveal direction="left">
-              <p className="text-carbon">
-                En esta sección encontrarás publicados nuestros aliados
-                comerciales y/o emprendimientos de diferentes sectores. Si algún
-                ofrecimiento es de tu interés, puedes contactarnos para más
-                información y que seas referido por parte de Percheros
-                Decorativos.
-              </p>
-              <ButtonLink href="/aliados" className="mt-6">
-                Más info
-              </ButtonLink>
-            </Reveal>
-          </div>
         </div>
       </section>
 

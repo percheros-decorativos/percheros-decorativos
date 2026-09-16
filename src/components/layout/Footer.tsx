@@ -26,7 +26,7 @@ const cols = [
   {
     title: "Comunidad",
     links: [
-      { label: "Parcheros", href: "/parcheros" },
+      { label: "Servicios", href: "/servicios" },
       { label: "Obras Sociales", href: "/obras-sociales" },
       { label: "Aliados", href: "/aliados" },
       { label: "Guías", href: "/guias" },

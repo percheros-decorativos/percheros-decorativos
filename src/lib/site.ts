@@ -37,7 +37,7 @@ export const mainNav = [
   { label: "Categorías", href: "/categorias" },
   { label: "Quiénes Somos", href: "/quienes-somos" },
   { label: "Galería", href: "/galeria" },
-  { label: "Parcheros", href: "/parcheros" },
+  { label: "Servicios", href: "/servicios" },
   { label: "Obras Sociales", href: "/obras-sociales" },
   { label: "Contáctenos", href: "/contacto" },
 ] as const;

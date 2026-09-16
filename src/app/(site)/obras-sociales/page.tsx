@@ -50,7 +50,7 @@ export default function ObrasSocialesPage() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-2xl bg-crema-100 p-6">
+        <div id="clasificados" className="mt-10 scroll-mt-24 rounded-2xl bg-crema-100 p-6">
           <h2 className="font-display text-xl font-semibold text-madera-800">
             Clasificados sociales
           </h2>

@@ -17,7 +17,7 @@ export default function SalidasCard({ title, src, accent, texts }: SalidasCardDa
 
   return (
     <div className="hover-lift overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-carbon/5">
-      <Link href="/parcheros" aria-label={`Salidas ${title}`} className="group block">
+      <Link href="/servicios" aria-label={`Salidas ${title}`} className="group block">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
             src={src}
@@ -59,7 +59,7 @@ export default function SalidasCard({ title, src, accent, texts }: SalidasCardDa
                 </p>
               ))}
               <Link
-                href="/parcheros"
+                href="/servicios"
                 className="inline-block rounded-md bg-rojo-500 px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-rojo-600"
               >
                 Leer más
