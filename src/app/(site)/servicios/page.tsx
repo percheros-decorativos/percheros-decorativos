@@ -23,232 +23,244 @@ export default function ServiciosPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 pt-7 md:grid-cols-3">
           {/* ===== Salidas Moter@s ===== */}
-          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
-            <div className="flex items-center justify-center gap-3 bg-rojo-500 px-4 py-4">
+          <article className="relative pt-7">
+            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-rojo-500 shadow-lg ring-4 ring-white">
               <Image
                 src="/img/categories/moteros.webp"
                 alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0 brightness-0 invert"
+                width={28}
+                height={28}
+                className="h-7 w-7 shrink-0 brightness-0 invert"
               />
-              <h2 className="font-display text-lg font-bold text-white">
-                Salidas Moter@s
-              </h2>
             </div>
-            <div className="grid grid-cols-2 gap-0.5 bg-white">
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="/img/servicios/salidas-moteras-1.webp"
-                  alt="Salida de percheros moteras por carretera de montaña"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 200px"
-                  className="object-cover"
-                />
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+              <div className="flex items-center justify-center bg-rojo-500 px-4 pb-3 pt-8">
+                <h2 className="font-display text-lg font-bold text-white">
+                  Salidas Moter@s
+                </h2>
               </div>
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="/img/servicios/salidas-moteras-2.webp"
-                  alt="Grupo de moteros rodando al atardecer"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 200px"
-                  className="object-cover"
-                />
+              <div className="grid grid-cols-2 gap-0.5 bg-white">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/img/servicios/salidas-moteras-1.webp"
+                    alt="Salida de percheros moteras por carretera de montaña"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/img/servicios/salidas-moteras-2.webp"
+                    alt="Grupo de moteros rodando al atardecer"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <ServiceExpand summary="Percheros para tu casco y tu moto">
-                <p className="text-sm leading-relaxed text-carbon/80">
-                  Venta de percheros temáticos para cascos y accesorios;
-                  servicio de personalización de percheros con la marca o
-                  modelo de la moto.
-                </p>
-              </ServiceExpand>
-              <div className="mt-auto pt-6 text-center">
-                <ButtonLink
-                  href="/contacto?asunto=moteros"
-                  variant="dark"
-                  className="w-full"
-                >
-                  Unirme a Salidas
-                </ButtonLink>
+              <div className="flex flex-1 flex-col p-6">
+                <ServiceExpand summary="Percheros para tu casco y tu moto">
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    Venta de percheros temáticos para cascos y accesorios;
+                    servicio de personalización de percheros con la marca o
+                    modelo de la moto.
+                  </p>
+                </ServiceExpand>
+                <div className="mt-auto pt-6 text-center">
+                  <ButtonLink
+                    href="/contacto?asunto=moteros"
+                    variant="dark"
+                    className="w-full"
+                  >
+                    Unirme a Salidas
+                  </ButtonLink>
+                </div>
               </div>
             </div>
           </article>
 
           {/* ===== Servicio Bike ===== */}
-          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
-            <div className="flex items-center justify-center gap-3 bg-rojo-500 px-4 py-4">
+          <article className="relative pt-7">
+            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-rojo-500 shadow-lg ring-4 ring-white">
               <Image
                 src="/img/categories/bike.webp"
                 alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0 brightness-0 invert"
+                width={28}
+                height={28}
+                className="h-7 w-7 shrink-0 brightness-0 invert"
               />
-              <h2 className="font-display text-lg font-bold text-white">
-                Servicio Bike
-              </h2>
             </div>
-            <div className="grid grid-cols-2 gap-0.5 bg-white">
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="/img/servicios/grua-bici-1.webp"
-                  alt="Bicicleta de montaña lista para transportar"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 200px"
-                  className="object-cover"
-                />
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+              <div className="flex items-center justify-center bg-rojo-500 px-4 pb-3 pt-8">
+                <h2 className="font-display text-lg font-bold text-white">
+                  Servicio Bike
+                </h2>
               </div>
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="/img/servicios/grua-bici-2.webp"
-                  alt="Recogida de bicicleta en portabicicletas de vehículo"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 200px"
-                  className="object-cover"
-                />
+              <div className="grid grid-cols-2 gap-0.5 bg-white">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/img/servicios/grua-bici-1.webp"
+                    alt="Bicicleta de montaña lista para transportar"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/img/servicios/grua-bici-2.webp"
+                    alt="Recogida de bicicleta en portabicicletas de vehículo"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <ServiceExpand summary="Servicio Asistencia Bike">
-                <p className="text-center font-semibold text-madera-800">
-                  TARIFAS BIKE:
-                </p>
-                <p className="mt-1">
-                  Servicio de grúa, recogida o retorno bike:
-                </p>
-                <ul className="mt-2 space-y-2 text-center">
-                  <li>
-                    <strong>Perímetro urbano</strong> (un trayecto):
-                    <br />
-                    $ 40.000 (1 bici) · $ 60.000 (2 bicis)
-                  </li>
-                  <li>
-                    <strong>Perímetro rural</strong> (un trayecto):
-                    <br />
-                    $ 60.000 (1 bici) · $ 90.000 (2 bicis)
-                  </li>
-                </ul>
-                <p className="mt-2 text-center text-xs text-carbon/60">
-                  Los precios pueden variar según kilometraje y peajes.
-                </p>
-                <p className="mt-4 text-center font-semibold text-madera-800">
-                  ¿Qué incluye?
-                </p>
-                <ul className="mt-2 list-disc space-y-2 pl-5">
-                  <li>
-                    Recogida con amarre y protección especial para no rayar el
-                    marco o componentes.
-                  </li>
-                  <li>
-                    Traslado de la bicicleta y ciclista hasta tu punto de
-                    residencia o taller de confianza.
-                  </li>
-                  <li>
-                    Herramientas básicas de emergencia (si el problema es
-                    solucionable en ruta).
-                  </li>
-                </ul>
-              </ServiceExpand>
-              <div className="mt-auto pt-6 text-center">
-                <ButtonLink
-                  href="/contacto?asunto=bike"
-                  variant="dark"
-                  className="w-full"
-                >
-                  Solicitar Asistencia
-                </ButtonLink>
+              <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+                <ServiceExpand summary="Servicio Asistencia Bike">
+                  <p className="text-center font-semibold text-madera-800">
+                    TARIFAS BIKE:
+                  </p>
+                  <p className="mt-1">
+                    Servicio de grúa, recogida o retorno bike:
+                  </p>
+                  <ul className="mt-2 space-y-2 text-center">
+                    <li>
+                      <strong>Perímetro urbano</strong> (un trayecto):
+                      <br />
+                      $ 40.000 (1 bici) · $ 60.000 (2 bicis)
+                    </li>
+                    <li>
+                      <strong>Perímetro rural</strong> (un trayecto):
+                      <br />
+                      $ 60.000 (1 bici) · $ 90.000 (2 bicis)
+                    </li>
+                  </ul>
+                  <p className="mt-2 text-center text-xs text-carbon/60">
+                    Los precios pueden variar según kilometraje y peajes.
+                  </p>
+                  <p className="mt-4 text-center font-semibold text-madera-800">
+                    ¿Qué incluye?
+                  </p>
+                  <ul className="mt-2 list-disc space-y-2 pl-5">
+                    <li>
+                      Recogida con amarre y protección especial para no rayar
+                      el marco o componentes.
+                    </li>
+                    <li>
+                      Traslado de la bicicleta y ciclista hasta tu punto de
+                      residencia o taller de confianza.
+                    </li>
+                    <li>
+                      Herramientas básicas de emergencia (si el problema es
+                      solucionable en ruta).
+                    </li>
+                  </ul>
+                </ServiceExpand>
+                <div className="mt-auto pt-6 text-center">
+                  <ButtonLink
+                    href="/contacto?asunto=bike"
+                    variant="dark"
+                    className="w-full"
+                  >
+                    Solicitar Asistencia
+                  </ButtonLink>
+                </div>
               </div>
             </div>
           </article>
 
           {/* ===== Servicios/Accesorios Mascotas ===== */}
-          <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
-            <div className="flex items-center justify-center gap-3 bg-rojo-500 px-4 py-4">
+          <article className="relative pt-7">
+            <div className="absolute left-1/2 top-0 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-rojo-500 shadow-lg ring-4 ring-white">
               <Image
                 src="/img/categories/mascotas.webp"
                 alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0 brightness-0 invert"
+                width={28}
+                height={28}
+                className="h-7 w-7 shrink-0 brightness-0 invert"
               />
-              <h2 className="font-display text-lg font-bold text-white">
-                Servicios/Accesorios Mascotas
-              </h2>
             </div>
-            <div className="grid grid-cols-2 gap-0.5 bg-white">
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="/img/servicios/paseo-canino-1.webp"
-                  alt="Paseador con varios perros en caminata grupal"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 200px"
-                  className="object-cover"
-                />
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]">
+              <div className="flex items-center justify-center bg-rojo-500 px-4 pb-3 pt-8">
+                <h2 className="font-display text-lg font-bold text-white">
+                  Servicios/Accesorios Mascotas
+                </h2>
               </div>
-              <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="/img/servicios/paseo-canino-2.webp"
-                  alt="Paseador caminando con perros en el parque"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 200px"
-                  className="object-cover"
-                />
+              <div className="grid grid-cols-2 gap-0.5 bg-white">
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/img/servicios/paseo-canino-1.webp"
+                    alt="Paseador con varios perros en caminata grupal"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src="/img/servicios/paseo-canino-2.webp"
+                    alt="Paseador caminando con perros en el parque"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 200px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <ServiceExpand summary="Servicio Paseo Mascotas">
-                <p>
-                  Percheros organizadores para correas, pecheras y
-                  dispensadores de bolsas; servicio de paseos programados,
-                  &ldquo;Caminatas Caninas&rdquo;, adiestramiento básico e
-                  hidratación para la mascota.
-                </p>
-                <p className="mt-4 text-center font-semibold text-madera-800">
-                  TARIFAS MASCOTAS:
-                </p>
-                <ol className="mt-2 list-decimal space-y-2 pl-5">
-                  <li>
-                    Paseo x día personalizado + hidratación (1 hora) = $
-                    15.000
-                  </li>
-                  <li>
-                    Paseo grupal (máx. 6 mascotas) + hidratación (1 hora) = $
-                    8.000 x mascota
-                  </li>
-                  <li>
-                    Paseo mensual personalizado + hidratación (4
-                    días/semana, 1 hora) = $ 160.000
-                  </li>
-                </ol>
-                <p className="mt-4 text-center font-semibold text-madera-800">
-                  ¿Qué incluye?
-                </p>
-                <ul className="mt-2 list-disc space-y-2 pl-5">
-                  <li>
-                    Caminata o recorrido seguro de 50 a 60 minutos, adaptado
-                    al ritmo de tu perro.
-                  </li>
-                  <li>
-                    Refuerzo de comandos básicos (servicio personalizado).
-                  </li>
-                  <li>
-                    Fotos/videos de la actividad y ubicación durante el
-                    recorrido.
-                  </li>
-                </ul>
-              </ServiceExpand>
-              <div className="mt-auto pt-6 text-center">
-                <ButtonLink
-                  href="/contacto?asunto=mascotas"
-                  variant="dark"
-                  className="w-full"
-                >
-                  Agendar Paseo
-                </ButtonLink>
+              <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+                <ServiceExpand summary="Servicio Paseo Mascotas">
+                  <p>
+                    Percheros organizadores para correas, pecheras y
+                    dispensadores de bolsas; servicio de paseos programados,
+                    &ldquo;Caminatas Caninas&rdquo;, adiestramiento básico e
+                    hidratación para la mascota.
+                  </p>
+                  <p className="mt-4 text-center font-semibold text-madera-800">
+                    TARIFAS MASCOTAS:
+                  </p>
+                  <ol className="mt-2 list-decimal space-y-2 pl-5">
+                    <li>
+                      Paseo x día personalizado + hidratación (1 hora) = $
+                      15.000
+                    </li>
+                    <li>
+                      Paseo grupal (máx. 6 mascotas) + hidratación (1 hora) =
+                      $ 8.000 x mascota
+                    </li>
+                    <li>
+                      Paseo mensual personalizado + hidratación (4
+                      días/semana, 1 hora) = $ 160.000
+                    </li>
+                  </ol>
+                  <p className="mt-4 text-center font-semibold text-madera-800">
+                    ¿Qué incluye?
+                  </p>
+                  <ul className="mt-2 list-disc space-y-2 pl-5">
+                    <li>
+                      Caminata o recorrido seguro de 50 a 60 minutos,
+                      adaptado al ritmo de tu perro.
+                    </li>
+                    <li>
+                      Refuerzo de comandos básicos (servicio personalizado).
+                    </li>
+                    <li>
+                      Fotos/videos de la actividad y ubicación durante el
+                      recorrido.
+                    </li>
+                  </ul>
+                </ServiceExpand>
+                <div className="mt-auto pt-6 text-center">
+                  <ButtonLink
+                    href="/contacto?asunto=mascotas"
+                    variant="dark"
+                    className="w-full"
+                  >
+                    Agendar Paseo
+                  </ButtonLink>
+                </div>
               </div>
             </div>
           </article>
