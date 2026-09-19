@@ -344,26 +344,23 @@ export default async function HomePage() {
       </section>
 
       {/* ===================== CONTACTO CTA ===================== */}
-      <section className="bg-rojo-700">
+      <section className="bg-carbon">
         <div className="mx-auto max-w-3xl px-4 py-20 text-center">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.15em] text-rojo-200">
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-rojo-400">
               Hablemos
             </p>
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               Contáctenos
             </h2>
-            <span className="mx-auto mt-3 block h-1 w-16 rounded-full bg-white" />
-            <p className="mx-auto mt-6 max-w-xl text-lg text-white/80">
+            <span className="mx-auto mt-3 block h-1 w-16 rounded-full bg-rojo-500" />
+            <p className="mx-auto mt-6 max-w-xl text-lg text-white/75">
               Escríbenos y nos contactaremos lo más pronto. ¿Tienes una idea
               para un perchero personalizado?
             </p>
-            <Link
-              href="/contacto"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-md border-2 border-white px-7 py-3 text-base font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-rojo-700"
-            >
+            <ButtonLink href="/contacto" size="lg" className="mt-8">
               ¡Cuéntanos!
-            </Link>
+            </ButtonLink>
           </Reveal>
         </div>
       </section>
