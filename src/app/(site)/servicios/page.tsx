@@ -45,7 +45,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-[6.5rem] items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <Wrench size={28} />
                 </span>
@@ -54,7 +54,7 @@ export default function ServiciosPage() {
               <div className="mt-4">
                 <ServiceExpand
                   summary={`Instalación por ${formatCop(INSTALLATION_SERVICE_COP)}`}
-                  className="min-h-[7rem]"
+                  className="min-h-[4.5rem]"
                 >
                   <p>
                     Te ofrecemos nuestro servicio de instalación de forma
@@ -104,18 +104,18 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-[6.5rem] items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <PackageOpen size={28} />
                 </span>
                 <h2 className={titleClass}>
-                  Servicio de Armado e Instalación a Domicilio
+                  Armado a Domicilio
                 </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Montaje e instalación profesional en tu hogar"
-                  className="min-h-[7rem]"
+                  summary="Servicio de Armado a Domicilio"
+                  className="min-h-[4.5rem]"
                 >
                   <p>
                     ¿Prefieres dejar el armado en manos de expertos? Te
@@ -164,7 +164,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-[6.5rem] items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <Image
                   src="/img/categories/bike.webp"
                   alt=""
@@ -177,7 +177,7 @@ export default function ServiciosPage() {
               <div className="mt-4">
                 <ServiceExpand
                   summary="Servicio Asistencia Bike"
-                  className="min-h-[7rem]"
+                  className="min-h-[4.5rem]"
                 >
                   <p className="text-center font-semibold text-madera-800">
                     TARIFAS BIKE:
@@ -243,7 +243,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-[6.5rem] items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <Image
                   src="/img/categories/mascotas.webp"
                   alt=""
@@ -256,7 +256,7 @@ export default function ServiciosPage() {
               <div className="mt-4">
                 <ServiceExpand
                   summary="Servicio Paseo Mascotas"
-                  className="min-h-[7rem]"
+                  className="min-h-[4.5rem]"
                 >
                   <p>
                     Percheros organizadores para correas, pecheras y
