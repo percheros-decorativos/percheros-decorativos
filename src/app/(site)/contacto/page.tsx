@@ -93,11 +93,11 @@ export default function ContactoPage() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-rojo-300">
                 <MailIcon width={16} height={16} />
               </span>
-              <span>
+              <span className="min-w-0">
                 <span className="block text-xs font-semibold uppercase tracking-wide text-crema-50/60">
                   Correo
                 </span>
-                <span className="block text-sm font-medium text-white">
+                <span className="block break-all text-sm font-medium text-white">
                   {site.email}
                 </span>
               </span>
@@ -110,7 +110,7 @@ export default function ContactoPage() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-rojo-300">
                 <PhoneIcon width={15} height={15} />
               </span>
-              <span>
+              <span className="min-w-0">
                 <span className="block text-xs font-semibold uppercase tracking-wide text-crema-50/60">
                   Teléfono / WhatsApp
                 </span>
@@ -124,7 +124,7 @@ export default function ContactoPage() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-rojo-300">
                 <ToolIcon width={16} height={16} />
               </span>
-              <span>
+              <span className="min-w-0">
                 <span className="block text-xs font-semibold uppercase tracking-wide text-crema-50/60">
                   Cobertura
                 </span>
