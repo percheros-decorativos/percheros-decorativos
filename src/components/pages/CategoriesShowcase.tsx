@@ -29,18 +29,18 @@ export default function CategoriesShowcase({ categories }: { categories: Cat[] }
         <Link
           key={c.id}
           href={`/categoria/${c.slug}`}
-          className="group flex w-24 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-28"
+          className="group flex w-28 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-32"
         >
-          <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-28 sm:w-28">
+          <span className="relative flex h-28 w-28 items-center justify-center rounded-2xl bg-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-32 sm:w-32">
             {c.imageUrl && (
               <Image
                 src={c.imageUrl}
                 alt={`Isotipo categoría ${c.name}`}
                 fill
-                sizes="112px"
+                sizes="128px"
                 quality={90}
                 priority={i < 4}
-                className="object-contain p-4"
+                className="object-contain p-2.5"
               />
             )}
           </span>
@@ -56,13 +56,13 @@ export default function CategoriesShowcase({ categories }: { categories: Cat[] }
           type="button"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="group flex w-24 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-28"
+          className="group flex w-28 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-32"
         >
-          <span className="flex h-24 w-24 items-center justify-center rounded-full bg-rojo-500 text-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-rojo-600 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-28 sm:w-28">
+          <span className="flex h-28 w-28 items-center justify-center rounded-2xl bg-rojo-500 text-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-rojo-600 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-32 sm:w-32">
             {expanded ? (
-              <ChevronDown className="h-8 w-8 rotate-180 transition-transform duration-300" />
+              <ChevronDown className="h-9 w-9 rotate-180 transition-transform duration-300" />
             ) : (
-              <ArrowRight className="h-8 w-8 transition-transform duration-300 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-9 w-9 transition-transform duration-300 group-hover:translate-x-0.5" />
             )}
           </span>
           <span className="font-display text-sm font-bold leading-tight text-carbon transition-colors duration-300 group-hover:text-rojo-600">

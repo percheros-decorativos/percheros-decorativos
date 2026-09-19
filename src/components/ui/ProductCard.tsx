@@ -44,28 +44,28 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       />
       <Link
         href={`/producto/${product.slug}`}
-        className="relative block aspect-[2/1] overflow-hidden bg-white"
+        className="relative block aspect-[5/2] overflow-hidden bg-white"
       >
         <Image
           src={image}
           alt={img?.alt ?? product.name}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+          className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
           priority={priority}
         />
         {product.isNew && (
-          <span className="absolute left-3 top-3 rounded-full bg-bosque-500 px-2.5 py-1 text-xs font-bold text-white">
+          <span className="absolute left-2 top-2 rounded-full bg-bosque-500 px-2.5 py-1 text-xs font-bold text-white">
             NUEVO
           </span>
         )}
         {product.compareAtCop && product.compareAtCop > product.priceCop && (
-          <span className="absolute left-3 top-12 rounded-full bg-rojo-500 px-2.5 py-1 text-xs font-bold text-white">
+          <span className="absolute left-2 top-10 rounded-full bg-rojo-500 px-2.5 py-1 text-xs font-bold text-white">
             OFERTA
           </span>
         )}
       </Link>
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col p-3">
         {product.category && (
           <p
             className={`text-xs font-medium tracking-wide text-gris ${categoryCaseClass(product.category.name)}`}
@@ -73,15 +73,15 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             {product.category.name}
           </p>
         )}
-        <h3 className="mt-1 font-display text-base font-bold leading-snug text-carbon">
+        <h3 className="mt-0.5 font-display text-base font-bold leading-snug text-carbon">
           <Link href={`/producto/${product.slug}`} className="hover:text-rojo-600">
             {product.name}
           </Link>
         </h3>
         {product.shortDesc && (
-          <p className="mt-1 line-clamp-2 text-sm text-gris">{product.shortDesc}</p>
+          <p className="mt-0.5 line-clamp-2 text-sm text-gris">{product.shortDesc}</p>
         )}
-        <div className="mt-auto flex items-center justify-between pt-3">
+        <div className="mt-auto flex items-center justify-between pt-2">
           <div className="flex items-baseline gap-2">
             <span className="text-lg font-extrabold text-rojo-600">
               {formatPrice(product.priceCop)}
