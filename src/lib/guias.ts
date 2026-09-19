@@ -153,6 +153,110 @@ export const guias: Guia[] = [
       },
     ],
   },
+  {
+    slug: "perchero-para-casco-de-moto",
+    title: "Perchero para casco de moto: guía de compra",
+    description:
+      "Cómo elegir un perchero decorativo para colgar el casco y la chaqueta de tu moto: tipos de soporte, medidas y diseños temáticos disponibles.",
+    intro:
+      "Un perchero para casco no es solo un gancho: es una pieza que organiza tu casco y chaqueta a la entrada de casa o del garaje, y le da personalidad al espacio con diseños pensados para moteros.",
+    sections: [
+      {
+        h2: "¿Qué diferencia a un perchero motero de uno común?",
+        body: [
+          "Los percheros de nuestra categoría Moteros llevan soportes rígidos especiales para casco (no ganchos simples), pensados para sostener el peso y la forma del casco sin dañarlo, además de ganchos adicionales para la chaqueta o los guantes.",
+          "Los diseños están tallados o impresos con temática motera: motos clásicas, paisajes de carretera, escudos de equipos de fútbol colombianos o marcas icónicas, según el modelo.",
+        ],
+      },
+      {
+        h2: "Dónde ubicarlo",
+        body: [
+          "Lo más práctico es instalarlo cerca de la puerta de entrada o en el garaje, a una altura donde el casco quede a la vista sin estorbar el paso. Así evitas dejarlo en el piso o sobre el asiento de la moto.",
+        ],
+      },
+      {
+        h2: "Personalización",
+        body: [
+          "Si tienes una moto o un equipo favorito en mente, ofrecemos personalización de percheros moteros con la marca, modelo o escudo que prefieras — ideal también como regalo para un motociclista.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿El soporte daña el casco?",
+        a: "No, los soportes rígidos están diseñados para distribuir el peso del casco sin marcarlo ni deformarlo.",
+      },
+      {
+        q: "¿Puedo pedirlo personalizado con la marca de mi moto?",
+        a: "Sí, la categoría Moteros incluye la opción de personalizar el diseño con la marca o modelo de tu moto.",
+      },
+    ],
+  },
+  {
+    slug: "regalo-personalizado-en-madera",
+    title: "Regalos personalizados en madera: ideas con percheros",
+    description:
+      "Ideas de regalo personalizado en madera para cualquier ocasión: percheros con nombre, fecha o frase, para el hogar, moteros, amantes de mascotas o música.",
+    intro:
+      "Un perchero personalizado en madera combina algo útil con un detalle único: nombre, fecha, frase o el tema que le apasiona a quien lo recibe. Es un regalo que se usa todos los días, no que se guarda en un cajón.",
+    sections: [
+      {
+        h2: "Qué se puede personalizar",
+        body: [
+          "En la categoría Personalizados grabamos o imprimimos nombres, fechas especiales, frases cortas o el logo/escudo que el cliente elija, sobre la misma base en madera o MDF de nuestros diseños.",
+          "También es posible partir de un diseño temático existente (moteros, mascotas, guitarras, fe) y agregarle el nombre de la persona para hacerlo aún más personal.",
+        ],
+      },
+      {
+        h2: "Ideas según la ocasión",
+        body: [
+          "Cumpleaños o aniversario: perchero con el nombre y la fecha. Día del amor y la amistad o Navidad: un diseño temático de lo que le gusta a esa persona (su moto, su mascota, su banda favorita). Regalo corporativo: percheros con el logo de la empresa para empleados o clientes.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto se demora un perchero personalizado?",
+        a: "El tiempo varía según la personalización solicitada; escríbenos por WhatsApp con el detalle para confirmarte el plazo exacto.",
+      },
+      {
+        q: "¿Puedo enviar mi propio diseño o logo?",
+        a: "Sí, puedes compartirnos el nombre, frase o logo que quieras y lo adaptamos a la pieza.",
+      },
+    ],
+  },
+  {
+    slug: "percheros-para-mascotas",
+    title: "Percheros para mascotas: organiza correas y accesorios",
+    description:
+      "Cómo usar un perchero decorativo para organizar correas, pecheras y bolsas de tu mascota, con diseños de animales para el hogar.",
+    intro:
+      "Entre correas, pecheras, bolsas para popó y juguetes, los accesorios de una mascota terminan regados por toda la casa. Un perchero de la categoría Mascotas les da un lugar fijo, cerca de la puerta, y decora de paso.",
+    sections: [
+      {
+        h2: "Qué colgar en un perchero de mascotas",
+        body: [
+          "Nuestros diseños incluyen ganchos para correa y pechera, además de un dispensador o gancho adicional para las bolsas de recolección — todo lo que necesitas antes de salir a pasear quedará en un solo punto.",
+        ],
+      },
+      {
+        h2: "Diseños disponibles",
+        body: [
+          "Hay opciones con huellas, siluetas de perro y gato, lobos, águilas, osos y escenas de mascota junto a su dueño, entre otros — pensadas para los amantes de los animales que quieren un detalle así en su hogar.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Sirve para correas y pecheras a la vez?",
+        a: "Sí, la mayoría de los diseños de la categoría Mascotas incluyen más de un gancho para distintos accesorios.",
+      },
+      {
+        q: "¿Tienen diseños para gatos, no solo perros?",
+        a: "Sí, hay diseños con siluetas y temáticas felinas además de las de perro.",
+      },
+    ],
+  },
 ];
 
 export function getGuia(slug: string): Guia | undefined {

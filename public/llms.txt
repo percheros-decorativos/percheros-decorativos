@@ -6,43 +6,51 @@
 - Nombre: Percheros Decorativos
 - País: Colombia
 - Tipo: Emprendimiento artesanal (hecho a mano)
-- Materiales: madera y/o MDF, impresión en vinilo adhesivo full color, herrajes metálicos de diferentes referencias.
-- Propuesta de valor: percheros "útiles, funcionales y decorativos" para una mejor organización en el hogar.
+- Materiales: madera de re-origen y/o MDF, impresión en vinilo adhesivo full color, herrajes metálicos de diferentes referencias.
+- Propuesta de valor: percheros "útiles, funcionales y decorativos" para una mejor organización en el hogar. A diferencia de las tiendas grandes (Falabella, Homecenter, MercadoLibre), cada diseño es artesanal y temático, no genérico ni en serie.
 - Garantía: la mayoría de productos incluye 6 meses de garantía.
 - Envíos: a todo Colombia mediante empresas de mensajería y mercancías.
 - Medios de pago: pasarela Bold (tarjetas de crédito/débito, PSE, Nequi y más).
 - Contacto: info@percherosdecorativos.com — Tel/WhatsApp: 318 6044049
 
 ## Categorías de productos
-- Hogar: percheros con paisajes y temáticas para colgar accesorios livianos.
-- Mascotas: para correas y accesorios de mascotas.
-- Moteros: para cascos y chaquetas, temática motera.
-- Bike: para ciclistas (casco, guantes, accesorios).
-- Guitarras: temática musical.
+- Hogar: percheros con paisajes y temáticas de ciudades colombianas para colgar accesorios livianos.
+- Mascotas: percheros con temática animal, para correas, pecheras y accesorios de mascotas.
+- Moteros: organizadores de casco y chaqueta con temática motera (marcas, paisajes, equipos de fútbol).
+- Bike: para ciclistas — casco, guantes y accesorios.
+- Guitarras: soportes de pared temáticos para guitarra, inspirados en bandas de rock.
 - Personalizados: con nombre, fecha, frase o logo a la medida.
-- Corporativos: con el logo de empresas, pedidos por volumen.
-- Murales: murales decorativos en madera.
-- Souvenires: detalles y recuerdos artesanales.
-- DeDios: percheros con mensajes de fe.
-- Variados: diseños versátiles.
+- Corporativos: con el logo de empresas, para pedidos por volumen.
+- Murales: murales decorativos en madera para pared.
+- DeDios: percheros con imágenes y mensajes de fe y esperanza.
+- Variados: cruces decorativas de pared y de pie (algunas con base), diseños religiosos y versátiles que no encajan en las demás categorías.
 
 ## Servicios
 - Servicio al cliente antes, durante y después de la compra.
-- Instalación segura y confiable.
+- Servicio de instalación del perchero (costo adicional, seleccionable en el checkout).
 - Envíos nacionales con seguimiento.
-- Compromiso con obras sociales (hogares geriátricos, infantiles y personas vulnerables).
+- Salidas "Parcheros": encuentros de la comunidad motera, bike y de mascotas de la marca.
+- Asistencia técnica (grúa/recogida) para ciclistas y paseo profesional de mascotas — ver /servicios.
+- Compromiso con obras sociales (hogares geriátricos, infantiles y personas vulnerables) y clasificados sociales solidarios — ver /comunidad.
 
 ## Páginas principales
 - Inicio: /
 - Categorías: /categorias
 - Quiénes Somos: /quienes-somos
 - Galería: /galeria
-- Parcheros (comunidad): /parcheros
-- Obras Sociales: /obras-sociales
+- Servicios (Parcheros, asistencia bike, paseo de mascotas): /servicios
+- Comunidad (obras sociales, clasificados sociales): /comunidad
+- Aliados comerciales: /aliados
+- Guías y consejos: /guias
 - Contacto: /contacto
 
 ## Preguntas frecuentes
-- ¿De qué están hechos? De madera y/o MDF con herrajes metálicos.
-- ¿Hacen envíos a todo Colombia? Sí.
-- ¿Qué medios de pago aceptan? Todos los digitales vía Bold.
-- ¿Hacen percheros personalizados? Sí, con nombre, fecha, frase o logo.
+- ¿De qué están hechos los percheros? De madera de re-origen y/o MDF, con impresión en vinilo adhesivo full color y herrajes metálicos.
+- ¿Hacen envíos a todo Colombia? Sí, a cualquier ciudad del país.
+- ¿Qué medios de pago aceptan? Todos los digitales vía Bold: tarjetas de crédito/débito, PSE, Nequi y más.
+- ¿Hacen percheros personalizados? Sí, con nombre, fecha, frase o logo a elección del cliente.
+- ¿Tienen percheros para colgar el casco de moto? Sí, categoría Moteros: organizadores de casco y chaqueta con diseños temáticos (marcas de moto, paisajes, equipos de fútbol colombianos).
+- ¿Tienen percheros para las correas o accesorios de mascotas? Sí, categoría Mascotas: percheros con diseños de animales para correas, pecheras y dispensadores de bolsas.
+- ¿Ofrecen instalación del perchero? Sí, es un servicio opcional que se puede agregar al momento de pagar el pedido.
+- ¿Hacen percheros con el logo de una empresa? Sí, categoría Corporativos, para pedidos por volumen con la imagen de marca del cliente.
+- ¿Tienen cruces decorativas religiosas? Sí, en la categoría Variados: cruces de pared y de pie, algunas con base, con diseños de fe.
