@@ -20,7 +20,7 @@ export default function CategoryCard({
       href={`/categoria/${category.slug}`}
       className="group flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-10px_rgba(0,0,0,0.25)]"
     >
-      <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-crema-50 transition-transform duration-300 group-hover:scale-110">
+      <span className="relative flex h-24 w-24 items-center justify-center transition-transform duration-300 group-hover:scale-110">
         {category.imageUrl && (
           <Image
             src={category.imageUrl}
