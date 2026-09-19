@@ -142,9 +142,11 @@ export default function QuienesSomosPage() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          <ButtonLink href="/categorias">Ver nuestros percheros</ButtonLink>
-          <ButtonLink href="/contacto" variant="outline">
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <ButtonLink href="/categorias" size="lg">
+            Ver nuestros percheros
+          </ButtonLink>
+          <ButtonLink href="/contacto" variant="outline" size="lg">
             Contáctanos
           </ButtonLink>
         </div>
