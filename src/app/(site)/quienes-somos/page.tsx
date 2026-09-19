@@ -125,15 +125,13 @@ export default function QuienesSomosPage() {
               key={v.title}
               className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)] transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.2)]"
             >
-              <span className="flex h-20 w-20 items-center justify-center rounded-2xl bg-rojo-50">
-                <Image
-                  src={`/img/quienes-somos/${v.icon}.webp`}
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="h-12 w-12"
-                />
-              </span>
+              <Image
+                src={`/img/quienes-somos/${v.icon}.webp`}
+                alt=""
+                width={72}
+                height={72}
+                className="h-[72px] w-[72px]"
+              />
               <h2 className="mt-3 font-display text-lg font-semibold text-madera-800">
                 {v.title}
               </h2>

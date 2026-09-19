@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { categoryCaseClass } from "@/lib/format";
 
 export default function CategoryCard({
@@ -17,9 +18,9 @@ export default function CategoryCard({
   return (
     <Link
       href={`/categoria/${category.slug}`}
-      className="group flex flex-col items-center rounded-2xl border-2 border-rojo-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-rojo-300 hover:shadow-lg"
+      className="group flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-10px_rgba(0,0,0,0.25)]"
     >
-      <span className="relative block h-24 w-24 transition-transform duration-300 group-hover:scale-110">
+      <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-crema-50 transition-transform duration-300 group-hover:scale-110">
         {category.imageUrl && (
           <Image
             src={category.imageUrl}
@@ -28,7 +29,7 @@ export default function CategoryCard({
             sizes="96px"
             quality={90}
             priority={priority}
-            className="object-contain transition-transform duration-500 ease-out group-hover:scale-110"
+            className="object-contain"
           />
         )}
       </span>
@@ -42,8 +43,9 @@ export default function CategoryCard({
       >
         {category.name}
       </h3>
-      <span className="mt-4 rounded-md bg-rojo-500 px-6 py-1.5 text-sm font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:bg-rojo-600 group-hover:shadow-md">
+      <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-rojo-500 px-6 py-1.5 text-sm font-bold text-white transition-all duration-300 group-hover:gap-2.5 group-hover:bg-rojo-600 group-hover:shadow-md">
         Ver
+        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
       </span>
     </Link>
   );

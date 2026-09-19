@@ -40,15 +40,13 @@ export default function ServiciosPage() {
             </div>
             <div className="flex flex-1 flex-col p-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rojo-50">
-                  <Image
-                    src="/img/categories/moteros.webp"
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="h-6 w-6"
-                  />
-                </span>
+                <Image
+                  src="/img/categories/moteros.webp"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0"
+                />
                 <h2 className="font-display text-lg font-semibold text-madera-800">
                   Salidas Moter@
                 </h2>
@@ -87,15 +85,13 @@ export default function ServiciosPage() {
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rojo-50">
-                  <Image
-                    src="/img/categories/bike.webp"
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="h-6 w-6"
-                  />
-                </span>
+                <Image
+                  src="/img/categories/bike.webp"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0"
+                />
                 <h2 className="font-display text-lg font-semibold text-madera-800">
                   Asistencia Bike
                 </h2>
@@ -167,15 +163,13 @@ export default function ServiciosPage() {
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
               <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rojo-50">
-                  <Image
-                    src="/img/categories/mascotas.webp"
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="h-6 w-6"
-                  />
-                </span>
+                <Image
+                  src="/img/categories/mascotas.webp"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0"
+                />
                 <h2 className="font-display text-lg font-semibold text-madera-800">
                   Paseo Mascotas
                 </h2>
