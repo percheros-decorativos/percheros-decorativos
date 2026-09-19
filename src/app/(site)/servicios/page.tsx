@@ -45,7 +45,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <Wrench size={28} />
                 </span>
@@ -54,6 +54,7 @@ export default function ServiciosPage() {
               <div className="mt-4">
                 <ServiceExpand
                   summary={`Instalación por ${formatCop(INSTALLATION_SERVICE_COP)}`}
+                  className="min-h-[4.5rem]"
                 >
                   <p>
                     Te ofrecemos nuestro servicio de instalación de forma
@@ -93,24 +94,21 @@ export default function ServiciosPage() {
 
           {/* ===== Armado e Instalación a Domicilio ===== */}
           <article className={cardClass}>
-            <div className="relative aspect-[4/3] overflow-hidden bg-crema-100">
-              <Image
-                src="/img/servicios/instalacion-cutout.webp"
-                alt="Técnico armando e instalando mobiliario a domicilio"
-                fill
-                sizes="(max-width: 768px) 100vw, 400px"
-                className="object-contain object-bottom p-2"
-              />
+            <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-rojo-500">
+              <PackageOpen size={72} className="text-white" strokeWidth={1.25} />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <PackageOpen size={28} />
                 </span>
                 <h2 className={titleClass}>Armado a Domicilio</h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Montaje e instalación profesional en tu hogar">
+                <ServiceExpand
+                  summary="Montaje e instalación profesional en tu hogar"
+                  className="min-h-[4.5rem]"
+                >
                   <p>
                     ¿Prefieres dejar el armado en manos de expertos? Te
                     ofrecemos nuestro servicio de montaje e instalación
@@ -158,7 +156,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <Image
                   src="/img/categories/bike.webp"
                   alt=""
@@ -169,7 +167,10 @@ export default function ServiciosPage() {
                 <h2 className={titleClass}>Asistencia Bike</h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Servicio Asistencia Bike">
+                <ServiceExpand
+                  summary="Servicio Asistencia Bike"
+                  className="min-h-[4.5rem]"
+                >
                   <p className="text-center font-semibold text-madera-800">
                     TARIFAS BIKE:
                   </p>
@@ -234,7 +235,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <Image
                   src="/img/categories/mascotas.webp"
                   alt=""
@@ -245,7 +246,10 @@ export default function ServiciosPage() {
                 <h2 className={titleClass}>Paseo Mascotas</h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Servicio Paseo Mascotas">
+                <ServiceExpand
+                  summary="Servicio Paseo Mascotas"
+                  className="min-h-[4.5rem]"
+                >
                   <p>
                     Percheros organizadores para correas, pecheras y
                     dispensadores de bolsas; servicio de paseos programados,
