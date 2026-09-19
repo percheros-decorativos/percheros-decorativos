@@ -29,17 +29,16 @@
 - Servicio al cliente antes, durante y después de la compra.
 - Servicio de instalación del perchero (costo adicional, seleccionable en el checkout).
 - Envíos nacionales con seguimiento.
-- Salidas "Parcheros": encuentros de la comunidad motera, bike y de mascotas de la marca.
 - Asistencia técnica (grúa/recogida) para ciclistas y paseo profesional de mascotas — ver /servicios.
-- Compromiso con obras sociales (hogares geriátricos, infantiles y personas vulnerables) y clasificados sociales solidarios — ver /comunidad.
+- Salidas "Parcheros" moteras, compromiso con obras sociales (hogares geriátricos, infantiles y personas vulnerables) y clasificados sociales solidarios — ver /comunidad.
 
 ## Páginas principales
 - Inicio: /
 - Categorías: /categorias
 - Quiénes Somos: /quienes-somos
 - Galería: /galeria
-- Servicios (Parcheros, asistencia bike, paseo de mascotas): /servicios
-- Comunidad (obras sociales, clasificados sociales): /comunidad
+- Servicios (asistencia bike, paseo de mascotas): /servicios
+- Comunidad (salidas Parcheros, obras sociales, clasificados sociales): /comunidad
 - Aliados comerciales: /aliados
 - Guías y consejos: /guias
 - Contacto: /contacto

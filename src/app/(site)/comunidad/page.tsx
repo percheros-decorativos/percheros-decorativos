@@ -2,14 +2,18 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
-import { Baby, HeartHandshake } from "lucide-react";
+import ServiceExpand from "@/components/pages/ServiceExpand";
+import { Baby, HeartHandshake, Users } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Comunidad: obras sociales y compromiso",
+  title: "Comunidad: obras sociales, clasificados y salidas Parcheros",
   description:
-    "Percheros Decorativos está comprometido con obras sociales para hogares geriátricos, infantiles y personas en situación de vulnerabilidad. Conoce cómo apoyamos.",
+    "Percheros Decorativos está comprometido con obras sociales para hogares geriátricos, infantiles y personas en situación de vulnerabilidad, clasificados solidarios y salidas Parcheros con la comunidad motera.",
   alternates: { canonical: "/comunidad" },
 };
+
+const cardClass =
+  "flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_35px_-15px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1";
 
 export default function ComunidadPage() {
   return (
@@ -17,12 +21,12 @@ export default function ComunidadPage() {
       <PageHero
         eyebrow="Nuestro compromiso"
         title="Comunidad"
-        subtitle="Por nuestros abuel@s, niñ@s y personas vulnerables."
+        subtitle="Por nuestros abuel@s, niñ@s, personas vulnerables y toda la comunidad Parchera."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Comunidad" }]}
         bgImage="/img/obras-sociales/banner.webp"
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12">
+      <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="mx-auto max-w-3xl space-y-4 text-center text-carbon/80">
           <p>
             Percheros Decorativos está comprometido en realizar diferentes obras
@@ -38,127 +42,177 @@ export default function ComunidadPage() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200">
-            <div className="h-1.5 bg-gradient-to-r from-sky-400 to-sky-600" />
-            <div className="relative aspect-[3/2] overflow-hidden">
+        <div className="mt-10 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* ===== Infancia con Futuro ===== */}
+          <article className={cardClass}>
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/img/obras/infancia-futuro.webp"
                 alt="Percheros Decorativos con niños y niñas — Infancia con Futuro"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 300px"
                 className="object-cover"
               />
             </div>
-            <div className="p-6">
-              <p className="text-sm leading-relaxed text-carbon/80">
-                <strong className="text-rojo-600">Percheros Decorativos</strong>{" "}
-                está comprometido en realizar diferentes obras sociales en
-                situaciones de vulnerabilidad; hogares geriátricos, infantiles,
-                personas con algún tipo de discapacidad o enfermedad.
-              </p>
-              <div className="mt-4 flex items-start gap-3 border-t border-crema-100 pt-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-600">
-                  <Baby size={18} />
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
+                  <Baby size={28} />
                 </span>
-                <p className="text-sm leading-relaxed text-carbon/80">
-                  <strong className="text-carbon">Infancia con Futuro:</strong>{" "}
-                  Acompañamos a nuestros niños y niñas brindándoles herramientas
-                  para su desarrollo, espacios seguros y oportunidades que
-                  impulsen sus sueños desde sus primeros años.
-                </p>
+                <h2 className="font-display text-lg font-semibold text-madera-800">
+                  Infancia con Futuro
+                </h2>
+              </div>
+              <div className="mt-4">
+                <ServiceExpand summary="Acompañamiento a niños y niñas en situación de vulnerabilidad">
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    Acompañamos a nuestros niños y niñas brindándoles
+                    herramientas para su desarrollo, espacios seguros y
+                    oportunidades que impulsen sus sueños desde sus primeros
+                    años.
+                  </p>
+                </ServiceExpand>
+              </div>
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=comunidad"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Quiero colaborar
+                </ButtonLink>
               </div>
             </div>
-          </div>
+          </article>
 
-          <div className="overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-crema-200">
-            <div className="h-1.5 bg-gradient-to-r from-amber-400 to-amber-600" />
-            <div className="relative aspect-[3/2] overflow-hidden">
+          {/* ===== Dignidad para Adultos Mayores ===== */}
+          <article className={cardClass}>
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/img/obras/adultos-mayores.webp"
                 alt="Percheros Decorativos con adultos mayores — Dignidad para nuestros Adultos Mayores"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 300px"
                 className="object-cover"
               />
             </div>
-            <div className="p-6">
-              <p className="text-sm leading-relaxed text-carbon/80">
-                Brindamos <strong className="text-rojo-600">asesoría jurídica</strong>{" "}
-                en los derechos fundamentales y dignidad humana con el objetivo
-                de ofrecer colaboración, solidaridad y esperanza a quienes más
-                lo necesiten, con el apoyo de nuestros clientes.
-              </p>
-              <div className="mt-4 flex items-start gap-3 border-t border-crema-100 pt-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-600">
-                  <HeartHandshake size={18} />
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
+                  <HeartHandshake size={28} />
                 </span>
-                <p className="text-sm leading-relaxed text-carbon/80">
-                  <strong className="text-carbon">
-                    Dignidad para nuestros Adultos Mayores:
-                  </strong>{" "}
-                  Honramos la sabiduría de la tercera edad con actividades de
-                  integración, cuidado y programas de bienestar que aseguran
-                  una etapa senior plena y respetada.
-                </p>
+                <h2 className="font-display text-lg font-semibold text-madera-800">
+                  Adultos Mayores
+                </h2>
+              </div>
+              <div className="mt-4">
+                <ServiceExpand summary="Asesoría jurídica y dignidad para la tercera edad">
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    Brindamos asesoría jurídica en los derechos fundamentales y
+                    dignidad humana, y honramos la sabiduría de la tercera edad
+                    con actividades de integración, cuidado y programas de
+                    bienestar que aseguran una etapa senior plena y respetada.
+                  </p>
+                </ServiceExpand>
+              </div>
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=comunidad"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Quiero colaborar
+                </ButtonLink>
               </div>
             </div>
-          </div>
-        </div>
+          </article>
 
-        <div
-          id="clasificados"
-          className="mt-14 scroll-mt-24 rounded-3xl bg-crema-100 p-6 md:p-10"
-        >
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="font-display text-2xl font-semibold text-madera-800">
-                Clasificados sociales
-              </h2>
-              <p className="mt-3 text-carbon/80">
-                En este espacio damos a conocer diferentes clasificados
-                sociales, con el objetivo de que alguna persona pueda
-                colaborar para mejorar la calidad de vida de quien lo
-                necesita, sin ánimo de lucro.
-              </p>
-              <ButtonLink
-                href="/contacto?asunto=comunidad"
-                variant="green"
-                className="mt-6"
-              >
-                Quiero colaborar
-              </ButtonLink>
+          {/* ===== Clasificados Sociales ===== */}
+          <article id="clasificados" className={`scroll-mt-24 ${cardClass}`}>
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/img/obras/clasificados-silla.webp"
+                alt="Clasificados sociales — silla de ruedas"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover"
+              />
             </div>
-            <div className="relative mx-auto h-[300px] w-full max-w-sm sm:h-[360px]">
-              <div className="hover-lift absolute left-0 top-0 h-56 w-44 overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200 sm:h-64 sm:w-52">
-                <Image
-                  src="/img/obras/clasificados-silla.webp"
-                  alt="Clasificados de obras sociales — silla de ruedas"
-                  fill
-                  sizes="210px"
-                  className="object-cover"
-                />
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
+                  <Users size={28} />
+                </span>
+                <h2 className="font-display text-lg font-semibold text-madera-800">
+                  Clasificados Sociales
+                </h2>
               </div>
-              <div className="hover-lift absolute bottom-0 left-20 h-48 w-36 overflow-hidden rounded-2xl shadow-lg ring-1 ring-crema-200 sm:left-28 sm:h-56 sm:w-44">
-                <Image
-                  src="/img/obras/clasificados-acompanante.webp"
-                  alt="Clasificados de obras sociales — acompañante con silla de ruedas"
-                  fill
-                  sizes="180px"
-                  className="object-cover"
-                />
+              <div className="mt-4">
+                <ServiceExpand summary="Clasificados solidarios sin ánimo de lucro">
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    En este espacio damos a conocer diferentes clasificados
+                    sociales, con el objetivo de que alguna persona pueda
+                    colaborar para mejorar la calidad de vida de quien lo
+                    necesita, sin ánimo de lucro.
+                  </p>
+                </ServiceExpand>
               </div>
-              <div className="hover-lift absolute bottom-2 right-0 h-48 w-36 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-crema-200 sm:h-56 sm:w-40">
-                <Image
-                  src="/img/obras/clasificados-andador.webp"
-                  alt="Clasificados de obras sociales — andador"
-                  fill
-                  sizes="160px"
-                  className="object-contain p-2"
-                />
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=comunidad"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Quiero colaborar
+                </ButtonLink>
               </div>
             </div>
-          </div>
+          </article>
+
+          {/* ===== Salidas Moter@ ===== */}
+          <article className={cardClass}>
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/img/servicios/salidas-moteras-2.webp"
+                alt="Grupo de moteros rodando al atardecer"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/img/categories/moteros.webp"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0"
+                />
+                <h2 className="font-display text-lg font-semibold text-madera-800">
+                  Salidas Moter@
+                </h2>
+              </div>
+              <div className="mt-4">
+                <ServiceExpand summary="Percheros temáticos para casco y accesorios">
+                  <p className="text-sm leading-relaxed text-carbon/80">
+                    Venta de percheros temáticos para cascos y accesorios;
+                    servicio de personalización de percheros con la marca o
+                    modelo de la moto.
+                  </p>
+                </ServiceExpand>
+              </div>
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=moteros"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Unirme a Salidas
+                </ButtonLink>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
     </>

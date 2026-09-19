@@ -5,9 +5,9 @@ import { ButtonLink } from "@/components/ui/Button";
 import ServiceExpand from "@/components/pages/ServiceExpand";
 
 export const metadata: Metadata = {
-  title: "Servicios: Parcheros, asistencia bike y paseo de mascotas",
+  title: "Servicios: asistencia bike y paseo de mascotas",
   description:
-    "Servicios de Percheros Decorativos: salidas Parcheros moteras, asistencia técnica para ciclistas y paseo/cuidado de mascotas. Tarifas y qué incluye cada servicio.",
+    "Servicios de Percheros Decorativos: asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas. Tarifas y qué incluye cada servicio.",
   alternates: { canonical: "/servicios" },
 };
 
@@ -20,58 +20,13 @@ export default function ServiciosPage() {
       <PageHero
         eyebrow="Comunidad"
         title="Servicios"
-        subtitle="Salidas Parcheros, asistencia para ciclistas y paseo de mascotas: aventura, seguridad y compañía."
+        subtitle="Asistencia para ciclistas y paseo de mascotas: seguridad y compañía en cada salida."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Servicios" }]}
         bgImage="/img/parcheros/banner.webp"
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid items-start gap-6 md:grid-cols-3">
-          {/* ===== Salidas Moter@ ===== */}
-          <article className={cardClass}>
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src="/img/servicios/salidas-moteras-2.webp"
-                alt="Grupo de moteros rodando al atardecer"
-                fill
-                sizes="(max-width: 768px) 100vw, 400px"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/img/categories/moteros.webp"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 shrink-0"
-                />
-                <h2 className="font-display text-lg font-semibold text-madera-800">
-                  Salidas Moter@
-                </h2>
-              </div>
-              <div className="mt-4">
-                <ServiceExpand summary="Percheros temáticos para casco y accesorios">
-                  <p className="text-sm leading-relaxed text-carbon/80">
-                    Venta de percheros temáticos para cascos y accesorios;
-                    servicio de personalización de percheros con la marca o
-                    modelo de la moto.
-                  </p>
-                </ServiceExpand>
-              </div>
-              <div className="mt-auto pt-6 text-center">
-                <ButtonLink
-                  href="/contacto?asunto=moteros"
-                  variant="dark"
-                  className="w-full"
-                >
-                  Unirme a Salidas
-                </ButtonLink>
-              </div>
-            </div>
-          </article>
-
+      <section className="mx-auto max-w-4xl px-4 py-12">
+        <div className="grid items-start gap-6 sm:grid-cols-2">
           {/* ===== Asistencia Bike ===== */}
           <article className={cardClass}>
             <div className="relative aspect-[4/3] overflow-hidden">
