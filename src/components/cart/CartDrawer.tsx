@@ -69,7 +69,7 @@ export default function CartDrawer() {
             <ShoppingBag size={48} className="text-rojo-200" />
             <p className="text-gris">Tu carrito está vacío.</p>
             <Link
-              href="/categorias"
+              href="/#categorias"
               onClick={closeCart}
               className="rounded-md bg-rojo-500 px-5 py-2.5 font-semibold text-white hover:bg-rojo-600"
             >

@@ -24,7 +24,7 @@ export default function WishlistPage() {
       {items.length === 0 ? (
         <div className="mt-8 rounded-2xl bg-crema-50 p-10 text-center">
           <p className="text-lg text-gris">Aún no tienes favoritos.</p>
-          <ButtonLink href="/categorias" className="mt-5">
+          <ButtonLink href="/#categorias" className="mt-5">
             Explorar percheros
           </ButtonLink>
         </div>

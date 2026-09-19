@@ -56,12 +56,6 @@ export default async function CategoriaPage({
       {
         "@type": "ListItem",
         position: 2,
-        name: "Categorías",
-        item: `${site.url}/categorias`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
         name: category.name,
         item: `${site.url}/categoria/${category.slug}`,
       },
@@ -88,10 +82,6 @@ export default async function CategoriaPage({
       <nav aria-label="Migas de pan" className="mb-4 text-sm text-carbon/60">
         <Link href="/" className="hover:underline">
           Inicio
-        </Link>{" "}
-        /{" "}
-        <Link href="/categorias" className="hover:underline">
-          Categorías
         </Link>{" "}
         / <span className="text-carbon">{category.name}</span>
       </nav>

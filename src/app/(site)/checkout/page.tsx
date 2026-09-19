@@ -119,7 +119,7 @@ export default function CheckoutPage() {
           Tu carrito está vacío
         </h1>
         <Link
-          href="/categorias"
+          href="/#categorias"
           className="mt-4 inline-block font-semibold text-terracota-600 hover:underline"
         >
           Explorar percheros →

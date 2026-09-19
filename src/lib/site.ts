@@ -34,7 +34,7 @@ export const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 // Navegacion principal (header)
 export const mainNav = [
   { label: "Inicio", href: "/" },
-  { label: "Categorías", href: "/categorias" },
+  { label: "Categorías", href: "/#categorias" },
   { label: "Quiénes Somos", href: "/quienes-somos" },
   { label: "Galería", href: "/galeria" },
   { label: "Servicios", href: "/servicios" },
@@ -69,7 +69,7 @@ export const servicios = [
     title: "Formas de Pago",
     text: "Para tu comodidad aceptamos todos los medios de pago digitales con Bold: tarjetas, PSE, Nequi y más.",
     cta: "Paga fácil tu pedido",
-    href: "/categorias",
+    href: "/#categorias",
     icon: "payment",
   },
 ] as const;

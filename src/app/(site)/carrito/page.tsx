@@ -27,7 +27,7 @@ export default function CarritoPage() {
       {items.length === 0 ? (
         <div className="mt-8 rounded-2xl bg-crema-50 p-10 text-center">
           <p className="text-lg text-gris">Tu carrito está vacío.</p>
-          <ButtonLink href="/categorias" className="mt-5">
+          <ButtonLink href="/#categorias" className="mt-5">
             Explorar percheros
           </ButtonLink>
         </div>
@@ -121,7 +121,7 @@ export default function CarritoPage() {
               Continuar al pago
             </ButtonLink>
             <Link
-              href="/categorias"
+              href="/#categorias"
               className="mt-3 block text-center text-sm text-rojo-600 hover:underline"
             >
               Seguir comprando

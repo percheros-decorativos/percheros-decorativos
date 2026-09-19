@@ -61,7 +61,7 @@ export default async function SiteLayout({
     inLanguage: "es-CO",
     potentialAction: {
       "@type": "SearchAction",
-      target: `${site.url}/categorias?q={search_term_string}`,
+      target: `${site.url}/?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

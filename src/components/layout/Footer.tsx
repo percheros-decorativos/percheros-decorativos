@@ -9,7 +9,7 @@ const cols = [
     title: "Percheros",
     links: [
       { label: "Inicio", href: "/" },
-      { label: "Categorías", href: "/categorias" },
+      { label: "Categorías", href: "/#categorias" },
       { label: "Quiénes Somos", href: "/quienes-somos" },
       { label: "Galería", href: "/galeria" },
     ],
@@ -20,7 +20,7 @@ const cols = [
       { label: "Servicio al cliente", href: "/contacto" },
       { label: "Instalación", href: "/contacto?asunto=instalacion" },
       { label: "Envíos", href: "/contacto?asunto=envios" },
-      { label: "Formas de pago", href: "/categorias" },
+      { label: "Formas de pago", href: "/#categorias" },
     ],
   },
   {

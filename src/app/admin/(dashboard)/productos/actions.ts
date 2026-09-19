@@ -26,7 +26,6 @@ function slugify(s: string): string {
 
 function revalidateCatalog(slug?: string) {
   revalidatePath("/");
-  revalidatePath("/categorias");
   revalidatePath("/admin/productos");
   if (slug) {
     revalidatePath(`/producto/${slug}`);

@@ -98,7 +98,7 @@ export default function QuienesSomosPage() {
           </a>
 
           <Link
-            href="/categorias"
+            href="/#categorias"
             className="group flex items-center gap-4 rounded-2xl border-2 border-rojo-500 bg-rojo-500 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rojo-600 hover:shadow-lg"
           >
             <Image
@@ -141,7 +141,7 @@ export default function QuienesSomosPage() {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <ButtonLink href="/categorias" size="lg">
+          <ButtonLink href="/#categorias" size="lg">
             Ver nuestros percheros
           </ButtonLink>
           <ButtonLink href="/contacto" variant="outline" size="lg">

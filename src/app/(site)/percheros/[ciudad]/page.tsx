@@ -104,7 +104,7 @@ export default async function CiudadPage({
           </h1>
           <p className="mt-3 max-w-2xl text-lg text-gris">{c.intro}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <ButtonLink href="/categorias" size="lg">
+            <ButtonLink href="/#categorias" size="lg">
               Ver categorías
             </ButtonLink>
             <ButtonLink

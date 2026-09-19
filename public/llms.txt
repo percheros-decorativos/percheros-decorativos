@@ -34,7 +34,7 @@
 
 ## Páginas principales
 - Inicio: /
-- Categorías: /categorias
+- Categorías: /#categorias (sección en la página de inicio)
 - Quiénes Somos: /quienes-somos
 - Galería: /galeria
 - Servicios (asistencia bike, paseo de mascotas): /servicios

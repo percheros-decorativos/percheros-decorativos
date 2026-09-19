@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
-import { categoryCaseClass } from "@/lib/format";
+import CategoriesShowcase from "@/components/pages/CategoriesShowcase";
 import SectionTitle from "@/components/ui/SectionTitle";
 import JsonLd from "@/components/JsonLd";
 import Reveal, { RevealStagger, RevealItem } from "@/components/ui/Reveal";
@@ -113,48 +113,7 @@ export default async function HomePage() {
         <Reveal>
           <SectionTitle eyebrow="Explora">Nuestras categorías</SectionTitle>
         </Reveal>
-        <RevealStagger className="-mx-4 mt-10 flex snap-x snap-mandatory gap-x-8 gap-y-6 overflow-x-auto px-4 pb-4 sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 sm:pb-0">
-          {categories.slice(0, 7).map((c, i) => (
-            <RevealItem key={c.id}>
-              <Link
-                href={`/categoria/${c.slug}`}
-                className="group flex w-24 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-28"
-              >
-                <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-28 sm:w-28">
-                  {c.imageUrl && (
-                    <Image
-                      src={c.imageUrl}
-                      alt={`Isotipo categoría ${c.name}`}
-                      fill
-                      sizes="112px"
-                      quality={90}
-                      priority={i < 4}
-                      className="object-contain p-4"
-                    />
-                  )}
-                </span>
-                <span
-                  className={`font-display text-sm font-bold leading-tight text-carbon transition-colors duration-300 group-hover:text-rojo-600 ${categoryCaseClass(c.name)}`}
-                >
-                  {c.name}
-                </span>
-              </Link>
-            </RevealItem>
-          ))}
-          <RevealItem>
-            <Link
-              href="/categorias"
-              className="group flex w-24 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-28"
-            >
-              <span className="flex h-24 w-24 items-center justify-center rounded-full bg-rojo-500 text-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-rojo-600 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-28 sm:w-28">
-                <ArrowRight className="h-8 w-8 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <span className="font-display text-sm font-bold leading-tight text-carbon transition-colors duration-300 group-hover:text-rojo-600">
-                Ver todas
-              </span>
-            </Link>
-          </RevealItem>
-        </RevealStagger>
+        <CategoriesShowcase categories={categories} />
       </section>
 
       {/* ===================== DESTACADOS ===================== */}
@@ -170,7 +129,7 @@ export default async function HomePage() {
               </div>
             </Reveal>
             <div className="mt-10 text-center">
-              <ButtonLink href="/categorias">
+              <ButtonLink href="/#categorias">
                 Ver todo el catálogo
               </ButtonLink>
             </div>
@@ -258,7 +217,7 @@ export default async function HomePage() {
             { slug: "servicio-al-cliente", label: "Servicio al Cliente", href: "/contacto", color: "#005f2c", w: 247, h: 320 },
             { slug: "instalacion", label: "Instalación", href: "/contacto?asunto=instalacion", color: "#d24000", w: 320, h: 320 },
             { slug: "envios", label: "Envíos", href: "/contacto?asunto=envios", color: "#47372a", w: 320, h: 190 },
-            { slug: "formas-de-pago", label: "Formas de Pago", href: "/categorias", color: "#056daa", w: 184, h: 320 },
+            { slug: "formas-de-pago", label: "Formas de Pago", href: "/#categorias", color: "#056daa", w: 184, h: 320 },
           ].map((s) => (
             <RevealItem key={s.slug}>
               <Link

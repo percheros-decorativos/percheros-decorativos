@@ -75,7 +75,7 @@ export default function Header({ categories = [] }: { categories?: NavCategory[]
               {mainNav.map((item) => {
                 const active =
                   item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-                const isCats = item.href === "/categorias";
+                const isCats = item.href === "/#categorias";
                 return (
                   <li
                     key={item.href}

@@ -83,7 +83,7 @@ export default async function ConfirmacionPage({
 
       <div className="mt-8 flex justify-center gap-3">
         <ButtonLink href="/">Volver al inicio</ButtonLink>
-        <ButtonLink href="/categorias" variant="outline">
+        <ButtonLink href="/#categorias" variant="outline">
           Seguir comprando
         </ButtonLink>
       </div>

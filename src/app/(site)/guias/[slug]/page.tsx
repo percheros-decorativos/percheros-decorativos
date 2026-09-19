@@ -123,7 +123,7 @@ export default async function GuiaPage({
         <p className="font-display text-lg font-bold text-carbon">
           ¿Listo para elegir tu perchero?
         </p>
-        <ButtonLink href="/categorias" className="mt-4">
+        <ButtonLink href="/#categorias" className="mt-4">
           Ver categorías
         </ButtonLink>
       </div>

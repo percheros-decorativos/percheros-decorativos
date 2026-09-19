@@ -46,7 +46,7 @@ const slides: Slide[] = [
     src: "/img/servicios/formas-de-pago.webp",
     mobileSrc: "/img/servicios/mobile/formas-de-pago-movil.webp",
     alt: "Formas de pago: todos los medios presenciales y digitales",
-    href: "/categorias",
+    href: "/#categorias",
     label: "Formas de Pago",
   },
 ];

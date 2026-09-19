@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/parcheros", destination: "/servicios", permanent: true },
       { source: "/obras-sociales", destination: "/comunidad", permanent: true },
+      { source: "/categorias", destination: "/#categorias", permanent: true },
     ];
   },
   async headers() {
