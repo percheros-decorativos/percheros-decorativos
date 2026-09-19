@@ -26,7 +26,7 @@ export default function ServiciosPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid items-start gap-6 md:grid-cols-3">
           {/* ===== Salidas Moter@ ===== */}
           <article className={cardClass}>
             <div className="relative aspect-[4/3] overflow-hidden">
