@@ -123,7 +123,32 @@ export default function ServiciosPage() {
                     profesional a domicilio para que no tengas que
                     preocuparte por nada.
                   </p>
-                  <ul className="mt-4 list-disc space-y-2 pl-5">
+                  <p className="mt-4 text-center font-semibold text-madera-800">
+                    TARIFAS ARMADO:
+                  </p>
+                  <ul className="mt-2 space-y-2 text-center">
+                    <li>
+                      <strong>Servicios básicos</strong> (muebles pequeños y
+                      livianos):
+                      <br />$ 35.000 – $ 50.000
+                    </li>
+                    <li>
+                      <strong>Muebles medianos</strong> (armado intermedio):
+                      <br />$ 50.000 – $ 85.000
+                    </li>
+                    <li>
+                      <strong>Muebles grandes o complejos</strong>:
+                      <br />$ 85.000 – $ 150.000+
+                    </li>
+                  </ul>
+                  <p className="mt-2 text-center text-xs text-carbon/60">
+                    El valor final depende del tamaño y la complejidad del
+                    mueble.
+                  </p>
+                  <p className="mt-4 text-center font-semibold text-madera-800">
+                    ¿Qué incluye?
+                  </p>
+                  <ul className="mt-2 list-disc space-y-2 pl-5">
                     <li>
                       <strong>Fácil y rápido:</strong> coordinamos la visita
                       en el día y horario que mejor te convenga.
