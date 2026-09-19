@@ -45,7 +45,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-14 items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <Wrench size={28} />
                 </span>
@@ -98,11 +98,13 @@ export default function ServiciosPage() {
               <PackageOpen size={72} className="text-white" strokeWidth={1.25} />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-14 items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <PackageOpen size={28} />
                 </span>
-                <h2 className={titleClass}>Armado a Domicilio</h2>
+                <h2 className={titleClass}>
+                  Servicio de Armado e Instalación a Domicilio
+                </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
@@ -156,7 +158,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-14 items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <Image
                   src="/img/categories/bike.webp"
                   alt=""
@@ -235,7 +237,7 @@ export default function ServiciosPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
-              <div className="flex min-h-14 items-center gap-3">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <Image
                   src="/img/categories/mascotas.webp"
                   alt=""
