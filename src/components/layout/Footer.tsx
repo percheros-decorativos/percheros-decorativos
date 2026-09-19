@@ -37,7 +37,7 @@ const cols = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-16 bg-rojo-500 text-white">
+    <footer className="bg-rojo-500 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.4fr_2fr]">
         <div>
           <Logo onDark />
