@@ -8,15 +8,17 @@ import { ChevronDown, X } from "lucide-react";
 export default function ServiceExpand({
   summary,
   children,
+  className = "",
 }: {
   summary: string;
   children: ReactNode;
+  className?: string;
 }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="mt-4">
-      <div className="flex items-center justify-between gap-3">
+      <div className={`flex items-center justify-between gap-3 ${className}`}>
         <p className="font-display text-base font-bold text-madera-900">
           {summary}
         </p>

@@ -55,7 +55,7 @@ export default function ComunidadPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
                   <Baby size={28} />
                 </span>
@@ -64,7 +64,10 @@ export default function ComunidadPage() {
                 </h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Acompañamiento a niños y niñas en situación de vulnerabilidad">
+                <ServiceExpand
+                  summary="Acompañamiento a niños y niñas en vulnerabilidad"
+                  className="min-h-12"
+                >
                   <p className="text-sm leading-relaxed text-carbon/80">
                     Acompañamos a nuestros niños y niñas brindándoles
                     herramientas para su desarrollo, espacios seguros y
@@ -97,7 +100,7 @@ export default function ComunidadPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
                   <HeartHandshake size={28} />
                 </span>
@@ -106,7 +109,10 @@ export default function ComunidadPage() {
                 </h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Asesoría jurídica y dignidad para la tercera edad">
+                <ServiceExpand
+                  summary="Asesoría jurídica y dignidad para la tercera edad"
+                  className="min-h-12"
+                >
                   <p className="text-sm leading-relaxed text-carbon/80">
                     Brindamos asesoría jurídica en los derechos fundamentales y
                     dignidad humana, y honramos la sabiduría de la tercera edad
@@ -139,7 +145,7 @@ export default function ComunidadPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
                   <Users size={28} />
                 </span>
@@ -148,7 +154,10 @@ export default function ComunidadPage() {
                 </h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Clasificados solidarios sin ánimo de lucro">
+                <ServiceExpand
+                  summary="Clasificados solidarios sin ánimo de lucro"
+                  className="min-h-12"
+                >
                   <p className="text-sm leading-relaxed text-carbon/80">
                     En este espacio damos a conocer diferentes clasificados
                     sociales, con el objetivo de que alguna persona pueda
@@ -181,7 +190,7 @@ export default function ComunidadPage() {
               />
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <div className="flex items-center gap-3">
+              <div className="flex min-h-14 items-center gap-3">
                 <Image
                   src="/img/categories/moteros.webp"
                   alt=""
@@ -194,7 +203,10 @@ export default function ComunidadPage() {
                 </h2>
               </div>
               <div className="mt-4">
-                <ServiceExpand summary="Percheros temáticos para casco y accesorios">
+                <ServiceExpand
+                  summary="Percheros temáticos para casco y accesorios"
+                  className="min-h-12"
+                >
                   <p className="text-sm leading-relaxed text-carbon/80">
                     Venta de percheros temáticos para cascos y accesorios;
                     servicio de personalización de percheros con la marca o
