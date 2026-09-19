@@ -3,13 +3,19 @@ import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import ServiceExpand from "@/components/pages/ServiceExpand";
+import { Wrench } from "lucide-react";
+import { INSTALLATION_SERVICE_COP } from "@/lib/addons";
+import { formatCop } from "@/lib/money";
 
 export const metadata: Metadata = {
-  title: "Servicios: asistencia bike y paseo de mascotas",
+  title: "Servicios: instalación, asistencia bike y paseo de mascotas",
   description:
-    "Servicios de Percheros Decorativos: asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas. Tarifas y qué incluye cada servicio.",
+    "Servicios de Percheros Decorativos: instalación profesional del perchero, asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas. Tarifas y qué incluye cada servicio.",
   alternates: { canonical: "/servicios" },
 };
+
+const titleClass =
+  "font-display text-xl font-extrabold tracking-tight text-rojo-600";
 
 const cardClass =
   "flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_35px_-15px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1";
@@ -20,13 +26,71 @@ export default function ServiciosPage() {
       <PageHero
         eyebrow="Comunidad"
         title="Servicios"
-        subtitle="Asistencia para ciclistas y paseo de mascotas: seguridad y compañía en cada salida."
+        subtitle="Instalación de tu perchero, asistencia para ciclistas y paseo de mascotas: seguridad y compañía en cada servicio."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Servicios" }]}
         bgImage="/img/parcheros/banner.webp"
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-12">
-        <div className="grid items-start gap-6 sm:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <div className="grid items-start gap-6 md:grid-cols-3">
+          {/* ===== Instalación de Percheros ===== */}
+          <article className={cardClass}>
+            <div className="relative aspect-[4/3] overflow-hidden bg-crema-100">
+              <Image
+                src="/img/servicios/instalacion-cutout.webp"
+                alt="Técnico instalando un perchero decorativo"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-contain object-bottom p-2"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
+                  <Wrench size={28} />
+                </span>
+                <h2 className={titleClass}>Instalación de Percheros</h2>
+              </div>
+              <div className="mt-4">
+                <ServiceExpand
+                  summary={`Instalación por ${formatCop(INSTALLATION_SERVICE_COP)}`}
+                >
+                  <p>
+                    Te ofrecemos nuestro servicio de instalación de forma
+                    segura y confiable, con calidad y durabilidad, de manera
+                    cumplida y eficiente.
+                  </p>
+                  <p className="mt-4 text-center font-semibold text-madera-800">
+                    ¿Qué incluye?
+                  </p>
+                  <ul className="mt-2 list-disc space-y-2 pl-5">
+                    <li>
+                      Anclaje firme según el tipo de pared (concreto,
+                      ladrillo o drywall).
+                    </li>
+                    <li>Nivelación y ubicación a la altura ideal.</li>
+                    <li>
+                      Herramientas y anclajes incluidos en el servicio.
+                    </li>
+                  </ul>
+                  <p className="mt-4 text-center text-xs text-carbon/60">
+                    Puedes agregarlo directamente al pagar tu pedido, o
+                    escribirnos para coordinarlo.
+                  </p>
+                </ServiceExpand>
+              </div>
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=instalacion"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Solicitar Instalación
+                </ButtonLink>
+              </div>
+            </div>
+          </article>
+
           {/* ===== Asistencia Bike ===== */}
           <article className={cardClass}>
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -47,9 +111,7 @@ export default function ServiciosPage() {
                   height={40}
                   className="h-10 w-10 shrink-0"
                 />
-                <h2 className="font-display text-lg font-semibold text-madera-800">
-                  Asistencia Bike
-                </h2>
+                <h2 className={titleClass}>Asistencia Bike</h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand summary="Servicio Asistencia Bike">
@@ -125,9 +187,7 @@ export default function ServiciosPage() {
                   height={40}
                   className="h-10 w-10 shrink-0"
                 />
-                <h2 className="font-display text-lg font-semibold text-madera-800">
-                  Paseo Mascotas
-                </h2>
+                <h2 className={titleClass}>Paseo Mascotas</h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand summary="Servicio Paseo Mascotas">

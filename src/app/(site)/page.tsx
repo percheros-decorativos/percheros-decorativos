@@ -120,7 +120,7 @@ export default async function HomePage() {
                 href={`/categoria/${c.slug}`}
                 className="group flex w-24 shrink-0 snap-start flex-col items-center gap-3 text-center sm:w-28"
               >
-                <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] ring-1 ring-crema-200 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] group-hover:ring-rojo-300 sm:h-28 sm:w-28">
+                <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-[0_8px_20px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_14px_28px_-10px_rgba(0,0,0,0.28)] sm:h-28 sm:w-28">
                   {c.imageUrl && (
                     <Image
                       src={c.imageUrl}
@@ -170,7 +170,7 @@ export default async function HomePage() {
               </div>
             </Reveal>
             <div className="mt-10 text-center">
-              <ButtonLink href="/categorias" variant="outline">
+              <ButtonLink href="/categorias">
                 Ver todo el catálogo
               </ButtonLink>
             </div>
