@@ -94,8 +94,14 @@ export default function ServiciosPage() {
 
           {/* ===== Armado e Instalación a Domicilio ===== */}
           <article className={cardClass}>
-            <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-rojo-500">
-              <PackageOpen size={72} className="text-white" strokeWidth={1.25} />
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/img/servicios/armado-domicilio.webp"
+                alt="Persona armando un mueble de madera con destornillador"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover"
+              />
             </div>
             <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
               <div className="flex min-h-[5.25rem] items-center gap-3">
