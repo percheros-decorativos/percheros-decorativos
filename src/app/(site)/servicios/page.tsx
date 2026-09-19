@@ -3,14 +3,14 @@ import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import ServiceExpand from "@/components/pages/ServiceExpand";
-import { Wrench } from "lucide-react";
+import { Wrench, PackageOpen } from "lucide-react";
 import { INSTALLATION_SERVICE_COP } from "@/lib/addons";
 import { formatCop } from "@/lib/money";
 
 export const metadata: Metadata = {
-  title: "Servicios: instalación, asistencia bike y paseo de mascotas",
+  title: "Servicios: instalación, armado a domicilio, bike y mascotas",
   description:
-    "Servicios de Percheros Decorativos: instalación profesional del perchero, asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas. Tarifas y qué incluye cada servicio.",
+    "Servicios de Percheros Decorativos: instalación profesional del perchero, armado e instalación de mobiliario a domicilio, asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas.",
   alternates: { canonical: "/servicios" },
 };
 
@@ -26,13 +26,13 @@ export default function ServiciosPage() {
       <PageHero
         eyebrow="Comunidad"
         title="Servicios"
-        subtitle="Instalación de tu perchero, asistencia para ciclistas y paseo de mascotas: seguridad y compañía en cada servicio."
+        subtitle="Instalación de tu perchero, armado a domicilio, asistencia para ciclistas y paseo de mascotas: seguridad y compañía en cada servicio."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Servicios" }]}
         bgImage="/img/parcheros/banner.webp"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid items-start gap-6 md:grid-cols-3">
+        <div className="grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* ===== Instalación de Percheros ===== */}
           <article className={cardClass}>
             <div className="relative aspect-[4/3] overflow-hidden bg-crema-100">
@@ -86,6 +86,61 @@ export default function ServiciosPage() {
                   className="w-full"
                 >
                   Solicitar Instalación
+                </ButtonLink>
+              </div>
+            </div>
+          </article>
+
+          {/* ===== Armado e Instalación a Domicilio ===== */}
+          <article className={cardClass}>
+            <div className="relative aspect-[4/3] overflow-hidden bg-crema-100">
+              <Image
+                src="/img/servicios/instalacion-cutout.webp"
+                alt="Técnico armando e instalando mobiliario a domicilio"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-contain object-bottom p-2"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
+                  <PackageOpen size={28} />
+                </span>
+                <h2 className={titleClass}>Armado a Domicilio</h2>
+              </div>
+              <div className="mt-4">
+                <ServiceExpand summary="Montaje e instalación profesional en tu hogar">
+                  <p>
+                    ¿Prefieres dejar el armado en manos de expertos? Te
+                    ofrecemos nuestro servicio de montaje e instalación
+                    profesional a domicilio para que no tengas que
+                    preocuparte por nada.
+                  </p>
+                  <ul className="mt-4 list-disc space-y-2 pl-5">
+                    <li>
+                      <strong>Fácil y rápido:</strong> coordinamos la visita
+                      en el día y horario que mejor te convenga.
+                    </li>
+                    <li>
+                      <strong>Garantía y seguridad:</strong> instalación
+                      impecable, firme y lista para usar desde el primer
+                      momento.
+                    </li>
+                    <li>
+                      <strong>Sin enredos:</strong> nos encargamos de dejar
+                      tu espacio ordenado y listo para disfrutar.
+                    </li>
+                  </ul>
+                </ServiceExpand>
+              </div>
+              <div className="mt-auto pt-6 text-center">
+                <ButtonLink
+                  href="/contacto?asunto=armado"
+                  variant="dark"
+                  className="w-full"
+                >
+                  Solicitar Armado
                 </ButtonLink>
               </div>
             </div>
