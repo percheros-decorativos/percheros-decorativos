@@ -285,7 +285,7 @@ export default async function HomePage() {
                     height={72}
                     className="h-[72px] w-[72px]"
                   />
-                  <h3 className="mt-3 font-display text-lg font-semibold text-madera-800">
+                  <h3 className="mt-3 font-display text-lg font-bold text-madera-800">
                     {c.title}
                   </h3>
                   <p className="mt-2 text-sm text-carbon/70">{c.text}</p>
