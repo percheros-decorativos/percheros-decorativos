@@ -36,8 +36,7 @@ export default function ServiciosPage() {
           <p>
             Nuestro trabajo no termina cuando el perchero sale del taller: te
             acompañamos hasta que queda montado en tu pared y, si lo necesitas,
-            nos encargamos también del <strong>armado e instalación del resto
-            de tu mobiliario</strong> a domicilio.
+            también <strong>armamos tus muebles a domicilio</strong>.
           </p>
           <p>
             A eso sumamos dos servicios que nacen de la misma comunidad:{" "}
