@@ -128,7 +128,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Servicio de Armado de Muebles a Domicilio"
+                  summary="Armado desde $ 35.000"
                   className="min-h-[4.5rem]"
                 >
                   <p>
@@ -219,7 +219,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Servicio Asistencia Bike"
+                  summary="Grúa y recogida desde $ 40.000"
                   className="min-h-[4.5rem]"
                 >
                   <p className="text-center font-semibold text-madera-800">
@@ -298,7 +298,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Servicio Paseo Mascotas"
+                  summary="Paseos desde $ 8.000 por mascota"
                   className="min-h-[4.5rem]"
                 >
                   <p>
