@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/comunidad" },
 };
 
+const titleClass =
+  "font-display text-xl font-extrabold tracking-tight text-rojo-600";
+
 const cardClass =
   "flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_35px_-15px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1";
 
@@ -54,21 +57,21 @@ export default function ComunidadPage() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex min-h-14 items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
+            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <Baby size={28} />
                 </span>
-                <h2 className="font-display text-lg font-semibold text-madera-800">
+                <h2 className={titleClass}>
                   Infancia con Futuro
                 </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
                   summary="Acompañamiento a niños y niñas en vulnerabilidad"
-                  className="min-h-12"
+                  className="min-h-[4.5rem]"
                 >
-                  <p className="text-sm leading-relaxed text-carbon/80">
+                  <p>
                     Acompañamos a nuestros niños y niñas brindándoles
                     herramientas para su desarrollo, espacios seguros y
                     oportunidades que impulsen sus sueños desde sus primeros
@@ -99,21 +102,21 @@ export default function ComunidadPage() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex min-h-14 items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
+            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <HeartHandshake size={28} />
                 </span>
-                <h2 className="font-display text-lg font-semibold text-madera-800">
+                <h2 className={titleClass}>
                   Adultos Mayores
                 </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
                   summary="Asesoría jurídica y dignidad para la tercera edad"
-                  className="min-h-12"
+                  className="min-h-[4.5rem]"
                 >
-                  <p className="text-sm leading-relaxed text-carbon/80">
+                  <p>
                     Brindamos asesoría jurídica en los derechos fundamentales y
                     dignidad humana, y honramos la sabiduría de la tercera edad
                     con actividades de integración, cuidado y programas de
@@ -144,21 +147,21 @@ export default function ComunidadPage() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex min-h-14 items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-madera-800">
+            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center text-rojo-600">
                   <Users size={28} />
                 </span>
-                <h2 className="font-display text-lg font-semibold text-madera-800">
+                <h2 className={titleClass}>
                   Clasificados Sociales
                 </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
                   summary="Clasificados solidarios sin ánimo de lucro"
-                  className="min-h-12"
+                  className="min-h-[4.5rem]"
                 >
-                  <p className="text-sm leading-relaxed text-carbon/80">
+                  <p>
                     En este espacio damos a conocer diferentes clasificados
                     sociales, con el objetivo de que alguna persona pueda
                     colaborar para mejorar la calidad de vida de quien lo
@@ -189,8 +192,8 @@ export default function ComunidadPage() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex min-h-14 items-center gap-3">
+            <div className="flex flex-1 flex-col p-6 text-sm leading-relaxed text-carbon/80">
+              <div className="flex min-h-[5.25rem] items-center gap-3">
                 <Image
                   src="/img/categories/moteros.webp"
                   alt=""
@@ -198,16 +201,16 @@ export default function ComunidadPage() {
                   height={40}
                   className="h-10 w-10 shrink-0"
                 />
-                <h2 className="font-display text-lg font-semibold text-madera-800">
+                <h2 className={titleClass}>
                   Salidas Moter@
                 </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
                   summary="Percheros temáticos para casco y accesorios"
-                  className="min-h-12"
+                  className="min-h-[4.5rem]"
                 >
-                  <p className="text-sm leading-relaxed text-carbon/80">
+                  <p>
                     Venta de percheros temáticos para cascos y accesorios;
                     servicio de personalización de percheros con la marca o
                     modelo de la moto.

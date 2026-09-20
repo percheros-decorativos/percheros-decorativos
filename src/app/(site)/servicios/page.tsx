@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import ServiceExpand from "@/components/pages/ServiceExpand";
 import { Wrench, PackageOpen } from "lucide-react";
 import { INSTALLATION_SERVICE_COP } from "@/lib/addons";
-import { formatCop } from "@/lib/money";
+import { formatPrice } from "@/lib/money";
 
 export const metadata: Metadata = {
   title: "Servicios: instalación, armado a domicilio, bike y mascotas",
@@ -28,7 +28,7 @@ export default function ServiciosPage() {
         title="Servicios"
         subtitle="Instalación de tu perchero, armado a domicilio, asistencia para ciclistas y paseo de mascotas: seguridad y compañía en cada servicio."
         breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Servicios" }]}
-        bgImage="/img/parcheros/banner.webp"
+        bgImage="/img/servicios/banner.webp"
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
@@ -69,7 +69,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary={`Instalación por ${formatCop(INSTALLATION_SERVICE_COP)}`}
+                  summary={`Instalación por ${formatPrice(INSTALLATION_SERVICE_COP)}`}
                   className="min-h-[4.5rem]"
                 >
                   <p>
