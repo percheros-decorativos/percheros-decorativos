@@ -128,7 +128,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Armado desde $ 35.000"
+                  summary="Armado desde $35.000"
                   className="min-h-[4.5rem]"
                 >
                   <p>
@@ -144,15 +144,15 @@ export default function ServiciosPage() {
                     <li>
                       <strong>Servicios básicos</strong> (muebles pequeños y
                       livianos):
-                      <br />$ 35.000 – $ 50.000
+                      <br />$35.000 – $50.000
                     </li>
                     <li>
                       <strong>Muebles medianos</strong> (armado intermedio):
-                      <br />$ 50.000 – $ 85.000
+                      <br />$50.000 – $85.000
                     </li>
                     <li>
                       <strong>Muebles grandes o complejos</strong>:
-                      <br />$ 85.000 – $ 150.000+
+                      <br />$85.000 – $150.000+
                     </li>
                   </ul>
                   <p className="mt-2 text-center text-xs text-carbon/60">
@@ -219,7 +219,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Grúa y recogida desde $ 40.000"
+                  summary="Grúa y recogida desde $40.000"
                   className="min-h-[4.5rem]"
                 >
                   <p className="text-center font-semibold text-madera-800">
@@ -232,12 +232,12 @@ export default function ServiciosPage() {
                     <li>
                       <strong>Perímetro urbano</strong> (un trayecto):
                       <br />
-                      $ 40.000 (1 bici) · $ 60.000 (2 bicis)
+                      $40.000 (1 bici) · $60.000 (2 bicis)
                     </li>
                     <li>
                       <strong>Perímetro rural</strong> (un trayecto):
                       <br />
-                      $ 60.000 (1 bici) · $ 90.000 (2 bicis)
+                      $60.000 (1 bici) · $90.000 (2 bicis)
                     </li>
                   </ul>
                   <p className="mt-2 text-center text-xs text-carbon/60">
@@ -298,7 +298,7 @@ export default function ServiciosPage() {
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Paseos desde $ 8.000 por mascota"
+                  summary="Paseos desde $8.000 por mascota"
                   className="min-h-[4.5rem]"
                 >
                   <p>
@@ -312,16 +312,16 @@ export default function ServiciosPage() {
                   </p>
                   <ol className="mt-2 list-decimal space-y-2 pl-5">
                     <li>
-                      Paseo x día personalizado + hidratación (1 hora) = $
-                      15.000
+                      Paseo x día personalizado + hidratación (1 hora) =
+                      $15.000
                     </li>
                     <li>
                       Paseo grupal (máx. 6 mascotas) + hidratación (1 hora) =
-                      $ 8.000 x mascota
+                      $8.000 x mascota
                     </li>
                     <li>
                       Paseo mensual personalizado + hidratación (4
-                      días/semana, 1 hora) = $ 160.000
+                      días/semana, 1 hora) = $160.000
                     </li>
                   </ol>
                   <p className="mt-4 text-center font-semibold text-madera-800">
