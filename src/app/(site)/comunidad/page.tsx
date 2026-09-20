@@ -202,7 +202,8 @@ export default function ComunidadPage() {
                   className="h-10 w-10 shrink-0"
                 />
                 <h2 className={titleClass}>
-                  Salidas Moter@
+                  Salidas <br />
+                  Moter@
                 </h2>
               </div>
               <div className="mt-4">

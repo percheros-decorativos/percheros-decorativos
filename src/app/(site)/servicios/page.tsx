@@ -214,8 +214,7 @@ export default function ServiciosPage() {
                   className="h-10 w-10 shrink-0"
                 />
                 <h2 className={titleClass}>
-                  Asistencia
-                  <br />
+                  Asistencia <br />
                   Bike
                 </h2>
               </div>
