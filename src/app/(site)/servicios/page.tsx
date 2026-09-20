@@ -197,7 +197,11 @@ export default function ServiciosPage() {
                   height={40}
                   className="h-10 w-10 shrink-0"
                 />
-                <h2 className={titleClass}>Asistencia Bike</h2>
+                <h2 className={titleClass}>
+                  Asistencia
+                  <br />
+                  Bike
+                </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
