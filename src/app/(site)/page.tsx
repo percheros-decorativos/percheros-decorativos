@@ -21,7 +21,8 @@ const comunidad = [
     title: "Parcheros",
     text: "Salidas moteras, bike y mascotas para vivir la aventura en comunidad.",
     icon: "icon-parcheros",
-    href: "/servicios",
+    // Las salidas viven en Comunidad, no en Servicios: se apunta a su tarjeta.
+    href: "/comunidad#salidas",
   },
   {
     title: "Comunidad",

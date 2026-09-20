@@ -182,7 +182,7 @@ export default function ComunidadPage() {
           </article>
 
           {/* ===== Salidas Moter@ ===== */}
-          <article className={cardClass}>
+          <article id="salidas" className={`scroll-mt-24 ${cardClass}`}>
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/img/servicios/salidas-moteras-2.webp"
