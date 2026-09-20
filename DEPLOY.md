@@ -51,26 +51,34 @@ las constantes ahí; se aplican tanto en el checkout como en la API de órdenes.
 ## 8. Correo del formulario de contacto
 
 El formulario de `/contacto` manda el mensaje a **dos** sitios independientes: un
-correo (que es como se entera el equipo) y la tabla `contact_messages` de Supabase
-(que queda como registro). Basta con que uno funcione; si fallan los dos, el
-visitante ve un error con el WhatsApp en lugar de un falso "mensaje enviado".
+correo y la tabla `contact_messages` de Supabase (que queda como registro). Basta
+con que uno funcione; si fallan los dos, el visitante ve un error con el WhatsApp
+en lugar de un falso "mensaje enviado".
 
-El correo sale por el SMTP de la propia cuenta de Gmail, con una **contraseña de
-aplicación** (no la clave normal de la cuenta):
+El buzón de destino es `CONTACT_INBOX`, en `src/lib/site.ts`. Está en código y no
+en una variable de entorno a propósito, para que funcione nada más desplegar. Solo
+lo lee el servidor, así que la dirección nunca llega al navegador.
 
-1. En la cuenta de Gmail, activa la **verificación en dos pasos** (es requisito).
-2. Entra en <https://myaccount.google.com/apppasswords>, crea una y copia los 16
-   caracteres.
-3. En Vercel añade:
-   - `GMAIL_USER` = la cuenta que envía, p. ej. `tucuenta@gmail.com`
-   - `GMAIL_APP_PASSWORD` = la contraseña de aplicación (los espacios se ignoran)
-   - `CONTACT_TO` = destinatario, solo si es distinto de `GMAIL_USER`
-4. Redespliega para que las variables surtan efecto.
+**Por defecto no hay nada que configurar**: el envío va por
+[FormSubmit](https://formsubmit.co), que reenvía al buzón sin cuenta ni claves. La
+única condición es **activar el buzón una vez**: con el primer mensaje llega a esa
+dirección un correo de FormSubmit con un botón de activación; hasta pulsarlo no
+reenvía nada. Se hace una sola vez en la vida.
 
-El correo llega con **Reply-To** al cliente, así que se le responde dando a
-Responder desde la bandeja. Gmail admite ~500 envíos al día, de sobra para un
-formulario. `SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` permiten apuntar a otro
-servidor si algún día se cambia de proveedor.
+### Pasar a envío directo (opcional)
+
+FormSubmit es un tercero gratuito: los mensajes pasan por sus servidores. Para
+evitarlo, basta con definir en Vercel `GMAIL_USER` y `GMAIL_APP_PASSWORD` y el
+código cambia solo a SMTP directo, sin tocar nada más. La clave es una
+**contraseña de aplicación** de Google (<https://myaccount.google.com/apppasswords>,
+requiere verificación en dos pasos), no la clave de la cuenta.
+
+Variables opcionales: `CONTACT_TO` sobrescribe el buzón sin tocar código, y
+`SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` permiten usar otro servidor que no sea
+Gmail.
+
+Por cualquiera de los dos caminos el correo llega con **Reply-To al cliente**: se le
+responde dando a Responder desde la bandeja.
 
 ## Local
 ```bash

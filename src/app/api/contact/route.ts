@@ -34,6 +34,13 @@ export async function POST(request: Request) {
     enviarCorreo({
       asunto: `Contacto web — ${name}${category ? ` (${category})` : ""}`,
       responderA: email,
+      campos: {
+        Nombre: name,
+        Correo: email,
+        "Teléfono": phone,
+        Asunto: category || "—",
+        Mensaje: message,
+      },
       texto: [
         `Nombre:   ${name}`,
         `Correo:   ${email}`,

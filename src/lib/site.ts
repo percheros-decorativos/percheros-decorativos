@@ -26,6 +26,13 @@ export const site = {
   },
 } as const;
 
+// Buzon que recibe los mensajes del formulario de /contacto. Vive aqui y no en
+// una variable de entorno a proposito: asi el envio funciona nada mas desplegar,
+// sin tener que configurar nada en Vercel. Solo lo lee el servidor, de modo que
+// la direccion no llega al navegador ni la ven los rastreadores de spam.
+// CONTACT_TO puede sobrescribirlo sin tocar codigo.
+export const CONTACT_INBOX = "percherosdecorativos@gmail.com";
+
 // Interruptor de indexacion. Mientras no exista dominio definitivo, el sitio
 // queda en NOINDEX para evitar indexar la URL temporal (.vercel.app).
 // En Vercel: poner NEXT_PUBLIC_ALLOW_INDEXING="true" cuando el dominio este listo.
