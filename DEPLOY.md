@@ -24,6 +24,8 @@ dinámicos (órdenes/contacto) en Supabase, estado de carrito/favoritos en Zusta
    - `ADMIN_PASSWORD` = clave fuerte y larga (login en `/admin/login`, sin
      usuario — solo contraseña. Si esta variable no está definida, `/admin`
      queda bloqueado por completo para todos, no abierto)
+   - `GMAIL_USER`, `GMAIL_APP_PASSWORD` y, si el destinatario es otra cuenta,
+     `CONTACT_TO` (ver punto 8: sin esto el formulario no envía correo)
 4. **Deploy**. Cada push a la rama principal redespliega automáticamente.
 
 ## 4. Webhook de Bold
@@ -45,6 +47,30 @@ las constantes ahí; se aplican tanto en el checkout como en la API de órdenes.
 - JSON-LD: Organization, WebSite, Product, BreadcrumbList, FAQ, Article.
 - SEO programático: páginas de ciudad (`/percheros/<ciudad>`) y guías (`/guias/<slug>`).
 - Imágenes WebP + lazy load + tamaños explícitos para Core Web Vitals.
+
+## 8. Correo del formulario de contacto
+
+El formulario de `/contacto` manda el mensaje a **dos** sitios independientes: un
+correo (que es como se entera el equipo) y la tabla `contact_messages` de Supabase
+(que queda como registro). Basta con que uno funcione; si fallan los dos, el
+visitante ve un error con el WhatsApp en lugar de un falso "mensaje enviado".
+
+El correo sale por el SMTP de la propia cuenta de Gmail, con una **contraseña de
+aplicación** (no la clave normal de la cuenta):
+
+1. En la cuenta de Gmail, activa la **verificación en dos pasos** (es requisito).
+2. Entra en <https://myaccount.google.com/apppasswords>, crea una y copia los 16
+   caracteres.
+3. En Vercel añade:
+   - `GMAIL_USER` = la cuenta que envía, p. ej. `tucuenta@gmail.com`
+   - `GMAIL_APP_PASSWORD` = la contraseña de aplicación (los espacios se ignoran)
+   - `CONTACT_TO` = destinatario, solo si es distinto de `GMAIL_USER`
+4. Redespliega para que las variables surtan efecto.
+
+El correo llega con **Reply-To** al cliente, así que se le responde dando a
+Responder desde la bandeja. Gmail admite ~500 envíos al día, de sobra para un
+formulario. `SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` permiten apuntar a otro
+servidor si algún día se cambia de proveedor.
 
 ## Local
 ```bash
