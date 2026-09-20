@@ -34,15 +34,17 @@ export default function ServiciosPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="mx-auto max-w-3xl space-y-4 text-center text-carbon/80">
           <p>
-            Nuestro trabajo no termina cuando el perchero sale del taller: te
-            acompañamos hasta que queda montado en tu pared y, si lo necesitas,
+            Nuestro trabajo no termina cuando el perchero sale del taller; te
+            acompañamos hasta que queda montado en tu pared, y si lo necesitas,
             también <strong>armamos tus muebles a domicilio</strong>.
           </p>
           <p>
-            A eso sumamos dos servicios que nacen de la misma comunidad:{" "}
-            <strong>asistencia para ciclistas</strong> —grúa, recogida y retorno
-            de tu bici— y <strong>paseo y cuidado de mascotas</strong>. En cada
-            tarjeta encuentras qué incluye, sus tarifas y cómo solicitarlo.
+            A eso sumamos dos servicios que nacen de la misma comunidad;{" "}
+            <strong>asistencia para ciclistas</strong> servicio de grúa o
+            recogida de tu bici y <strong>paseo de mascotas</strong>.
+            <br />
+            En cada tarjeta encuentras qué incluye, sus tarifas y cómo
+            solicitarlo.
           </p>
         </div>
 
