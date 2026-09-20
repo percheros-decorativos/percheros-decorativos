@@ -10,7 +10,7 @@ import { formatCop } from "@/lib/money";
 export const metadata: Metadata = {
   title: "Servicios: instalación, armado a domicilio, bike y mascotas",
   description:
-    "Servicios de Percheros Decorativos: instalación profesional del perchero, armado e instalación de mobiliario a domicilio, asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas.",
+    "Servicios de Percheros Decorativos: instalación profesional del perchero, armado de muebles a domicilio, asistencia técnica para ciclistas y paseo/cuidado profesional de mascotas.",
   alternates: { canonical: "/servicios" },
 };
 
@@ -106,7 +106,7 @@ export default function ServiciosPage() {
             </div>
           </article>
 
-          {/* ===== Armado e Instalación a Domicilio ===== */}
+          {/* ===== Armado de Muebles a Domicilio ===== */}
           <article className={cardClass}>
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
@@ -123,12 +123,12 @@ export default function ServiciosPage() {
                   <PackageOpen size={28} />
                 </span>
                 <h2 className={titleClass}>
-                  Armado a Domicilio
+                  Armado de Muebles
                 </h2>
               </div>
               <div className="mt-4">
                 <ServiceExpand
-                  summary="Servicio de Armado a Domicilio"
+                  summary="Servicio de Armado de Muebles a Domicilio"
                   className="min-h-[4.5rem]"
                 >
                   <p>
