@@ -32,7 +32,22 @@ export default function ServiciosPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-3xl space-y-4 text-center text-carbon/80">
+          <p>
+            Nuestro trabajo no termina cuando el perchero sale del taller: te
+            acompañamos hasta que queda montado en tu pared y, si lo necesitas,
+            nos encargamos también del <strong>armado e instalación del resto
+            de tu mobiliario</strong> a domicilio.
+          </p>
+          <p>
+            A eso sumamos dos servicios que nacen de la misma comunidad:{" "}
+            <strong>asistencia para ciclistas</strong> —grúa, recogida y retorno
+            de tu bici— y <strong>paseo y cuidado de mascotas</strong>. En cada
+            tarjeta encuentras qué incluye, sus tarifas y cómo solicitarlo.
+          </p>
+        </div>
+
+        <div className="mt-10 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* ===== Instalación de Percheros ===== */}
           <article className={cardClass}>
             <div className="relative aspect-[4/3] overflow-hidden bg-crema-100">
