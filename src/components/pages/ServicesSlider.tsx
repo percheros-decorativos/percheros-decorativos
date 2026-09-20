@@ -76,7 +76,7 @@ export default function ServicesSlider() {
     <div
       className="relative"
       aria-roledescription="carrusel"
-      aria-label="Nuestros servicios"
+      aria-label="Nuestro alcance"
       onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
       onTouchEnd={(e) => {
         if (touchX.current === null) return;

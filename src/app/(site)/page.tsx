@@ -199,7 +199,7 @@ export default async function HomePage() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
-            <SectionTitle eyebrow="Cómo te acompañamos">Nuestros servicios</SectionTitle>
+            <SectionTitle eyebrow="Cómo te acompañamos">Nuestro alcance</SectionTitle>
             <p className="mx-auto mt-4 max-w-2xl text-center text-gris">
               Te acompañamos antes, durante y después de tu compra
               <br />
