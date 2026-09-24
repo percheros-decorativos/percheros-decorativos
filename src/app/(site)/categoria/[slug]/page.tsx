@@ -25,8 +25,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const category = await getCategoryBySlug(slug);
   if (!category) return {};
+  // El layout anade "| Percheros Decorativos" a todo titulo, pero los metaTitle
+  // guardados en el catalogo ya lo traen: las 10 categorias salian con la marca
+  // repetida ("Percheros DeDIOS | Percheros Decorativos | Percheros Decorativos").
+  // Si el dato ya la incluye, se usa tal cual y no se le aplica la plantilla.
+  const rotulo = category.metaTitle ?? `Percheros ${category.name}`;
   return {
-    title: category.metaTitle ?? `Percheros ${category.name}`,
+    title: rotulo.includes(site.name) ? { absolute: rotulo } : rotulo,
     description:
       category.metaDescription ?? category.description ?? undefined,
     alternates: { canonical: `/categoria/${category.slug}` },
